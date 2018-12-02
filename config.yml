@@ -15,7 +15,7 @@ language: "en"
 
 # == Messages ============================================== #
 #                                                            #
-#  Change en fonction du language.                           #
+#  Change according to the language.                         #
 #                                                            #
 # ========================================================== #
 
@@ -26,6 +26,8 @@ messages:
     gui-title-main: "&8Main Menu"
     gui-title-craft: "&8Crafting"
     gui-title-furnace: "&8Furnace"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Leave"
     name-craft1: "&7Smooth Quartz"
     name-craft2: "&7Smooth Red Sandstone"
     name-craft3: "&7Smooth Sandstone"
@@ -56,6 +58,8 @@ messages:
     gui-title-main: "&8Menu Principal"
     gui-title-craft: "&8Fabrication"
     gui-title-furnace: "&8Fourneau"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Quitter"
     name-craft1: "&7Quartz lisse"
     name-craft2: "&7Grès rouge lisse"
     name-craft3: "&7Grès lisse"
@@ -86,6 +90,8 @@ messages:
     gui-title-main: "&8Hauptmenü"
     gui-title-craft: "&8Herstellung"
     gui-title-furnace: "&8Ofen"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Verlassen"
     name-craft1: "&7Glatter Quarzblock"
     name-craft2: "&7Glatter roter Sandstein"
     name-craft3: "&7Glatter Sandstein"
@@ -116,6 +122,8 @@ messages:
     gui-title-main: "&8Menú principal"
     gui-title-craft: "&8Elaboración"
     gui-title-furnace: "&8Horno"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Dejar"
     name-craft1: "&7Cuarzo liso"
     name-craft2: "&7Arenisca roja lisa"
     name-craft3: "&7Arenisca lisa"
@@ -146,6 +154,8 @@ messages:
     gui-title-main: "&8Menu principale"
     gui-title-craft: "&8Crafting"
     gui-title-furnace: "&8Forno"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Lasciare"
     name-craft1: "&7Quarzo levigato"
     name-craft2: "&7Arenaria rossa levigata"
     name-craft3: "&7Arenaria levigata"
@@ -176,6 +186,8 @@ messages:
     gui-title-main: "&8Menu principal"
     gui-title-craft: "&8Artesanato"
     gui-title-furnace: "&8Forno"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Deixar"
     name-craft1: "&7Quartzo Liso"
     name-craft2: "&7Arenito Vermelho Polido"
     name-craft3: "&7Arenito Polido"
@@ -218,7 +230,6 @@ items:
     id: ENCHANTED_BOOK
     id-craft-1: POPPY
     id-craft-2: BOOK
-    permission: morecrafting.book
   craft1:
     enabled: true
     id: SMOOTH_QUARTZ
@@ -320,3 +331,12 @@ items:
     enabled: true
     id: SNOWBALL
     id-furnace-1: SNOW_BLOCK
+  setting:
+    id-gui-1: GRAY_STAINED_GLASS_PANE
+    id-gui-2: DARK_OAK_DOOR
+    
+permissions:
+  morecrafting.admin.reload: morecrafting.admin.reload
+  morecrafting.admin.*: morecrafting.admin.*
+  morecrafting.book: morecrafting.book
+  morecrafting.*: morecrafting.*
