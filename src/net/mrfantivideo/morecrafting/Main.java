@@ -33,7 +33,7 @@ public class Main extends JavaPlugin implements Listener{
 			
 			if((args.length == 1) && (args[0].equalsIgnoreCase("reload")))
 				
-				if(sender.hasPermission("morecrafting.admin.reload")){
+				if(sender.hasPermission(getConfig().getString("permissions.morecrafting.admin.reload")) || sender.hasPermission(getConfig().getString("permissions.morecrafting.admin.reload.*"))){
 					reloadConfig();
 					sender.sendMessage(getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "command-reload").replace("&", "§"));
 					return true;
@@ -42,7 +42,10 @@ public class Main extends JavaPlugin implements Listener{
 					sender.sendMessage(getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "permission-denied").replace("&", "§"));
 					return true;
 				}
+			else {
+				sender.sendMessage(getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "command-unknown").replace("&", "§"));
 			}
+		}
 		
 		return false;
 	}
@@ -59,7 +62,7 @@ public class Main extends JavaPlugin implements Listener{
 		System.out.println(" ");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.GREEN + "ON" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
 		System.out.println(" ");
-		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "1.1");
+		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "1.2");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
 		System.out.println(" ");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");
@@ -238,7 +241,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		if(getConfig().getString("items.fire8.enabled").equals("true")){	
 			
-			ItemStack result8 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire8.id")), 4);
+			ItemStack result8 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire8.id")), 1);
 			FurnaceRecipe fire8 = new FurnaceRecipe(result8, Material.getMaterial(getConfig().getString("items.fire8.id-furnace-1")));
 			getServer().addRecipe(fire8);
 		
@@ -313,7 +316,7 @@ public class Main extends JavaPlugin implements Listener{
 		if(it == null) return;
 		
 		if(it.getType() == Material.getMaterial(getConfig().getString("items.book.id")) && it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().equalsIgnoreCase(getConfig().getString("items.book.name").replace("&", "§"))){
-			if(player.hasPermission(getConfig().getString("items.book.permission")) || player.hasPermission("morecrafting.*")){
+			if(player.hasPermission(getConfig().getString("permissions.morecrafting.book")) || player.hasPermission(getConfig().getString("permissions.morecrafting.*"))){
 				if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
 				
 					Inventory inv = Bukkit.createInventory(null, 27, getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-main").replace("&", "§"));{
@@ -609,7 +612,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -619,6 +632,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft3);
+				gui1.setItem(8, craft3);
+				gui1.setItem(9, craft3);
+				gui1.setItem(13, craft3);
+				gui1.setItem(15, craft3);
+				gui1.setItem(17, craft3);
+				gui1.setItem(18, craft3);
+				gui1.setItem(22, craft3);
+				gui1.setItem(23, craft3);
+				gui1.setItem(24, craft3);
+				gui1.setItem(25, craft3);
+				gui1.setItem(26, craft3);
+				gui1.setItem(16, craft4);
 				
 				player.openInventory(gui1);
 				
@@ -636,7 +666,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -646,6 +686,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft3);
+				gui1.setItem(8, craft3);
+				gui1.setItem(9, craft3);
+				gui1.setItem(13, craft3);
+				gui1.setItem(15, craft3);
+				gui1.setItem(17, craft3);
+				gui1.setItem(18, craft3);
+				gui1.setItem(22, craft3);
+				gui1.setItem(23, craft3);
+				gui1.setItem(24, craft3);
+				gui1.setItem(25, craft3);
+				gui1.setItem(26, craft3);
+				gui1.setItem(16, craft4);
 				
 				player.openInventory(gui1);
 				
@@ -663,7 +720,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -673,6 +740,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft3);
+				gui1.setItem(8, craft3);
+				gui1.setItem(9, craft3);
+				gui1.setItem(13, craft3);
+				gui1.setItem(15, craft3);
+				gui1.setItem(17, craft3);
+				gui1.setItem(18, craft3);
+				gui1.setItem(22, craft3);
+				gui1.setItem(23, craft3);
+				gui1.setItem(24, craft3);
+				gui1.setItem(25, craft3);
+				gui1.setItem(26, craft3);
+				gui1.setItem(16, craft4);
 				
 				player.openInventory(gui1);
 				
@@ -690,7 +774,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -700,6 +794,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft3);
+				gui1.setItem(8, craft3);
+				gui1.setItem(9, craft3);
+				gui1.setItem(13, craft3);
+				gui1.setItem(15, craft3);
+				gui1.setItem(17, craft3);
+				gui1.setItem(18, craft3);
+				gui1.setItem(22, craft3);
+				gui1.setItem(23, craft3);
+				gui1.setItem(24, craft3);
+				gui1.setItem(25, craft3);
+				gui1.setItem(26, craft3);
+				gui1.setItem(16, craft4);
 				
 				player.openInventory(gui1);
 				
@@ -721,7 +832,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item3 = craft3.getItemMeta();
 				craft3.setItemMeta(item3);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				ItemStack craft5 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item5 = craft5.getItemMeta();
+				item5.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft5.setItemMeta(item5);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft3);
 				gui1.setItem(2, craft3);
 				gui1.setItem(3, craft3);
@@ -731,6 +852,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft4);
+				gui1.setItem(4, craft4);
+				gui1.setItem(5, craft4);
+				gui1.setItem(6, craft4);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft4);
+				gui1.setItem(9, craft4);
+				gui1.setItem(13, craft4);
+				gui1.setItem(15, craft4);
+				gui1.setItem(17, craft4);
+				gui1.setItem(18, craft4);
+				gui1.setItem(22, craft4);
+				gui1.setItem(23, craft4);
+				gui1.setItem(24, craft4);
+				gui1.setItem(25, craft4);
+				gui1.setItem(26, craft4);
+				gui1.setItem(16, craft5);
 				
 				player.openInventory(gui1);
 				
@@ -752,7 +890,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item3 = craft3.getItemMeta();
 				craft3.setItemMeta(item3);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				ItemStack craft5 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item5 = craft5.getItemMeta();
+				item5.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft5.setItemMeta(item5);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft3);
 				gui1.setItem(2, craft3);
 				gui1.setItem(3, craft3);
@@ -762,6 +910,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft4);
+				gui1.setItem(4, craft4);
+				gui1.setItem(5, craft4);
+				gui1.setItem(6, craft4);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft4);
+				gui1.setItem(9, craft4);
+				gui1.setItem(13, craft4);
+				gui1.setItem(15, craft4);
+				gui1.setItem(17, craft4);
+				gui1.setItem(18, craft4);
+				gui1.setItem(22, craft4);
+				gui1.setItem(23, craft4);
+				gui1.setItem(24, craft4);
+				gui1.setItem(25, craft4);
+				gui1.setItem(26, craft4);
+				gui1.setItem(16, craft5);
 				
 				player.openInventory(gui1);
 				
@@ -791,7 +956,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item5 = craft5.getItemMeta();
 				craft5.setItemMeta(item5);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft6 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item6 = craft6.getItemMeta();
+				item6.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft6.setItemMeta(item6);
+				
+				ItemStack craft7 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item7 = craft7.getItemMeta();
+				item7.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft7.setItemMeta(item7);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -801,6 +976,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft4);
 				gui1.setItem(20, craft5);
 				gui1.setItem(21, craft4);
+				gui1.setItem(0, craft6);
+				gui1.setItem(4, craft6);
+				gui1.setItem(5, craft6);
+				gui1.setItem(6, craft6);
+				gui1.setItem(7, craft6);
+				gui1.setItem(8, craft6);
+				gui1.setItem(9, craft6);
+				gui1.setItem(13, craft6);
+				gui1.setItem(15, craft6);
+				gui1.setItem(17, craft6);
+				gui1.setItem(18, craft6);
+				gui1.setItem(22, craft6);
+				gui1.setItem(23, craft6);
+				gui1.setItem(24, craft6);
+				gui1.setItem(25, craft6);
+				gui1.setItem(26, craft6);
+				gui1.setItem(16, craft7);
 				
 				player.openInventory(gui1);
 				
@@ -830,7 +1022,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item5 = craft5.getItemMeta();
 				craft5.setItemMeta(item5);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft6 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item6 = craft6.getItemMeta();
+				item6.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft6.setItemMeta(item6);
+				
+				ItemStack craft7 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item7 = craft7.getItemMeta();
+				item7.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft7.setItemMeta(item7);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft3);
 				gui1.setItem(2, craft4);
 				gui1.setItem(10, craft4);
@@ -838,6 +1040,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(12, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft5);
+				gui1.setItem(0, craft6);
+				gui1.setItem(4, craft6);
+				gui1.setItem(5, craft6);
+				gui1.setItem(6, craft6);
+				gui1.setItem(7, craft6);
+				gui1.setItem(8, craft6);
+				gui1.setItem(9, craft6);
+				gui1.setItem(13, craft6);
+				gui1.setItem(15, craft6);
+				gui1.setItem(17, craft6);
+				gui1.setItem(18, craft6);
+				gui1.setItem(22, craft6);
+				gui1.setItem(23, craft6);
+				gui1.setItem(24, craft6);
+				gui1.setItem(25, craft6);
+				gui1.setItem(26, craft6);
+				gui1.setItem(16, craft7);
 				
 				player.openInventory(gui1);
 				
@@ -860,7 +1079,17 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item3 = craft3.getItemMeta();
 				craft3.setItemMeta(item3);
 				
-				gui1.setItem(15, craft1);
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				ItemStack craft5 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item5 = craft5.getItemMeta();
+				item5.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft5.setItemMeta(item5);
+				
+				gui1.setItem(14, craft1);
 				gui1.setItem(1, craft2);
 				gui1.setItem(2, craft2);
 				gui1.setItem(3, craft2);
@@ -870,6 +1099,23 @@ public class Main extends JavaPlugin implements Listener{
 				gui1.setItem(19, craft2);
 				gui1.setItem(20, craft2);
 				gui1.setItem(21, craft2);
+				gui1.setItem(0, craft4);
+				gui1.setItem(4, craft4);
+				gui1.setItem(5, craft4);
+				gui1.setItem(6, craft4);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft4);
+				gui1.setItem(9, craft4);
+				gui1.setItem(13, craft4);
+				gui1.setItem(15, craft4);
+				gui1.setItem(17, craft4);
+				gui1.setItem(18, craft4);
+				gui1.setItem(22, craft4);
+				gui1.setItem(23, craft4);
+				gui1.setItem(24, craft4);
+				gui1.setItem(25, craft4);
+				gui1.setItem(26, craft4);
+				gui1.setItem(16, craft5);
 				
 				player.openInventory(gui1);
 				
@@ -887,8 +1133,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -906,8 +1169,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -925,8 +1205,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -944,8 +1241,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -963,8 +1277,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -982,8 +1313,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1001,8 +1349,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1012,7 +1377,7 @@ public class Main extends JavaPlugin implements Listener{
 				
 				Inventory gui1 = Bukkit.createInventory(null, 9, getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-furnace").replace("&", "§"));
 				
-				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire8.id")), 4);
+				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire8.id")), 1);
 				ItemMeta item1 = craft1.getItemMeta();
 				craft1.setItemMeta(item1);
 				
@@ -1020,8 +1385,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1039,8 +1421,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1058,8 +1457,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1077,8 +1493,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1088,7 +1521,7 @@ public class Main extends JavaPlugin implements Listener{
 				
 				Inventory gui1 = Bukkit.createInventory(null, 9, getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-furnace").replace("&", "§"));
 				
-				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire12.id")));
+				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire12.id")), 9);
 				ItemMeta item1 = craft1.getItemMeta();
 				craft1.setItemMeta(item1);
 				
@@ -1096,8 +1529,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1107,7 +1557,7 @@ public class Main extends JavaPlugin implements Listener{
 				
 				Inventory gui1 = Bukkit.createInventory(null, 9, getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-furnace").replace("&", "§"));
 				
-				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire13.id")));
+				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire13.id")), 9);
 				ItemMeta item1 = craft1.getItemMeta();
 				craft1.setItemMeta(item1);
 				
@@ -1115,8 +1565,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1126,7 +1593,7 @@ public class Main extends JavaPlugin implements Listener{
 				
 				Inventory gui1 = Bukkit.createInventory(null, 9, getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-furnace").replace("&", "§"));
 				
-				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire14.id")));
+				ItemStack craft1 = new ItemStack(Material.getMaterial(getConfig().getString("items.fire14.id")), 4);
 				ItemMeta item1 = craft1.getItemMeta();
 				craft1.setItemMeta(item1);
 				
@@ -1134,8 +1601,25 @@ public class Main extends JavaPlugin implements Listener{
 				ItemMeta item2 = craft2.getItemMeta();
 				craft2.setItemMeta(item2);
 				
-				gui1.setItem(6, craft1);
-				gui1.setItem(2, craft2);
+				ItemStack craft3 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-1")));
+				ItemMeta item3 = craft3.getItemMeta();
+				item3.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-1").replace("&", "§"));
+				craft3.setItemMeta(item3);
+				
+				ItemStack craft4 = new ItemStack(Material.getMaterial(getConfig().getString("items.setting.id-gui-2")));
+				ItemMeta item4 = craft4.getItemMeta();
+				item4.setDisplayName(getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-name-id-2").replace("&", "§"));
+				craft4.setItemMeta(item4);
+				
+				gui1.setItem(3, craft1);
+				gui1.setItem(1, craft2);
+				gui1.setItem(0, craft3);
+				gui1.setItem(2, craft3);
+				gui1.setItem(4, craft3);
+				gui1.setItem(5, craft3);
+				gui1.setItem(6, craft3);
+				gui1.setItem(7, craft4);
+				gui1.setItem(8, craft3);
 				
 				player.openInventory(gui1);
 				
@@ -1146,12 +1630,22 @@ public class Main extends JavaPlugin implements Listener{
 			
 			event.setCancelled(true);
 			
+			if(current.getType() == Material.getMaterial(getConfig().getString("items.setting.id-gui-2"))){
+				
+				player.closeInventory();
+			
+			}
 		}
 		
 		if(inv.getName().equalsIgnoreCase(getConfig().getString("messages.default.prefix").replace("&", "§") + getConfig().getString("messages." + getConfig().getString("language") + "." + "gui-title-furnace").replace("&", "§"))){
 			
 			event.setCancelled(true);
 			
+			if(current.getType() == Material.getMaterial(getConfig().getString("items.setting.id-gui-2"))){
+				
+				player.closeInventory();
+				
+			}
 		}
 	}
 
@@ -1162,7 +1656,7 @@ public class Main extends JavaPlugin implements Listener{
 		System.out.println(" ");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.RED + "OFF" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
 		System.out.println(" ");
-		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "1.1");
+		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "1.2");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
 		System.out.println(" ");
 		getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");
