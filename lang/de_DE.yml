@@ -1,0 +1,41 @@
+# == Messages ============================================== #
+#                                                            #
+#  Ändern Sie entsprechend der Sprache.                      #
+#                                                            #
+# ========================================================== #
+
+messages:
+  default:
+    prefix: "&eMoreCrafting &8- "
+  de_DE:
+    gui-title-main: "&8HauptmenÃ¼"
+    gui-title-craft: "&8Herstellung"
+    gui-title-furnace: "&8Ofen"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Verlassen"
+    name-craft1: "&7Glatter Quarzblock"
+    name-craft2: "&7Glatter roter Sandstein"
+    name-craft3: "&7Glatter Sandstein"
+    name-craft4: "&7Glatter Stein"
+    name-craft5: "&7Grasblock"
+    name-craft6: "&7Trampelpfad"
+    name-craft7: "&7Sattel"
+    name-craft8: "&7Namensschild"
+    name-craft9: "&7Eis &8(Herstellung)"
+    name-fire1: "&7Quartzblock"
+    name-fire2: "&7Roter Sandstein"
+    name-fire3: "&7Sandstein"
+    name-fire4: "&7Stein"
+    name-fire5: "&7Ziegel"
+    name-fire6: "&7Netherziegel"
+    name-fire7: "&7Endstein"
+    name-fire8: "&7Geplatzte Chorusfrucht"
+    name-fire9: "&7Prismarinscherbe"
+    name-fire10: "&7Netherquarz"
+    name-fire11: "&7Magmacreme"
+    name-fire12: "&7Packeis"
+    name-fire13: "&7Eis &8(Ofen)"
+    name-fire14: "&7Schneeball"
+    command-unknown: "&cUnbekannter Befehl."
+    command-reload: "&aNachladen abgeschlossen."
+    permission-denied: "&cDu hast keine Erlaubnis."

@@ -1,0 +1,41 @@
+# == Messages ============================================== #
+#                                                            #
+#  Cambia de acuerdo al idioma.                              #
+#                                                            #
+# ========================================================== #
+
+messages:
+  default:
+    prefix: "&eMoreCrafting &8- "
+  es_ES:
+    gui-title-main: "&8Menú principal"
+    gui-title-craft: "&8Elaboración"
+    gui-title-furnace: "&8Horno"
+    gui-name-id-1: "&8"
+    gui-name-id-2: "&7Dejar"
+    name-craft1: "&7Cuarzo liso"
+    name-craft2: "&7Arenisca roja lisa"
+    name-craft3: "&7Arenisca lisa"
+    name-craft4: "&7Piedra lisa"
+    name-craft5: "&7Césped"
+    name-craft6: "&7Camino de césped"
+    name-craft7: "&7Montura"
+    name-craft8: "&7Etiqueta"
+    name-craft9: "&7Hielo &8(Elaboración)"
+    name-fire1: "&7Cuarzo"
+    name-fire2: "&7Arenisca roja"
+    name-fire3: "&7Arenisca"
+    name-fire4: "&7Piedra"
+    name-fire5: "&7Ladrillo"
+    name-fire6: "&7Ladrillos del Nether"
+    name-fire7: "&7Piedra del End"
+    name-fire8: "&7Fruta coral horneada"
+    name-fire9: "&7Fragmento de prismarina"
+    name-fire10: "&7Cuarzo del Nether"
+    name-fire11: "&7Crema de magma"
+    name-fire12: "&7Hielo compacto"
+    name-fire13: "&7Hielo &8(Horno)"
+    name-fire14: "&7Bola de nieve"
+    command-unknown: "&cComando desconocido."
+    command-reload: "&aRecarga completa."
+    permission-denied: "&cNo tienes permiso."
