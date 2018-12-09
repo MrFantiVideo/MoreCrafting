@@ -1,0 +1,135 @@
+#  MoreCrating
+#  by Mr.FantiVideo
+#  2018 - 2019
+
+# == Languages ============================================= #
+#                                                            #
+#  List of available languages:                              #
+#  English: "en_US"  |  Spanish: "es_ES"                     #
+#  French : "fr_FR"  |  Italian: "it_IT"                     #
+#  German: "de_DE"   |  Portugese: "pt_PT"                   #
+#                                                            #
+# ========================================================== #
+
+language: "en_US"
+
+# == Blocs / Items ========================================= #
+#                                                            #
+#  List of ID Minecraft :                                    #
+#  https://minecraft-ids.grahamedgecombe.com/                #
+#                                                            #
+# ========================================================== #
+
+items:
+  book:
+    enabled: true
+    name: "&eMoreCrafting"
+    lore: "&7by Mr.FantiVideo"
+    id: ENCHANTED_BOOK
+    id-craft-1: POPPY
+    id-craft-2: BOOK
+  craft1:
+    enabled: true
+    id: SMOOTH_QUARTZ
+    id-craft-1: QUARTZ_BLOCK
+  craft2:
+    enabled: true
+    id: SMOOTH_RED_SANDSTONE
+    id-craft-1: RED_SANDSTONE
+  craft3:
+    enabled: true
+    id: SMOOTH_SANDSTONE
+    id-craft-1: SANDSTONE
+  craft4:
+    enabled: true
+    id: SMOOTH_STONE
+    id-craft-1: STONE
+  craft5:
+    enabled: true
+    id: GRASS_BLOCK
+    id-craft-1: DIRT
+    id-craft-2: GRASS
+  craft6:
+    enabled: true
+    id: GRASS_PATH
+    id-craft-1: DIRT
+    id-craft-2: STICK
+  craft7:
+    enabled: true
+    id: SADDLE
+    id-craft-1: LEATHER
+    id-craft-2: IRON_INGOT
+    id-craft-3: LEAD
+    id-craft-4: BOWL
+  craft8:
+    enabled: true
+    id: NAME_TAG
+    id-craft-1: LEATHER
+    id-craft-2: IRON_INGOT
+    id-craft-3: LEAD
+    id-craft-4: MAP
+  craft9:
+    enabled: true
+    id: ICE
+    id-craft-1: SNOWBALL
+    id-craft-2: WATER_BUCKET
+  fire1:
+    enabled: true
+    id: QUARTZ_BLOCK
+    id-furnace-1: SMOOTH_QUARTZ
+  fire2:
+    enabled: true
+    id: RED_SANDSTONE
+    id-furnace-1: SMOOTH_RED_SANDSTONE
+  fire3:
+    enabled: true
+    id: SANDSTONE
+    id-furnace-1: SMOOTH_SANDSTONE
+  fire4:
+    enabled: true
+    id: STONE
+    id-furnace-1: SMOOTH_STONE
+  fire5:
+    enabled: true
+    id: BRICK
+    id-furnace-1: BRICKS
+  fire6:
+    enabled: true
+    id: NETHER_BRICK
+    id-furnace-1: NETHER_BRICKS
+  fire7:
+    enabled: true
+    id: END_STONE
+    id-furnace-1: END_STONE_BRICKS
+  fire8:
+    enabled: true
+    id: POPPED_CHORUS_FRUIT
+    id-furnace-1: PURPUR_BLOCK
+  fire9:
+    enabled: true
+    id: PRISMARINE_SHARD
+    id-furnace-1: PRISMARINE
+  fire10:
+    enabled: true
+    id: QUARTZ
+    id-furnace-1: QUARTZ_BLOCK
+  fire11:
+    enabled: true
+    id: MAGMA_CREAM
+    id-furnace-1: MAGMA_BLOCK
+  fire12:
+    enabled: true
+    id: PACKED_ICE
+    id-furnace-1: BLUE_ICE
+  fire13:
+    enabled: true
+    id: ICE
+    id-furnace-1: PACKED_ICE
+  fire14:
+    enabled: true
+    id: SNOWBALL
+    id-furnace-1: SNOW_BLOCK
+  setting:
+    id-gui-1: GRAY_STAINED_GLASS_PANE
+    id-gui-2: DARK_OAK_DOOR
+    
