@@ -20,6 +20,311 @@ language: "en_US"
 #                                                            #
 # ========================================================== #
 
+recipes:
+  crafting:
+    RECIPE-1:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: SMOOTH_QUARTZ
+          id-amount: 9
+          lore: "LORE"
+        slots:
+          1: QUARTZ_BLOCK
+          2: QUARTZ_BLOCK
+          3: QUARTZ_BLOCK
+          4: QUARTZ_BLOCK
+          5: QUARTZ_BLOCK
+          6: QUARTZ_BLOCK
+          7: QUARTZ_BLOCK
+          8: QUARTZ_BLOCK
+          9: QUARTZ_BLOCK
+    RECIPE-2:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: SMOOTH_RED_SANDSTONE
+          id-amount: 9
+          lore: "LORE"
+        slots:
+          1: RED_SANDSTONE
+          2: RED_SANDSTONE
+          3: RED_SANDSTONE
+          4: RED_SANDSTONE
+          5: RED_SANDSTONE
+          6: RED_SANDSTONE
+          7: RED_SANDSTONE
+          8: RED_SANDSTONE
+          9: RED_SANDSTONE
+    RECIPE-3:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: SMOOTH_SANDSTONE
+          id-amount: 9
+          lore: "LORE"
+        slots:
+          1: SANDSTONE
+          2: SANDSTONE
+          3: SANDSTONE
+          4: SANDSTONE
+          5: SANDSTONE
+          6: SANDSTONE
+          7: SANDSTONE
+          8: SANDSTONE
+          9: SANDSTONE
+    RECIPE-4:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: SMOOTH_STONE
+          id-amount: 9
+          lore: "LORE"
+        slots:
+          1: STONE
+          2: STONE
+          3: STONE
+          4: STONE
+          5: STONE
+          6: STONE
+          7: STONE
+          8: STONE
+          9: STONE
+    RECIPE-5:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: GRASS_BLOCK
+          id-amount: 6
+          lore: "LORE"
+        slots:
+          1: WHEAT_SEEDS
+          2: WHEAT_SEEDS
+          3: WHEAT_SEEDS
+          4: DIRT
+          5: DIRT
+          6: DIRT
+          7: DIRT
+          8: DIRT
+          9: DIRT
+    RECIPE-6:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: GRASS_PATH
+          id-amount: 6
+          lore: "LORE"
+        slots:
+          1: STICK
+          2: STICK
+          3: STICK
+          4: DIRT
+          5: DIRT
+          6: DIRT
+          7: DIRT
+          8: DIRT
+          9: DIRT
+    RECIPE-7:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: SADDLE
+          id-amount: 1
+          lore: "LORE"
+        slots:
+          1: LEATHER
+          2: LEATHER
+          3: LEATHER
+          4: LEATHER
+          5: IRON_INGOT
+          6: LEATHER
+          7: LEAD
+          8: BOWL
+          9: LEAD
+    RECIPE-8:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: NAME_TAG
+          id-amount: 1
+          lore: "LORE"
+        slots:
+          1: IRON_INGOT
+          2: LEAD
+          4: LEAD
+          5: MAP
+          6: LEATHER
+          8: LEATHER
+          9: MAP
+    RECIPE-9:
+      enabled: true
+      craft:
+        result:
+          name: "NAME"
+          id: ICE
+          id-amount: 1
+          lore: "LORE"
+        slots:
+          1: SNOWBALL
+          2: SNOWBALL
+          3: SNOWBALL
+          4: SNOWBALL
+          5: WATER_BUCKET
+          6: SNOWBALL
+          7: SNOWBALL
+          8: SNOWBALL
+          9: SNOWBALL
+          
+  furnace:
+    RECIPE-1:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: QUARTZ_BLOCK
+          id-amount: 1
+          lore: "LORE"
+        slot:
+          1: SMOOTH_QUARTZ
+    RECIPE-2:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: RED_SANDSTONE
+          id-amount: 1
+          lore: "LORE"
+        slot:
+          1: SMOOTH_RED_SANDSTONE
+    RECIPE-3:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: SANDSTONE
+          id-amount: 1
+          lore: "LORE"
+        slot:
+          1: SMOOTH_SANDSTONE
+    RECIPE-4:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: STONE
+          id-amount: 1
+          lore: "LORE"
+        slot:
+          1: SMOOTH_STONE
+    RECIPE-5:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: BRICK
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: BRICKS
+    RECIPE-6:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: NETHER_BRICK
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: NETHER_BRICKS
+    RECIPE-7:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: END_STONE
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: END_STONE_BRICKS
+    RECIPE-8:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: POPPED_CHORUS_FRUIT
+          id-amount: 1
+          lore: "LORE"
+        slot:
+          1: PURPUR_BLOCK
+    RECIPE-9:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: PRISMARINE_SHARD
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: PRISMARINE
+    RECIPE-10:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: QUARTZ
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: QUARTZ_BLOCK
+    RECIPE-11:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: MAGMA_CREAM
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: MAGMA_BLOCK
+    RECIPE-12:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: PACKED_ICE
+          id-amount: 9
+          lore: "LORE"
+        slot:
+          1: BLUE_ICE
+    RECIPE-13:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: ICE
+          id-amount: 9
+          lore: "LORE"
+        slot:
+          1: PACKED_ICE
+    RECIPE-14:
+      enabled: true
+      fire:
+        result:
+          name: "NAME"
+          id: SNOWBALL
+          id-amount: 4
+          lore: "LORE"
+        slot:
+          1: SNOW_BLOCK
+          
 items:
   book:
     enabled: true
@@ -28,107 +333,6 @@ items:
     id: ENCHANTED_BOOK
     id-craft-1: POPPY
     id-craft-2: BOOK
-  craft1:
-    enabled: true
-    id: SMOOTH_QUARTZ
-    id-craft-1: QUARTZ_BLOCK
-  craft2:
-    enabled: true
-    id: SMOOTH_RED_SANDSTONE
-    id-craft-1: RED_SANDSTONE
-  craft3:
-    enabled: true
-    id: SMOOTH_SANDSTONE
-    id-craft-1: SANDSTONE
-  craft4:
-    enabled: true
-    id: SMOOTH_STONE
-    id-craft-1: STONE
-  craft5:
-    enabled: true
-    id: GRASS_BLOCK
-    id-craft-1: DIRT
-    id-craft-2: GRASS
-  craft6:
-    enabled: true
-    id: GRASS_PATH
-    id-craft-1: DIRT
-    id-craft-2: STICK
-  craft7:
-    enabled: true
-    id: SADDLE
-    id-craft-1: LEATHER
-    id-craft-2: IRON_INGOT
-    id-craft-3: LEAD
-    id-craft-4: BOWL
-  craft8:
-    enabled: true
-    id: NAME_TAG
-    id-craft-1: LEATHER
-    id-craft-2: IRON_INGOT
-    id-craft-3: LEAD
-    id-craft-4: MAP
-  craft9:
-    enabled: true
-    id: ICE
-    id-craft-1: SNOWBALL
-    id-craft-2: WATER_BUCKET
-  fire1:
-    enabled: true
-    id: QUARTZ_BLOCK
-    id-furnace-1: SMOOTH_QUARTZ
-  fire2:
-    enabled: true
-    id: RED_SANDSTONE
-    id-furnace-1: SMOOTH_RED_SANDSTONE
-  fire3:
-    enabled: true
-    id: SANDSTONE
-    id-furnace-1: SMOOTH_SANDSTONE
-  fire4:
-    enabled: true
-    id: STONE
-    id-furnace-1: SMOOTH_STONE
-  fire5:
-    enabled: true
-    id: BRICK
-    id-furnace-1: BRICKS
-  fire6:
-    enabled: true
-    id: NETHER_BRICK
-    id-furnace-1: NETHER_BRICKS
-  fire7:
-    enabled: true
-    id: END_STONE
-    id-furnace-1: END_STONE_BRICKS
-  fire8:
-    enabled: true
-    id: POPPED_CHORUS_FRUIT
-    id-furnace-1: PURPUR_BLOCK
-  fire9:
-    enabled: true
-    id: PRISMARINE_SHARD
-    id-furnace-1: PRISMARINE
-  fire10:
-    enabled: true
-    id: QUARTZ
-    id-furnace-1: QUARTZ_BLOCK
-  fire11:
-    enabled: true
-    id: MAGMA_CREAM
-    id-furnace-1: MAGMA_BLOCK
-  fire12:
-    enabled: true
-    id: PACKED_ICE
-    id-furnace-1: BLUE_ICE
-  fire13:
-    enabled: true
-    id: ICE
-    id-furnace-1: PACKED_ICE
-  fire14:
-    enabled: true
-    id: SNOWBALL
-    id-furnace-1: SNOW_BLOCK
   setting:
     id-gui-1: GRAY_STAINED_GLASS_PANE
     id-gui-2: DARK_OAK_DOOR
