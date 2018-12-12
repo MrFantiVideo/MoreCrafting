@@ -38,7 +38,6 @@ public class ConfigSettings {
         }
         customConfig = YamlConfiguration.loadConfiguration(customConfigFile);
     
-        // Look for defaults in the jar
         Reader defConfigStream = null;
         try {
             defConfigStream = new InputStreamReader(plugin.getResource("settings.yml"), "UTF8");
@@ -76,7 +75,7 @@ public class ConfigSettings {
         if (!customConfigFile.exists()) {           
              this.plugin.saveResource("settings.yml", false);
         }
+        
     }
-  // End Custom Config
    
 }

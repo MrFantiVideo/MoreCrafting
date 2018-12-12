@@ -39,8 +39,7 @@ public class ConfigMessages {
         customConfigFile = new File(plugin.getDataFolder(), "lang"  + File.separator + configSettings.getCustomConfig().getString("language") + ".yml");
         }
         customConfig = YamlConfiguration.loadConfiguration(customConfigFile);
-    
-        // Look for defaults in the jar
+        
         Reader defConfigStream = null;
         try {
             defConfigStream = new InputStreamReader(plugin.getResource("lang"  + File.separator + configSettings.getCustomConfig().getString("language") + ".yml"), "UTF8");
@@ -84,8 +83,7 @@ public class ConfigMessages {
         if (!customConfigFile.exists()) {           
              this.plugin.saveResource("lang"  + File.separator + configSettings.getCustomConfig().getString("language") + ".yml", false);
         }
+        
     }
-  // End Custom Config
-
-   
+    
 }

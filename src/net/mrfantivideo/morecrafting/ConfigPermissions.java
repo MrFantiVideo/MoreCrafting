@@ -33,8 +33,7 @@ public class ConfigPermissions {
         customConfigFile = new File(plugin.getDataFolder(), "permissions.yml");
         }
         customConfig = YamlConfiguration.loadConfiguration(customConfigFile);
-    
-        // Look for defaults in the jar
+
         Reader defConfigStream = null;
         try {
             defConfigStream = new InputStreamReader(plugin.getResource("permissions.yml"), "UTF8");
@@ -72,7 +71,7 @@ public class ConfigPermissions {
         if (!customConfigFile.exists()) {           
              this.plugin.saveResource("permissions.yml", false);
         }
+        
     }
-  // End Custom Config
    
 }
