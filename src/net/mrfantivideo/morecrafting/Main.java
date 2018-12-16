@@ -1,5 +1,7 @@
 package net.mrfantivideo.morecrafting;
 
+import net.mrfantivideo.morecrafting.Command.Commands.BookCommand;
+import net.mrfantivideo.morecrafting.Command.Commands.HelpCommand;
 import net.mrfantivideo.morecrafting.Command.Commands.ReloadCommand;
 import net.mrfantivideo.morecrafting.Command.CommandsManager;
 import net.mrfantivideo.morecrafting.Configuration.Configs.ConfigMessages;
@@ -62,6 +64,8 @@ public class Main extends JavaPlugin
 
         new CommandsManager();
         CommandsManager.GetInstance().RegisterCommand(new ReloadCommand());
+        CommandsManager.GetInstance().RegisterCommand(new HelpCommand());
+        CommandsManager.GetInstance().RegisterCommand(new BookCommand());
 
         LoadRecipes();
 

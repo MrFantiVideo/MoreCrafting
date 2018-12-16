@@ -66,7 +66,7 @@ public class CommandsManager implements CommandExecutor
                     sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-unknown").replace("&", "§"));
             }
             else
-                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-unknown").replace("&", "§"));
+                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + "§7Version §e2.0 §7by §eMr.FantiVideo§7. §8(Minecraft 1.13.2)");
         }
         return false;
     }

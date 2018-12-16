@@ -12,4 +12,4 @@ commands:
     morecrafting book:
         description: Give the recipe book.
     morecrafting reload:
-        description: Reload configuration of plugin.
+        description: Reload configuration files.
