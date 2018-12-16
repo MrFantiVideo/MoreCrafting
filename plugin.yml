@@ -1,9 +1,0 @@
-name: MoreCrafting
-version: 2.0
-author: MrFantiVideo
-main: net.mrfantivideo.morecrafting.Main
-api-version: 1.13
-
-commands:
-    morecrafting:
-        description: Reload configuration of plugin.
