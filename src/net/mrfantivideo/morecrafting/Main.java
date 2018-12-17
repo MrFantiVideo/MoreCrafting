@@ -9,6 +9,7 @@ import net.mrfantivideo.morecrafting.Configuration.Configs.ConfigPermissions;
 import net.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import net.mrfantivideo.morecrafting.Listeners.PlayerInteractListener;
 import net.mrfantivideo.morecrafting.Listeners.PlayerInventoryListener;
+import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -107,9 +108,9 @@ public class Main extends JavaPlugin
      */
     public void LoadSettings()
     {
-        m_configSettings = new ConfigSettings(this);
-        m_configMessages = new ConfigMessages(this);
-        m_configPermissions = new ConfigPermissions(this);
+        m_configSettings = new ConfigSettings();
+        m_configMessages = new ConfigMessages();
+        m_configPermissions = new ConfigPermissions();
     }
 
     /*
@@ -118,13 +119,16 @@ public class Main extends JavaPlugin
     @SuppressWarnings("deprecation")
 	private void LoadRecipes()
     {
+        new RecipesManager();
+
         /** Shaped Recipes **/
         for(String str : GetConfigSettings().GetConfiguration().getConfigurationSection("recipes.crafting").getKeys(false))
         {
             String itemPath = "recipes.crafting." + str + ".";
             if(!GetConfigSettings().GetConfiguration().getBoolean(itemPath + "enabled"))
                 continue;
-            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), new ItemStack(Material.getMaterial(GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.id")), GetConfigSettings().GetConfiguration().getInt(itemPath + "craft.result.id-amount")));
+            String craftID = GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.id");
+            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), new ItemStack(Material.getMaterial(craftID), GetConfigSettings().GetConfiguration().getInt(itemPath + "craft.result.id-amount")));
             craft.shape("123", "456", "789");
             for(int i = 1; i <= 9; i++)
             {
@@ -134,7 +138,7 @@ public class Main extends JavaPlugin
                     continue;
                 craft.setIngredient(Integer.toString(i).charAt(0), Material.getMaterial(GetConfigSettings().GetConfiguration().getString(itemPath + "craft.slots." + i)));
             }
-            getServer().addRecipe(craft);
+            RecipesManager.GetInstance().AddRecipe(craftID, craft);
         }
 
         /** Furnace Recipes **/
@@ -143,15 +147,17 @@ public class Main extends JavaPlugin
             String itemPath = "recipes.furnace." + str + ".";
             if(!GetConfigSettings().GetConfiguration().getBoolean(itemPath + "enabled"))
                 continue;
-            ItemStack result1 = new ItemStack(Material.getMaterial(GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.id")), GetConfigSettings().GetConfiguration().getInt(itemPath + "fire.result.id-amount"));
+            String craftID = GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.id");
+            ItemStack result1 = new ItemStack(Material.getMaterial(craftID), GetConfigSettings().GetConfiguration().getInt(itemPath + "fire.result.id-amount"));
             FurnaceRecipe fire1 = new FurnaceRecipe(result1, Material.getMaterial(GetConfigSettings().GetConfiguration().getString(itemPath + "fire.slot.1")));
-            getServer().addRecipe(fire1);
+            RecipesManager.GetInstance().AddRecipe(craftID, fire1);
         }
 
         /** Books Shaped Recipes **/
         if(GetConfigSettings().GetConfiguration().getString("others.book.enabled").equals("true"))
         {
-            ItemStack book = new ItemStack(Material.getMaterial(GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id")), 1);
+            String craftID = GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id");
+            ItemStack book = new ItemStack(Material.getMaterial(craftID), 1);
             ItemMeta meta = book.getItemMeta();
             meta.setDisplayName(GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "§"));
             meta.setLore(Arrays.asList(GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "§")));
@@ -165,7 +171,7 @@ public class Main extends JavaPlugin
                     continue;
                 craft.setIngredient(Integer.toString(i).charAt(0), Material.getMaterial(GetConfigSettings().GetConfiguration().getString("others.book.craft.slots." + i)));
             }
-            getServer().addRecipe(craft);
+            RecipesManager.GetInstance().AddRecipe(craftID, craft);
         }
     }
 }

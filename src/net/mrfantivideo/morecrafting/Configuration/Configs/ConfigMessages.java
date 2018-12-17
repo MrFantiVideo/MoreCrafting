@@ -10,9 +10,9 @@ import java.io.File;
 
 public class ConfigMessages extends AbstractConfig
 {
-    public ConfigMessages(Main main)
+    public ConfigMessages()
     {
-        super(main, "");
+        super("");
     }
 
     @Override

@@ -11,12 +11,10 @@ import java.io.IOException;
 public abstract class AbstractConfig
 {
     protected CustomConfigFile m_file;
-    private Main m_mainInstance;
     private String m_fileName;
 
-    public AbstractConfig(Main main, String fileName)
+    public AbstractConfig(String fileName)
     {
-        m_mainInstance = main;
         m_fileName = fileName.endsWith(".yml") ? fileName : fileName + ".yml";
         try
         {
@@ -67,9 +65,9 @@ public abstract class AbstractConfig
     {
         if(m_file != null)
             return;
-        File file = new File(m_mainInstance.getDataFolder(), GetFileName());
+        File file = new File(Main.GetInstance().getDataFolder(), GetFileName());
         if(!file.exists())
-            m_mainInstance.saveResource(GetFileName(), false);
+            Main.GetInstance().saveResource(GetFileName(), false);
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
         m_file = new CustomConfigFile(file, configuration);
     }

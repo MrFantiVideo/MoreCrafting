@@ -5,8 +5,8 @@ import net.mrfantivideo.morecrafting.Main;
 
 public class ConfigPermissions extends AbstractConfig
 {
-    public ConfigPermissions(Main main)
+    public ConfigPermissions()
     {
-        super(main, "permissions.yml");
+        super("permissions.yml");
     }
 }

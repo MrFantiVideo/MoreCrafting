@@ -5,8 +5,8 @@ import net.mrfantivideo.morecrafting.Main;
 
 public class ConfigSettings extends AbstractConfig
 {
-    public ConfigSettings(Main main)
+    public ConfigSettings()
     {
-        super(main, "settings");
+        super("settings");
     }
 }

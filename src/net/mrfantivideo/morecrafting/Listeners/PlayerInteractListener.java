@@ -1,6 +1,11 @@
 package net.mrfantivideo.morecrafting.Listeners;
 
+import com.sun.istack.internal.NotNull;
 import net.mrfantivideo.morecrafting.Main;
+import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import net.mrfantivideo.morecrafting.Utils.ConfigUtils;
+import net.mrfantivideo.morecrafting.Utils.EConfig;
+import net.mrfantivideo.morecrafting.Utils.PermissionsUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -15,6 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
+@SuppressWarnings("ConstantConditions")
 public class PlayerInteractListener implements Listener
 {
     @EventHandler
@@ -27,30 +33,20 @@ public class PlayerInteractListener implements Listener
         if(stack == null)
             return;
 
-        if(stack.getType() == Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id"))
-                && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName()
-                && stack.getItemMeta().getDisplayName().equalsIgnoreCase(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "§")))
+        ItemStack customBook = RecipesManager.GetCustomRecipe(ConfigUtils.Get(String.class, EConfig.SETTINGS, "others.book.craft.result.id")).getResult();
+        if(stack.getType() == customBook.getType() && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && stack.getItemMeta().getDisplayName().equalsIgnoreCase(ConfigUtils.Get(String.class, EConfig.SETTINGS, "others.book.craft.result.name").replace("&", "§")))
         {
-            if(player.hasPermission(Main.GetInstance().GetConfigPermissions().GetConfiguration().getString("permissions.morecrafting.book"))
-                    || player.hasPermission(Main.GetInstance().GetConfigPermissions().GetConfiguration().getString("permissions.morecrafting.*"))
-                    || player.isOp())
+            if(player.isOp() || PermissionsUtils.HasAnyPermission(player, "permissions.morecrafting.book", "permissions.morecrafting.*"))
             {
                 if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
                 {
-                    Inventory inventory = Bukkit.createInventory(null, Main.GetInstance().GetConfigSettings().GetConfiguration().getInt("others.book.gui.menu.size"), Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + "." + "gui-title-main").replace("&", "§"));
+                    int inventorySize = ConfigUtils.Get(Integer.class, EConfig.SETTINGS,"others.book.gui.menu.size");
+                    String inventoryTitle = ConfigUtils.Get(String.class, EConfig.MESSAGES,"messages.default.prefix").replace("&", "§") + ConfigUtils.Get(String.class, EConfig.MESSAGES,"messages." +  ConfigUtils.Get(String.class, EConfig.SETTINGS,"language") + "." + "gui-title-main").replace("&", "§");
+                    Inventory inventory = Bukkit.createInventory(null, inventorySize, inventoryTitle);
                     FillInventory(inventory);
-                    if(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.give-book").equals("true"))
-                    {
-                    	inventory = player.getInventory();
-                    	ItemStack book = new ItemStack(Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id")), 1);
-                    	ItemMeta meta = book.getItemMeta();
-                    	meta.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "§"));
-                    	meta.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "§")));
-                    	book.setItemMeta(meta);
-                    	inventory.addItem(book);
-                    }
                     player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_ELYTRA, 1, 1);
                     player.openInventory(inventory);
+                    event.setCancelled(true);
                 }
             }
         }
@@ -71,16 +67,11 @@ public class PlayerInteractListener implements Listener
             for(int i = 1; i <= 9; i++)
             {
                 String itemNAME = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name");
-                if(itemNAME == null || itemNAME.isEmpty())
-                    continue;
-                item.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name").replace("&", "§"));
-            }
-            for(int i = 1; i <= 9; i++)
-            {
                 String itemLORE = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore");
-                if(itemLORE == null || itemLORE.isEmpty())
-                    continue;
-                item.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore").replace("&", "§")));
+                if(itemNAME != null || !itemNAME.isEmpty())
+                    item.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name").replace("&", "§"));
+                if(itemLORE != null || !itemLORE.isEmpty())
+                    item.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore").replace("&", "§")));
             }
             craft.setItemMeta(item);
             inv.setItem(Main.GetInstance().GetConfigSettings().GetConfiguration().getInt(itemPath + "craft.result.id-book"), craft);
