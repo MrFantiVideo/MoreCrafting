@@ -39,6 +39,16 @@ public class PlayerInteractListener implements Listener
                 {
                     Inventory inventory = Bukkit.createInventory(null, Main.GetInstance().GetConfigSettings().GetConfiguration().getInt("others.book.gui.menu.size"), Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + "." + "gui-title-main").replace("&", "§"));
                     FillInventory(inventory);
+                    if(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.give-book").equals("true"))
+                    {
+                    	inventory = player.getInventory();
+                    	ItemStack book = new ItemStack(Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id")), 1);
+                    	ItemMeta meta = book.getItemMeta();
+                    	meta.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "§"));
+                    	meta.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "§")));
+                    	book.setItemMeta(meta);
+                    	inventory.addItem(book);
+                    }
                     player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_ELYTRA, 1, 1);
                     player.openInventory(inventory);
                 }

@@ -81,7 +81,7 @@ public class Main extends JavaPlugin
     	System.out.println(" ");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.GREEN + "ON" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
     	System.out.println(" ");
-    	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 1)");
+    	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 2)");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
     	System.out.println(" ");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");
@@ -96,7 +96,7 @@ public class Main extends JavaPlugin
         System.out.println(" ");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.RED + "OFF" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
         System.out.println(" ");
-        getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 1)");
+        getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 2)");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
         System.out.println(" ");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");
@@ -156,7 +156,6 @@ public class Main extends JavaPlugin
             meta.setDisplayName(GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "§"));
             meta.setLore(Arrays.asList(GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "§")));
             book.setItemMeta(meta);
-
             ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), book);
             craft.shape("123", "456", "789");
             for(int i = 1; i <= 9; i++)

@@ -335,30 +335,24 @@ recipes:
 others:
   book:
     enabled: true
+    give-book: true
     craft:
       result:
         name: "&eMoreCrafting"
-        id: ENCHANTED_BOOK
-        id-amount: 1
         lore: "&7by Mr.FantiVideo"
+        id: KNOWLEDGE_BOOK
+        id-amount: 1
       slots:
-          1: POPPY
-          2: POPPY
-          3: POPPY
-          4: POPPY
+          1: SLIME
+          2: SLIME
+          3: SLIME
+          4: SLIME
           5: BOOK
-          6: POPPY
-          7: POPPY
-          8: POPPY
-          9: POPPY
+          6: SLIME
+          7: SLIME
+          8: SLIME
+          9: SLIME
     gui:
       menu:
         size: 27
-      crafting:
-        size: 27
-      furnace:
-        size: 9
-  setting:
-    id-gui-1: GRAY_STAINED_GLASS_PANE
-    id-gui-2: DARK_OAK_DOOR
     
