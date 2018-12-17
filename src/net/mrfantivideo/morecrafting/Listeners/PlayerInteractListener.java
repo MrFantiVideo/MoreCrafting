@@ -68,9 +68,9 @@ public class PlayerInteractListener implements Listener
             {
                 String itemNAME = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name");
                 String itemLORE = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore");
-                if(itemNAME != null || !itemNAME.isEmpty())
+                if(itemNAME != null && !itemNAME.isEmpty())
                     item.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name").replace("&", "§"));
-                if(itemLORE != null || !itemLORE.isEmpty())
+                if(itemLORE != null && !itemLORE.isEmpty())
                     item.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore").replace("&", "§")));
             }
             craft.setItemMeta(item);
