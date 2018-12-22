@@ -343,15 +343,15 @@ others:
         id: KNOWLEDGE_BOOK
         id-amount: 1
       slots:
-          1: SLIME
-          2: SLIME
-          3: SLIME
-          4: SLIME
+          1: SLIME_BALL
+          2: SLIME_BALL
+          3: SLIME_BALL
+          4: SLIME_BALL
           5: BOOK
-          6: SLIME
-          7: SLIME
-          8: SLIME
-          9: SLIME
+          6: SLIME_BALL
+          7: SLIME_BALL
+          8: SLIME_BALL
+          9: SLIME_BALL
     gui:
       menu:
         size: 27
