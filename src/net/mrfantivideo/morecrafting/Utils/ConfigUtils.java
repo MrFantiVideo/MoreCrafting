@@ -15,10 +15,10 @@ public class ConfigUtils
                 obj = Main.GetInstance().GetConfigSettings().GetConfiguration().get(path);
                 break;
             case MESSAGES:
-                obj = (T)Main.GetInstance().GetConfigMessages().GetConfiguration().get(path);
+                obj = Main.GetInstance().GetConfigMessages().GetConfiguration().get(path);
                 break;
             case PERMISSIONS:
-                obj = (T)Main.GetInstance().GetConfigPermissions().GetConfiguration().get(path);
+                obj = Main.GetInstance().GetConfigPermissions().GetConfiguration().get(path);
                 break;
         }
         if(obj != null)

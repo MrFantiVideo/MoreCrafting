@@ -2,9 +2,11 @@ package net.mrfantivideo.morecrafting.Recipes;
 
 import net.minecraft.server.v1_13_R2.ItemStack;
 import net.mrfantivideo.morecrafting.Main;
+import org.bukkit.Material;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ShapedRecipe;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,11 +22,21 @@ public class RecipesManager
     /**
      * Get recipe from id
      * @param id
-     * @return ShapedRecipe or null
+     * @return CustomRecipe or null
      */
-    public static ShapedRecipe GetCustomRecipe(String id)
+    public static CustomRecipe GetCustomRecipe(String id)
     {
         return GetInstance().GetRecipe(id);
+    }
+
+    /**
+     * Get shaped recipe from id
+     * @param id
+     * @return ShapedRecipe or null
+     */
+    public static ShapedRecipe GetCustomShapedRecipe(String id)
+    {
+        return GetInstance().GetShapedRecipe(id);
     }
 
     /**
@@ -32,13 +44,12 @@ public class RecipesManager
      * @param id
      * @return FurnaceRecipe or null
      */
-    public static FurnaceRecipe GetCustomFurnaceRecipe(String id)
+    public FurnaceRecipe GetCustomFurnaceRecipe(String id)
     {
         return GetInstance().GetFurnaceRecipe(id);
     }
 
-    private Map<String, ShapedRecipe> m_recipes = new HashMap<>();
-    private Map<String, FurnaceRecipe> m_furnacesRecipes = new HashMap<>();
+    private  Map<String, CustomRecipe> m_recipes = new HashMap<>();
 
     public RecipesManager()
     {
@@ -48,12 +59,25 @@ public class RecipesManager
     /**
      * Get recipe from id
      * @param id
-     * @return ShapedRecipe or null
+     * @return CustomRecipe or null
      */
-    public ShapedRecipe GetRecipe(String id)
+    public CustomRecipe GetRecipe(String id)
     {
         if(m_recipes.containsKey(id))
             return m_recipes.get(id);
+        return null;
+    }
+
+    /**
+     * Get shaped recipe from id
+     * @param id
+     * @return ShapedRecipe or null
+     */
+    public ShapedRecipe GetShapedRecipe(String id)
+    {
+        CustomRecipe recipe = GetRecipe(id);
+        if(recipe != null && !recipe.IsFurnaceRecipe())
+            return recipe.GetRecipe();
         return null;
     }
 
@@ -64,9 +88,19 @@ public class RecipesManager
      */
     public FurnaceRecipe GetFurnaceRecipe(String id)
     {
-        if(m_furnacesRecipes.containsKey(id))
-            return m_furnacesRecipes.get(id);
+        CustomRecipe recipe = GetRecipe(id);
+        if(recipe != null && recipe.IsFurnaceRecipe())
+            return recipe.GetFurnaceRecipe();
         return null;
+    }
+
+    /**
+     * Get all recipes
+     * @return Recipes
+     */
+    public Collection<CustomRecipe> GetRecipes()
+    {
+        return m_recipes.values();
     }
 
     /**
@@ -74,21 +108,28 @@ public class RecipesManager
      * @param itemID
      * @param recipe
      */
-    public void AddRecipe(String itemID, ShapedRecipe recipe)
+    public void AddRecipe(String itemID, CustomRecipe recipe)
     {
         m_recipes.put(itemID, recipe);
-        Main.GetInstance().getServer().addRecipe(recipe);
+        if(recipe.IsFurnaceRecipe())
+            Main.GetInstance().getServer().addRecipe(recipe.GetFurnaceRecipe());
+        else
+            Main.GetInstance().getServer().addRecipe(recipe.GetRecipe());
     }
 
     /**
-     * Add a new furnace recipe
-     * @param itemID
-     * @param recipe
+     * Gets a recipe by it's type ( material )
+     * @param material
+     * @return CustomRecipe or null
      */
-    public void AddRecipe(String itemID, FurnaceRecipe recipe)
+    public CustomRecipe GetRecipeByMaterial(Material material)
     {
-        m_furnacesRecipes.put(itemID, recipe);
-        Main.GetInstance().getServer().addRecipe(recipe);
+        for(CustomRecipe recipe : m_recipes.values())
+        {
+            if(recipe.GetResult().getType() == material)
+                return recipe;
+        }
+        return null;
     }
 
     /**
@@ -97,7 +138,6 @@ public class RecipesManager
     public void Clear()
     {
         m_recipes.clear();
-        m_furnacesRecipes.clear();
         Main.GetInstance().getServer().resetRecipes();
     }
 }

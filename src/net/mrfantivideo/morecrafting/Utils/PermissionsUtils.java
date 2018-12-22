@@ -1,6 +1,7 @@
 package net.mrfantivideo.morecrafting.Utils;
 
 import org.bukkit.entity.Player;
+import static net.mrfantivideo.morecrafting.Utils.ConfigUtils.Get;
 
 public class PermissionsUtils
 {
@@ -14,7 +15,7 @@ public class PermissionsUtils
     {
         for(String perm : permissions)
         {
-            if(player.hasPermission(ConfigUtils.Get(String.class, EConfig.PERMISSIONS, perm)))
+            if(player.hasPermission(Get(String.class, EConfig.PERMISSIONS, perm)))
                 return true;
         }
         return false;
