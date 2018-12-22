@@ -25,7 +25,7 @@ public class ConfigUtils
             return (T)obj;
         else
         {
-            LogUtils.LogError("Could not find the specified key '" + path + "' in '" + config.toString() + "'. Does it exists ?", null);
+            //LogUtils.LogWarning("Could not find the specified key '" + path + "' in '" + config.toString() + "'. Does it exists ?");
             return null;
         }
     }

@@ -133,9 +133,18 @@ public class Main extends JavaPlugin
             if(!Get(Boolean.class, EConfig.SETTINGS, itemPath + "enabled"))
                 continue;
             String craftID = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.id");
+            String craftCustomName = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.name");
+            String craftCustomLore = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.lore");
             int craftAmount = Get(Integer.class, EConfig.SETTINGS, itemPath + "craft.result.id-amount");
             int bookInventorySlot = Get(Integer.class, EConfig.SETTINGS, itemPath + "craft.result.id-book");
-            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), new ItemStack(Material.getMaterial(craftID), craftAmount));
+            ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
+            ItemMeta meta = result.getItemMeta();
+            if(craftCustomName != null && !craftCustomName.isEmpty())
+                meta.setDisplayName(craftCustomName);
+            if(craftCustomLore != null && !craftCustomLore.isEmpty())
+                meta.setLore(Arrays.asList(craftCustomLore));
+            result.setItemMeta(meta);
+            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), result);
             craft.shape("123", "456", "789");
             for(int i = 1; i <= 9; i++)
             {
@@ -153,11 +162,19 @@ public class Main extends JavaPlugin
             String itemPath = "recipes.furnace." + str + ".";
             if(!Get(Boolean.class, EConfig.SETTINGS, itemPath + "enabled"))
                 continue;
-            String craftID = GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.id");
+            String craftID = Get(String.class, EConfig.SETTINGS,itemPath + "fire.result.id");
+            String craftCustomName = Get(String.class, EConfig.SETTINGS, itemPath + "fire.result.name");
+            String craftCustomLore = Get(String.class, EConfig.SETTINGS, itemPath + "fire.result.lore");
             int craftAmount = Get(Integer.class, EConfig.SETTINGS, itemPath + "fire.result.id-amount");
             int bookInventorySlot = Get(Integer.class, EConfig.SETTINGS, itemPath + "fire.result.id-book");
-            ItemStack stack = new ItemStack(Material.getMaterial(craftID), craftAmount);
-            FurnaceRecipe recipe = new FurnaceRecipe(stack, Material.getMaterial(Get(String.class, EConfig.SETTINGS, itemPath + "fire.slot.1")));
+            ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
+            ItemMeta meta = result.getItemMeta();
+            if(craftCustomName != null && !craftCustomName.isEmpty())
+                meta.setDisplayName(craftCustomName);
+            if(craftCustomLore != null && !craftCustomLore.isEmpty())
+                meta.setLore(Arrays.asList(craftCustomLore));
+            result.setItemMeta(meta);
+            FurnaceRecipe recipe = new FurnaceRecipe(result, Material.getMaterial(Get(String.class, EConfig.SETTINGS, itemPath + "fire.slot.1")));
             RecipesManager.GetInstance().AddRecipe(craftID, new CustomRecipe(recipe, bookInventorySlot, itemPath, str));
         }
 
