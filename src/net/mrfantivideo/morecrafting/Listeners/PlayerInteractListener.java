@@ -64,6 +64,10 @@ public class PlayerInteractListener implements Listener
                 continue;
             ItemStack craft = new ItemStack(Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.id")));
             ItemMeta item = craft.getItemMeta();
+            
+            
+            
+            
             for(int i = 1; i <= 9; i++)
             {
                 String itemNAME = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.name");
@@ -73,6 +77,10 @@ public class PlayerInteractListener implements Listener
                 if(itemLORE != null && !itemLORE.isEmpty())
                     item.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "craft.result.lore").replace("&", "§")));
             }
+            
+            
+            
+            
             craft.setItemMeta(item);
             inv.setItem(Main.GetInstance().GetConfigSettings().GetConfiguration().getInt(itemPath + "craft.result.id-book"), craft);
         }
@@ -84,15 +92,21 @@ public class PlayerInteractListener implements Listener
                 continue;
             ItemStack furnace = new ItemStack(Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.id")));
             ItemMeta item = furnace.getItemMeta();
+            
+            
+            
+            
             String itemNAME = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.name");
-            if(itemNAME == null || itemNAME.isEmpty())
-                continue;
             item.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.name").replace("&", "§"));
             String itemLORE = Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.lore");
             if(itemLORE == null || itemLORE.isEmpty())
                 item.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString(itemPath + "fire.result.lore").replace("&", "§")));
             else
                 item.setLore(Arrays.asList(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".name-fire-" + str.replace("RECIPE-", "")).replace("&", "§")));
+            
+            
+            
+            
             furnace.setItemMeta(item);
             inv.setItem(Main.GetInstance().GetConfigSettings().GetConfiguration().getInt(itemPath + "fire.result.id-book"), furnace);
         }
