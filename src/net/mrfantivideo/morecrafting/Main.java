@@ -11,7 +11,6 @@ import net.mrfantivideo.morecrafting.Listeners.PlayerInteractListener;
 import net.mrfantivideo.morecrafting.Listeners.PlayerInventoryListener;
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
-import net.mrfantivideo.morecrafting.Utils.ConfigUtils;
 import net.mrfantivideo.morecrafting.Utils.EConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -121,7 +120,7 @@ public class Main extends JavaPlugin
     /*
         Load Recipes
      */
-    @SuppressWarnings({"deprecation", "ConstantConditions"})
+    @SuppressWarnings({"deprecation"})
 	private void LoadRecipes()
     {
         new RecipesManager();
@@ -140,9 +139,9 @@ public class Main extends JavaPlugin
             ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
             ItemMeta meta = result.getItemMeta();
             if(craftCustomName != null && !craftCustomName.isEmpty())
-                meta.setDisplayName(craftCustomName);
+                meta.setDisplayName((craftCustomName).replace("&", "§"));
             if(craftCustomLore != null && !craftCustomLore.isEmpty())
-                meta.setLore(Arrays.asList(craftCustomLore));
+                meta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
             result.setItemMeta(meta);
             ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), result);
             craft.shape("123", "456", "789");
@@ -170,9 +169,9 @@ public class Main extends JavaPlugin
             ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
             ItemMeta meta = result.getItemMeta();
             if(craftCustomName != null && !craftCustomName.isEmpty())
-                meta.setDisplayName(craftCustomName);
+                meta.setDisplayName((craftCustomName).replace("&", "§"));
             if(craftCustomLore != null && !craftCustomLore.isEmpty())
-                meta.setLore(Arrays.asList(craftCustomLore));
+                meta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
             result.setItemMeta(meta);
             FurnaceRecipe recipe = new FurnaceRecipe(result, Material.getMaterial(Get(String.class, EConfig.SETTINGS, itemPath + "fire.slot.1")));
             RecipesManager.GetInstance().AddRecipe(craftID, new CustomRecipe(recipe, bookInventorySlot, itemPath, str));

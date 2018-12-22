@@ -1,6 +1,5 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
-import net.minecraft.server.v1_13_R2.ItemStack;
 import net.mrfantivideo.morecrafting.Main;
 import org.bukkit.Material;
 import org.bukkit.inventory.FurnaceRecipe;

@@ -16,7 +16,6 @@ import org.bukkit.inventory.ItemStack;
 
 import static net.mrfantivideo.morecrafting.Utils.ConfigUtils.Get;
 
-@SuppressWarnings("ConstantConditions")
 public class PlayerInteractListener implements Listener
 {
     @EventHandler

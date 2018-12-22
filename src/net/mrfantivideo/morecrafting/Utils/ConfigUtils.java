@@ -1,6 +1,5 @@
 package net.mrfantivideo.morecrafting.Utils;
 
-import com.sun.istack.internal.NotNull;
 import net.mrfantivideo.morecrafting.Main;
 
 public class ConfigUtils
