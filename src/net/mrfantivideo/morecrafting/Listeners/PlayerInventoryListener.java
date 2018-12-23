@@ -28,7 +28,7 @@ public class PlayerInventoryListener implements Listener
 
         if(stack == null)
             return;
-        if(inv.getName().equalsIgnoreCase("Custom Crafting"))
+        if(inv.getName().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§")))
         {
             event.setCancelled(true);
             return;
@@ -42,14 +42,14 @@ public class PlayerInventoryListener implements Listener
                 Inventory inventory;
                 if(recipe.IsFurnaceRecipe())
                 {
-                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, "Custom Crafting");
+                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§"));
                     inventory.setItem(0, recipe.GetFurnaceRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
                 }
                 else
                 {
-                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, "Custom Crafting");
+                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§"));
                     for(Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet())
                     {
                         if(entry.getValue() == null)

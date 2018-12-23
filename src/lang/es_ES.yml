@@ -9,8 +9,7 @@ messages:
     prefix: "&eMoreCrafting &8- "
   es_ES:
     gui-title-main: "&8Menú principal"
-    gui-title-craft: "&8Elaboración"
-    gui-title-furnace: "&8Horno"
+    gui-title-recipe: "&8Receta"
     command-unknown: "&cComando desconocido."
     command-reload: "&aRecarga completa."
     permission-denied: "&cNo tienes permiso."

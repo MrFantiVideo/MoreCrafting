@@ -86,7 +86,7 @@ public class Main extends JavaPlugin
     	System.out.println(" ");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.GREEN + "ON" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
     	System.out.println(" ");
-    	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 2)");
+    	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
     	System.out.println(" ");
     	getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");
@@ -101,7 +101,7 @@ public class Main extends JavaPlugin
         System.out.println(" ");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Plugin : " + ChatColor.RED + "OFF" + ChatColor.DARK_GRAY + " - " + ChatColor.GRAY + "Minecraft 1.13.2");
         System.out.println(" ");
-        getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0 (pre-release 2)");
+        getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Version " + ChatColor.YELLOW + "2.0");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "Created by " + ChatColor.YELLOW + "MrFantiVideo" + ChatColor.DARK_GRAY + " | 2018 - 2019");
         System.out.println(" ");
         getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "=====================================");

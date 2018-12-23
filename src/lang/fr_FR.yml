@@ -9,8 +9,7 @@ messages:
     prefix: "&eMoreCrafting &8- "
   fr_FR:
     gui-title-main: "&8Menu Principal"
-    gui-title-craft: "&8Fabrication"
-    gui-title-furnace: "&8Fourneau"
+    gui-title-recipe: "&8Recette"
     command-unknown: "&cCommande Inconnue."
     command-reload: "&aReload terminé."
     permission-denied: "&cTu n'as pas la permission."
