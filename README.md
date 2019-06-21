@@ -1,5 +1,6 @@
-![alt text](http://image.noelshack.com/fichiers/2018/50/7/1544992329-morecrafting.png)
+![alt text](http://image.noelshack.com/fichiers/2019/25/4/1561024127-morecrafting.png)
 
-Add new recipes in survival mode (Minecraft 1.13.2) 
+This plugin allows to add new recipes for the survival mode of Minecraft.
+The recipes offer the possibility to craft blocks / items unavailable or rare.
 
 *https://www.spigotmc.org/resources/morecrafting.62869/*
