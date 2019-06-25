@@ -20,7 +20,7 @@ public class ReloadCommand extends AbstractCommand
     public boolean Execute(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
         Main.GetInstance().LoadSettings();
-        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "ง") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-reload").replace("&", "ง"));
+        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "ยง") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-reload").replace("&", "ยง"));
         return true;
     }
 }

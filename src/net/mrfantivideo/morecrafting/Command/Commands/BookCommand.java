@@ -31,8 +31,8 @@ public class BookCommand extends AbstractCommand
         PlayerInventory inventory = player.getInventory();
         ItemStack book = new ItemStack(Material.getMaterial(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.id")), 1);
         ItemMeta meta = book.getItemMeta();
-        meta.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "ง"));
-        meta.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "ง")));
+        meta.setDisplayName(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.name").replace("&", "ยง"));
+        meta.setLore(Arrays.asList(Main.GetInstance().GetConfigSettings().GetConfiguration().getString("others.book.craft.result.lore").replace("&", "ยง")));
         book.setItemMeta(meta);
         inventory.addItem(book);
         return true;

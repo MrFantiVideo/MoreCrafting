@@ -19,14 +19,14 @@ public class HelpCommand extends AbstractCommand
     }
     public boolean Execute(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
-        sender.sendMessage("§8== §eMoreCrafting §8=====================");
+        sender.sendMessage("Â§8== Â§6MoreCrafting Â§8=====================");
         sender.sendMessage("");
-        sender.sendMessage("§e/morecrafting §8- §7§oPlugin version.");
-        sender.sendMessage("§e/morecrafting help §8- §7§oAll available commands.");
-        sender.sendMessage("§e/morecrafting book §8- §7§oGive the recipe book.");
-        sender.sendMessage("§e/morecrafting reload §8- §7§oReload configuration files.");
+        sender.sendMessage(("Â§6/morecrafting Â§8- " + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-help-morecrafting").replace("&", "Â§")));
+        sender.sendMessage(("Â§6/morecrafting help Â§8- " + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-help").replace("&", "Â§")));
+        sender.sendMessage(("Â§6/morecrafting book Â§8- " + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-help-book").replace("&", "Â§")));
+        sender.sendMessage(("Â§6/morecrafting reload Â§8- " + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-help-reload").replace("&", "Â§")));
         sender.sendMessage("");
-        sender.sendMessage("§8===================================");;
+        sender.sendMessage("Â§8===================================");;
         return true;
     }
 }

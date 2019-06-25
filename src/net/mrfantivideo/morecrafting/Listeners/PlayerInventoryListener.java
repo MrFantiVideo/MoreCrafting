@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
@@ -23,18 +24,18 @@ public class PlayerInventoryListener implements Listener
     public void OnPlayerInventoryClick(InventoryClickEvent event)
     {
         Player player = (Player) event.getWhoClicked();
-        Inventory inv = event.getInventory();
+        InventoryView inv = event.getView();
         ItemStack stack = event.getCurrentItem();
 
         if(stack == null)
             return;
-        if(inv.getName().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ง")))
+        if(((inv.getTitle().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ยง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ยง")))))
         {
             event.setCancelled(true);
             return;
         }
 
-        if(inv.getName().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-main").replace("&", "ง")))
+        if(((inv.getTitle().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ยง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-main").replace("&", "ยง")))))
         {
             CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByMaterial(stack.getType());
             if(recipe != null)
@@ -42,14 +43,14 @@ public class PlayerInventoryListener implements Listener
                 Inventory inventory;
                 if(recipe.IsFurnaceRecipe())
                 {
-                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ง"));
+                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ยง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ยง"));
                     inventory.setItem(0, recipe.GetFurnaceRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
                 }
                 else
                 {
-                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ง"));
+                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ยง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "ยง"));
                     for(Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet())
                     {
                         if(entry.getValue() == null)

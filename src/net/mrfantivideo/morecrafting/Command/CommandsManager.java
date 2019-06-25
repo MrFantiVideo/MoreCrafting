@@ -60,13 +60,13 @@ public class CommandsManager implements CommandExecutor
                     if(command.HasPermission(sender))
                         return m_commands.get(commandLowered).Execute(sender, cmd, commandLabel, args);
                     else
-                        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".permission-denied").replace("&", "§"));
+                        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "Â§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".permission-denied").replace("&", "Â§"));
                 }
                 else
-                    sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-unknown").replace("&", "§"));
+                    sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "Â§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-unknown").replace("&", "Â§"));
             }
             else
-                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + "§7Version §e2.0 §7by §eMr.FantiVideo§7. §8(Minecraft 1.13.2)");
+                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "Â§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-version").replace("&", "Â§").replace("%minecraft%", "Minecraft 1.14.2").replace("%version%", "3.0"));
         }
         return false;
     }

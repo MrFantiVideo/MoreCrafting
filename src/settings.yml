@@ -18,6 +18,9 @@ language: "en_US"
 #  List of ID Minecraft :                                    #
 #  https://minecraft-ids.grahamedgecombe.com/                #
 #                                                            #
+#  List of Enchantment :                                     #
+#                                                            #
+#                                                            #
 # ========================================================== #
 
 recipes:
@@ -26,77 +29,12 @@ recipes:
       enabled: true
       craft:
         result:
-          id: SMOOTH_QUARTZ
-          id-amount: 9
-          id-book: 0
-        slots:
-          1: QUARTZ_BLOCK
-          2: QUARTZ_BLOCK
-          3: QUARTZ_BLOCK
-          4: QUARTZ_BLOCK
-          5: QUARTZ_BLOCK
-          6: QUARTZ_BLOCK
-          7: QUARTZ_BLOCK
-          8: QUARTZ_BLOCK
-          9: QUARTZ_BLOCK
-    RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: SMOOTH_RED_SANDSTONE
-          id-amount: 9
-          id-book: 1
-        slots:
-          1: RED_SANDSTONE
-          2: RED_SANDSTONE
-          3: RED_SANDSTONE
-          4: RED_SANDSTONE
-          5: RED_SANDSTONE
-          6: RED_SANDSTONE
-          7: RED_SANDSTONE
-          8: RED_SANDSTONE
-          9: RED_SANDSTONE
-    RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: SMOOTH_SANDSTONE
-          id-amount: 9
-          id-book: 2
-        slots:
-          1: SANDSTONE
-          2: SANDSTONE
-          3: SANDSTONE
-          4: SANDSTONE
-          5: SANDSTONE
-          6: SANDSTONE
-          7: SANDSTONE
-          8: SANDSTONE
-          9: SANDSTONE
-    RECIPE-4:
-      enabled: true
-      craft:
-        result:
-          id: SMOOTH_STONE
-          id-amount: 9
-          id-book: 3
-        slots:
-          1: STONE
-          2: STONE
-          3: STONE
-          4: STONE
-          5: STONE
-          6: STONE
-          7: STONE
-          8: STONE
-          9: STONE
-    RECIPE-5:
-      enabled: true
-      craft:
-        result:
           id: GRASS_BLOCK
           id-amount: 6
-          id-book: 4
+          id-book: 1
+        enchantment:
+          enchant: ARROW_DAMAGE
+          enchant-amount: 1
         slots:
           1: WHEAT_SEEDS
           2: WHEAT_SEEDS
@@ -107,7 +45,7 @@ recipes:
           7: DIRT
           8: DIRT
           9: DIRT
-    RECIPE-6:
+    RECIPE-2:
       enabled: true
       craft:
         result:
@@ -124,7 +62,7 @@ recipes:
           7: DIRT
           8: DIRT
           9: DIRT
-    RECIPE-7:
+    RECIPE-3:
       enabled: true
       craft:
         result:
@@ -141,7 +79,7 @@ recipes:
           7: LEAD
           8: BOWL
           9: LEAD
-    RECIPE-8:
+    RECIPE-4:
       enabled: true
       craft:
         result:
@@ -156,7 +94,7 @@ recipes:
           6: LEATHER
           8: LEATHER
           9: MAP
-    RECIPE-9:
+    RECIPE-5:
       enabled: true
       craft:
         result:

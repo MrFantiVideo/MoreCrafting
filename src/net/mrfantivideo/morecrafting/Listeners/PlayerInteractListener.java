@@ -29,14 +29,14 @@ public class PlayerInteractListener implements Listener
             return;
 
         ItemStack customBook = RecipesManager.GetCustomShapedRecipe(Get(String.class, EConfig.SETTINGS, "others.book.craft.result.id")).getResult();
-        if(stack.getType() == customBook.getType() && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && stack.getItemMeta().getDisplayName().equalsIgnoreCase(Get(String.class, EConfig.SETTINGS, "others.book.craft.result.name").replace("&", "ง")))
+        if(stack.getType() == customBook.getType() && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && stack.getItemMeta().getDisplayName().equalsIgnoreCase(Get(String.class, EConfig.SETTINGS, "others.book.craft.result.name").replace("&", "ยง")))
         {
             if(player.isOp() || PermissionsUtils.HasAnyPermission(player, "permissions.morecrafting.book", "permissions.morecrafting.*"))
             {
                 if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
                 {
                     int inventorySize = Get(Integer.class, EConfig.SETTINGS, "others.book.gui.menu.size");
-                    String inventoryTitle = Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "ง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-main").replace("&", "ง");
+                    String inventoryTitle = Get(String.class, EConfig.MESSAGES, "messages.default.gui-title").replace("&", "ยง") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-main").replace("&", "ยง");
                     Inventory inventory = Bukkit.createInventory(null, inventorySize, inventoryTitle);
                     FillInventory(inventory);
                     player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_ELYTRA, 1, 1);
