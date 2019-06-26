@@ -79,6 +79,15 @@ public class ConfigMessages extends AbstractConfig
     {
         return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-smoker");
     }
+    
+    /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleBlasting()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-blasting");
+    }
 
     /**
      * Get Cmd Version Message from config

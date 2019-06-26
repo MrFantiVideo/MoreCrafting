@@ -44,6 +44,12 @@ public class PlayerInventoryListener implements Listener
             event.setCancelled(true);
             return;
         }
+        
+        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting()))
+        {
+            event.setCancelled(true);
+            return;
+        }
 
         if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain())) {
             CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByMaterial(stack.getType());
@@ -57,6 +63,11 @@ public class PlayerInventoryListener implements Listener
                 } else if (recipe.IsSmokingRecipe()) {
                     inventory = Bukkit.createInventory(null, InventoryType.SMOKER, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleSmoker());
                     inventory.setItem(0, recipe.GetSmokingRecipe().getInput().clone());
+                    inventory.setItem(1, new ItemStack(Material.COAL));
+                    inventory.setItem(2, recipe.GetResult().clone());
+                } else if (recipe.IsBlastingRecipe()) {
+                    inventory = Bukkit.createInventory(null, InventoryType.SMOKER, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting());
+                    inventory.setItem(0, recipe.GetBlastingRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
                 } else {

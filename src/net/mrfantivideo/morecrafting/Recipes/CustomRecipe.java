@@ -1,5 +1,6 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
+import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
@@ -8,10 +9,9 @@ import org.bukkit.inventory.SmokingRecipe;
 public class CustomRecipe
 {
     private ShapedRecipe m_recipe;
-
     private FurnaceRecipe m_furnaceRecipe;
-    
     private SmokingRecipe m_smokingRecipe;
+    private BlastingRecipe m_blastingRecipe;
 
     private  String m_configItemName;
 
@@ -38,6 +38,13 @@ public class CustomRecipe
         m_configItemName = configItemName;
 	}
 
+    public CustomRecipe(BlastingRecipe recipe, int bookInventorySlot, String configItemName) 
+    {
+        m_blastingRecipe = recipe;
+        m_bookInventorySlot = bookInventorySlot;
+        m_configItemName = configItemName;
+	}
+    
 	/**
      * Gets config item name
      * @return Name
@@ -66,12 +73,21 @@ public class CustomRecipe
     }
     
     /**
-     * Get the smoking recipe
-     * @return Smoking Recipe
+     * Get the blasting recipe
+     * @return Blasting Recipe
      */
     public SmokingRecipe GetSmokingRecipe()
     {
         return m_smokingRecipe;
+    }
+    
+    /**
+     * Get the smoking recipe
+     * @return Smoking Recipe
+     */
+    public BlastingRecipe GetBlastingRecipe()
+    {
+        return m_blastingRecipe;
     }
 
     /**
@@ -84,10 +100,12 @@ public class CustomRecipe
             return m_furnaceRecipe.getResult();
         else if(IsSmokingRecipe())
             return m_smokingRecipe.getResult();
+        else if(IsBlastingRecipe())
+            return m_blastingRecipe.getResult();
         else
             return m_recipe.getResult();
     }
-
+    
 	/**
      * Is this a furnace recipe
      * @return true if this is a furnace recipe, false otherwise
@@ -97,6 +115,15 @@ public class CustomRecipe
         return m_smokingRecipe != null;
     }
 
+	/**
+     * Is this a furnace recipe
+     * @return true if this is a furnace recipe, false otherwise
+     */
+    public boolean IsBlastingRecipe()
+    {
+        return m_blastingRecipe != null;
+    }
+    
 	/**
      * Is this a furnace recipe
      * @return true if this is a furnace recipe, false otherwise

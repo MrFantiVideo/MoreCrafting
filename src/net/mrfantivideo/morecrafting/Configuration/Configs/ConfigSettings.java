@@ -29,6 +29,8 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getConfigurationSection("recipes.furnace." + recipeName + "." + pathValue).getKeys(false);
         else if(m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
             return m_file.GetConfiguration().getConfigurationSection("recipes.smoking." + recipeName + "." + pathValue).getKeys(false);
+        else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.blasting." + recipeName + "." + pathValue).getKeys(false);
         return null;
     }
 
@@ -64,6 +66,17 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getConfigurationSection("recipes.smoking").getKeys(false);
         return null;
     }
+    
+    /**
+     * Get Furnace Recipes
+     * @return Furnace Recipes if exists, null otherwise
+     */
+    public Set<String> GetBlastingRecipes()
+    {
+        if(m_file.GetConfiguration().contains("recipes.blasting"))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.blasting").getKeys(false);
+        return null;
+    }
 
     /**
      * Get Recipe Value
@@ -80,6 +93,8 @@ public class ConfigSettings extends AbstractConfig
             return GetValue(type, "recipes.furnace." + recipeName + "." + pathValue);
         else if(m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
             return GetValue(type, "recipes.smoking." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
+            return GetValue(type, "recipes.blasting." + recipeName + "." + pathValue);
         else
             return null;
     }

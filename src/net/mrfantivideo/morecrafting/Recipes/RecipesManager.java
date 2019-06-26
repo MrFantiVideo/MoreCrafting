@@ -1,12 +1,14 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
 import net.mrfantivideo.morecrafting.Main;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.BlastingRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.FurnaceRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.RecipesBookLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.ShapedRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.SmokingRecipesLoader;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.SmokingRecipe;
@@ -118,6 +120,19 @@ public class RecipesManager
             return recipe.GetSmokingRecipe();
         return null;
     }
+    
+    /**
+     * Get recipe from Name
+     * @param recipeName Name
+     * @return FurnaceRecipe or null
+     */
+    public BlastingRecipe GetBlastingRecipe(String recipeName)
+    {
+        CustomRecipe recipe = GetRecipe(recipeName);
+        if(recipe != null && recipe.IsBlastingRecipe())
+            return recipe.GetBlastingRecipe();
+        return null;
+    }
 
     /**
      * Get all recipes
@@ -140,6 +155,8 @@ public class RecipesManager
             Main.GetInstance().getServer().addRecipe(recipe.GetFurnaceRecipe());
         else if(recipe.IsSmokingRecipe())
             Main.GetInstance().getServer().addRecipe(recipe.GetSmokingRecipe());
+        else if(recipe.IsBlastingRecipe())
+            Main.GetInstance().getServer().addRecipe(recipe.GetBlastingRecipe());
         else
             Main.GetInstance().getServer().addRecipe(recipe.GetRecipe());
     }
@@ -177,6 +194,7 @@ public class RecipesManager
         ShapedRecipesLoader.LoadShapedRecipes();
         FurnaceRecipesLoader.LoadFurnacesRecipes();
         SmokingRecipesLoader.LoadSmokingRecipes();
+        BlastingRecipesLoader.LoadBlastingRecipes();
         RecipesBookLoader.LoadRecipesBook();
     }
 }

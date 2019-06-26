@@ -284,6 +284,17 @@ recipes:
         slot:
           1: SNOW
           
+  blasting:
+    BLASTING-RECIPE-1:
+      enabled: true
+      smoking:
+        result:
+          id: DIAMOND_PICKAXE
+          id-amount: 1
+          id-book: 24
+        slot:
+          1: SNOW_BLOCK
+          
 others:
   book:
     enabled: true
