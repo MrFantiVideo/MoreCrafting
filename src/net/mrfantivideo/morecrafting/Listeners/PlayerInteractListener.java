@@ -40,7 +40,7 @@ public class PlayerInteractListener implements Listener
                         int inventorySize = Main.GetInstance().GetConfigSettings().GetValue(Integer.class, "others.book.gui.menu.size");
                         if(inventorySize <= 0)
                             return;
-                        String inventoryTitle = Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetGUITitleMain();
+                        String inventoryTitle = Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain();
                         if(inventoryTitle == null || inventoryTitle.isEmpty())
                             return;
                         Inventory inventory = Bukkit.createInventory(null, inventorySize, inventoryTitle);

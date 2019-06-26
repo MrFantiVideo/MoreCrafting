@@ -10,7 +10,9 @@ messages:
     gui-title: "&8MoreCrafting » "
   en_US:
     gui-title-main: "&8Main Menu"
-    gui-title-recipe: "&8Recipe"
+    gui-title-crafting: "&8Crafting"
+    gui-title-furnace: "&8Furnace"
+    gui-title-smoker: "&8Smoker"
     command-version: "&7Version &6%version% &7by &6Mr.FantiVideo&7. §8(%minecraft%)"
     command-unknown: "&cUnknown command."
     command-reload: "&aReload complete."

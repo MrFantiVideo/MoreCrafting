@@ -57,9 +57,27 @@ public class ConfigMessages extends AbstractConfig
      * Get GUI Title Recipe from config
      * @return GUI Title Recipe if exists, null otherwise
      */
-    public String GetGUITitleRecipe()
+    public String GetGUITitleCrafting()
     {
-        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-recipe");
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-crafting");
+    }
+    
+    /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleFurnace()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-furnace");
+    }
+    
+    /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleSmoker()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-smoker");
     }
 
     /**

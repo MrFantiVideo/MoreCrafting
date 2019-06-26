@@ -17,7 +17,7 @@ import java.util.Set;
 public final class SmokingRecipesLoader
 {
     /**
-     * Load Furnaces Recipes
+     * Load Smoking Recipes
      */
     public static void LoadSmokingRecipes()
     {
@@ -74,7 +74,7 @@ public final class SmokingRecipesLoader
      * @param result Recipe Result
      * @return ShapedRecipe is successfully loaded, null otherwise
      */
-    private static SmokingRecipe GetRecipe(ConfigSettings  config, String recipeName, ItemStack result)
+    private static SmokingRecipe GetRecipe(ConfigSettings config, String recipeName, ItemStack result)
     {
         String burnMaterial = config.GetRecipeValue(String.class, recipeName, "smoking.slot.1");
         if(burnMaterial == null || burnMaterial.isEmpty())
@@ -83,7 +83,7 @@ public final class SmokingRecipesLoader
         if(material == null)
             return null;
         @SuppressWarnings("deprecation")
-		SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), result, material, 0, 0);
+		SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), result, material, 10, 10);
         return recipe;
     }
 
