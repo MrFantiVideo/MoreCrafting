@@ -4,9 +4,13 @@ import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.FurnaceRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.RecipesBookLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.ShapedRecipesLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.SmokingRecipesLoader;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.SmokingRecipe;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -84,7 +88,7 @@ public class RecipesManager
     public ShapedRecipe GetShapedRecipe(String recipeName)
     {
         CustomRecipe recipe = GetRecipe(recipeName);
-        if(recipe != null && !recipe.IsFurnaceRecipe())
+        if(recipe != null && !recipe.IsFurnaceRecipe() && !recipe.IsSmokingRecipe())
             return recipe.GetRecipe();
         return null;
     }
@@ -99,6 +103,19 @@ public class RecipesManager
         CustomRecipe recipe = GetRecipe(recipeName);
         if(recipe != null && recipe.IsFurnaceRecipe())
             return recipe.GetFurnaceRecipe();
+        return null;
+    }
+    
+    /**
+     * Get recipe from Name
+     * @param recipeName Name
+     * @return FurnaceRecipe or null
+     */
+    public SmokingRecipe GetSmokingRecipe(String recipeName)
+    {
+        CustomRecipe recipe = GetRecipe(recipeName);
+        if(recipe != null && recipe.IsSmokingRecipe())
+            return recipe.GetSmokingRecipe();
         return null;
     }
 
@@ -121,6 +138,8 @@ public class RecipesManager
         m_recipes.put(recipeName, recipe);
         if(recipe.IsFurnaceRecipe())
             Main.GetInstance().getServer().addRecipe(recipe.GetFurnaceRecipe());
+        else if(recipe.IsSmokingRecipe())
+            Main.GetInstance().getServer().addRecipe(recipe.GetSmokingRecipe());
         else
             Main.GetInstance().getServer().addRecipe(recipe.GetRecipe());
     }
@@ -157,6 +176,7 @@ public class RecipesManager
         Clear();
         ShapedRecipesLoader.LoadShapedRecipes();
         FurnaceRecipesLoader.LoadFurnacesRecipes();
+        SmokingRecipesLoader.LoadSmokingRecipes();
         RecipesBookLoader.LoadRecipesBook();
     }
 }

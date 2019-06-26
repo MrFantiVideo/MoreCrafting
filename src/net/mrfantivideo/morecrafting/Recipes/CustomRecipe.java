@@ -3,12 +3,15 @@ package net.mrfantivideo.morecrafting.Recipes;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.SmokingRecipe;
 
 public class CustomRecipe
 {
     private ShapedRecipe m_recipe;
 
     private FurnaceRecipe m_furnaceRecipe;
+    
+    private SmokingRecipe m_smokingRecipe;
 
     private  String m_configItemName;
 
@@ -28,7 +31,14 @@ public class CustomRecipe
         m_configItemName = configItemName;
     }
 
-    /**
+    public CustomRecipe(SmokingRecipe recipe, int bookInventorySlot, String configItemName) 
+    {
+        m_smokingRecipe = recipe;
+        m_bookInventorySlot = bookInventorySlot;
+        m_configItemName = configItemName;
+	}
+
+	/**
      * Gets config item name
      * @return Name
      */
@@ -54,6 +64,15 @@ public class CustomRecipe
     {
         return m_furnaceRecipe;
     }
+    
+    /**
+     * Get the smoking recipe
+     * @return Smoking Recipe
+     */
+    public SmokingRecipe GetSmokingRecipe()
+    {
+        return m_smokingRecipe;
+    }
 
     /**
      * Get result
@@ -63,11 +82,22 @@ public class CustomRecipe
     {
         if(IsFurnaceRecipe())
             return m_furnaceRecipe.getResult();
+        else if(IsSmokingRecipe())
+            return m_smokingRecipe.getResult();
         else
             return m_recipe.getResult();
     }
 
-    /**
+	/**
+     * Is this a furnace recipe
+     * @return true if this is a furnace recipe, false otherwise
+     */
+    public boolean IsSmokingRecipe()
+    {
+        return m_smokingRecipe != null;
+    }
+
+	/**
      * Is this a furnace recipe
      * @return true if this is a furnace recipe, false otherwise
      */

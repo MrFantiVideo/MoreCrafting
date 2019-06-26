@@ -76,7 +76,8 @@ public final class ShapedRecipesLoader
      */
     private static ShapedRecipe GetRecipe(ConfigSettings  config, String recipeName, ItemStack result)
     {
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), result);
+        @SuppressWarnings("deprecation")
+		ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), result);
         recipe.shape("123", "456", "789");
         for(int i = 1; i <= 9; i++)
         {
@@ -117,4 +118,3 @@ public final class ShapedRecipesLoader
         }
     }
 }
-

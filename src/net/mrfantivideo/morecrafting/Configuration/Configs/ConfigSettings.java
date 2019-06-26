@@ -27,6 +27,8 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getConfigurationSection("recipes.crafting." + recipeName + "." + pathValue).getKeys(false);
         else if(m_file.GetConfiguration().contains("recipes.furnace." + recipeName + "." + pathValue))
             return m_file.GetConfiguration().getConfigurationSection("recipes.furnace." + recipeName + "." + pathValue).getKeys(false);
+        else if(m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.smoking." + recipeName + "." + pathValue).getKeys(false);
         return null;
     }
 
@@ -53,6 +55,17 @@ public class ConfigSettings extends AbstractConfig
     }
 
     /**
+     * Get Furnace Recipes
+     * @return Furnace Recipes if exists, null otherwise
+     */
+    public Set<String> GetSmokingRecipes()
+    {
+        if(m_file.GetConfiguration().contains("recipes.smoking"))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.smoking").getKeys(false);
+        return null;
+    }
+
+    /**
      * Get Recipe Value
      * @param type Return type
      * @param recipeName Recipe Name
@@ -65,6 +78,8 @@ public class ConfigSettings extends AbstractConfig
             return GetValue(type, "recipes.crafting." + recipeName + "." + pathValue);
         else if(m_file.GetConfiguration().contains("recipes.furnace." + recipeName + "." + pathValue))
             return GetValue(type, "recipes.furnace." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
+            return GetValue(type, "recipes.smoking." + recipeName + "." + pathValue);
         else
             return null;
     }
@@ -76,7 +91,8 @@ public class ConfigSettings extends AbstractConfig
      * @param <T> Return Type
      * @return Type value if exists, null otherwise
      */
-    public <T> T GetValue(Class<T> type, String path)
+    @SuppressWarnings("unchecked")
+	public <T> T GetValue(Class<T> type, String path)
     {
         if(m_file.GetConfiguration().contains(path))
             return (T)m_file.GetConfiguration().get(path);

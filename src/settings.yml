@@ -273,6 +273,17 @@ recipes:
 #        slot:
 #          1: GRASS
           
+  smoking:
+    SMOKING-RECIPE-1:
+      enabled: true
+      smoking:
+        result:
+          id: DIAMOND_SWORD
+          id-amount: 1
+          id-book: 23
+        slot:
+          1: SNOW
+          
 others:
   book:
     enabled: true

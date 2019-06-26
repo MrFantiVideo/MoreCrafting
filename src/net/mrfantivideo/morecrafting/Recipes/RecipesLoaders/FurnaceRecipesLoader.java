@@ -82,7 +82,8 @@ public final class FurnaceRecipesLoader
         Material material = Material.getMaterial(burnMaterial);
         if(material == null)
             return null;
-        FurnaceRecipe recipe = new FurnaceRecipe(result, material);
+        @SuppressWarnings("deprecation")
+		FurnaceRecipe recipe = new FurnaceRecipe(result, material);
         return recipe;
     }
 
