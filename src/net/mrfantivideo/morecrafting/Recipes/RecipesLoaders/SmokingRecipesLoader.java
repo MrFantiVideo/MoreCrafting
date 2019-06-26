@@ -22,7 +22,7 @@ public final class SmokingRecipesLoader
     public static void LoadSmokingRecipes()
     {
         ConfigSettings config = Main.GetInstance().GetConfigSettings();
-        for(String recipe : config.GetFurnaceRecipes())
+        for(String recipe : config.GetSmokingRecipes())
         {
             if(!config.GetRecipeValue(Boolean.class, recipe, "enabled"))
                 continue;
