@@ -1,26 +1,24 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
 import net.mrfantivideo.morecrafting.Main;
-import net.mrfantivideo.morecrafting.Utils.EConfig;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.FurnaceRecipesLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.RecipesBookLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.ShapedRecipesLoader;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.FurnaceRecipe;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import static net.mrfantivideo.morecrafting.Utils.ConfigUtils.Get;
 
 public class RecipesManager
 {
     private static RecipesManager s_instance;
 
+    /**
+     * Get Recipes Manager Instance
+     * @return Instance
+     */
     public static RecipesManager GetInstance()
     {
         return s_instance;
@@ -28,75 +26,77 @@ public class RecipesManager
 
     /**
      * Get recipe from id
-     * @param id
+     * @param recipeName Name
      * @return CustomRecipe or null
      */
-    public static CustomRecipe GetCustomRecipe(String id)
+    public static CustomRecipe GetCustomRecipe(String recipeName)
     {
-        return GetInstance().GetRecipe(id);
+        return GetInstance().GetRecipe(recipeName);
     }
 
     /**
      * Get shaped recipe from id
-     * @param id
+     * @param recipeName Name
      * @return ShapedRecipe or null
      */
-    public static ShapedRecipe GetCustomShapedRecipe(String id)
+    public static ShapedRecipe GetCustomShapedRecipe(String recipeName)
     {
-        return GetInstance().GetShapedRecipe(id);
+        return GetInstance().GetShapedRecipe(recipeName);
     }
 
     /**
      * Get recipe from id
-     * @param id
+     * @param recipeName Name
      * @return FurnaceRecipe or null
      */
-    public FurnaceRecipe GetCustomFurnaceRecipe(String id)
+    public FurnaceRecipe GetCustomFurnaceRecipe(String recipeName)
     {
-        return GetInstance().GetFurnaceRecipe(id);
+        return GetInstance().GetFurnaceRecipe(recipeName);
     }
 
-    private  Map<String, CustomRecipe> m_recipes = new HashMap<>();
+    private Map<String, CustomRecipe> m_recipes = new HashMap<>();
 
     public RecipesManager()
     {
+        if(s_instance != null)
+            return;
         s_instance = this;
         LoadRecipes();
     }
 
     /**
-     * Get recipe from id
-     * @param id
+     * Get recipe from name
+     * @param recipeName Name
      * @return CustomRecipe or null
      */
-    public CustomRecipe GetRecipe(String id)
+    public CustomRecipe GetRecipe(String recipeName)
     {
-        if(m_recipes.containsKey(id))
-            return m_recipes.get(id);
+        if(m_recipes.containsKey(recipeName))
+            return m_recipes.get(recipeName);
         return null;
     }
 
     /**
-     * Get shaped recipe from id
-     * @param id
+     * Get shaped recipe from Name
+     * @param recipeName Name
      * @return ShapedRecipe or null
      */
-    public ShapedRecipe GetShapedRecipe(String id)
+    public ShapedRecipe GetShapedRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(id);
+        CustomRecipe recipe = GetRecipe(recipeName);
         if(recipe != null && !recipe.IsFurnaceRecipe())
             return recipe.GetRecipe();
         return null;
     }
 
     /**
-     * Get recipe from id
-     * @param id
+     * Get recipe from Name
+     * @param recipeName Name
      * @return FurnaceRecipe or null
      */
-    public FurnaceRecipe GetFurnaceRecipe(String id)
+    public FurnaceRecipe GetFurnaceRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(id);
+        CustomRecipe recipe = GetRecipe(recipeName);
         if(recipe != null && recipe.IsFurnaceRecipe())
             return recipe.GetFurnaceRecipe();
         return null;
@@ -113,12 +113,12 @@ public class RecipesManager
 
     /**
      * Add a new recipe
-     * @param itemID
-     * @param recipe
+     * @param recipeName Recipe Name
+     * @param recipe Recipe
      */
-    public void AddRecipe(String itemID, CustomRecipe recipe)
+    public void AddRecipe(String recipeName, CustomRecipe recipe)
     {
-        m_recipes.put(itemID, recipe);
+        m_recipes.put(recipeName, recipe);
         if(recipe.IsFurnaceRecipe())
             Main.GetInstance().getServer().addRecipe(recipe.GetFurnaceRecipe());
         else
@@ -149,110 +149,14 @@ public class RecipesManager
         Main.GetInstance().getServer().resetRecipes();
     }
 
-    /*
-        Load Recipes
+    /**
+     * Load Recipes
      */
     public void LoadRecipes()
     {
         Clear();
-        LoadShapedRecipes();
-        LoadFurnaceRecipes();
-        LoadBook();
-    }
-
-    /*
-        Load Shaped Recipes
-     */
-    private void LoadShapedRecipes()
-    {
-        for(String str : Main.GetInstance().GetConfigSettings().GetConfiguration().getConfigurationSection("recipes.crafting").getKeys(false))
-        {
-            String itemPath = "recipes.crafting." + str + ".";
-            if(!Get(Boolean.class, EConfig.SETTINGS, itemPath + "enabled"))
-                continue;
-            String craftID = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.id");
-            String craftCustomName = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.name");
-            String craftCustomLore = Get(String.class, EConfig.SETTINGS, itemPath + "craft.result.lore");
-            String craftEnchant = Get(String.class, EConfig.SETTINGS, itemPath + "craft.enchantment.enchant");
-            int craftEnchantAmount = Get(Integer.class, EConfig.SETTINGS, itemPath + "craft.enchantment.enchant-amount");
-            int craftAmount = Get(Integer.class, EConfig.SETTINGS, itemPath + "craft.result.id-amount");
-            int bookInventorySlot = Get(Integer.class, EConfig.SETTINGS, itemPath + "craft.result.id-book");
-            ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
-            ItemMeta meta = result.getItemMeta();
-            if(craftCustomName != null && !craftCustomName.isEmpty())
-                meta.setDisplayName((craftCustomName).replace("&", "§"));
-            if(craftCustomLore != null && !craftCustomLore.isEmpty())
-                meta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
-            result.setItemMeta(meta);
-            if(craftEnchant != null && !craftEnchant.isEmpty())
-            {
-                Enchantment enchant = Enchantment.getByKey(NamespacedKey.minecraft(craftEnchant));
-                if(enchant != null)
-                    result.addUnsafeEnchantment(enchant, craftEnchantAmount);
-            }
-            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), result);
-            craft.shape("123", "456", "789");
-            for(int i = 1; i <= 9; i++)
-            {
-                String itemID = Get(String.class, EConfig.SETTINGS, itemPath + "craft.slots." + i);
-                if(itemID == null || itemID.isEmpty())
-                    continue;
-                craft.setIngredient(Integer.toString(i).charAt(0), Material.getMaterial(Get(String.class, EConfig.SETTINGS, itemPath + "craft.slots." + i)));
-            }
-            AddRecipe(craftID, new CustomRecipe(craft, bookInventorySlot, itemPath, str));
-        }
-    }
-
-    /*
-        Load Furnace Recipes
-     */
-    private void LoadFurnaceRecipes()
-    {
-        for(String str : Main.GetInstance().GetConfigSettings().GetConfiguration().getConfigurationSection("recipes.furnace").getKeys(false))
-        {
-            String itemPath = "recipes.furnace." + str + ".";
-            if(!Get(Boolean.class, EConfig.SETTINGS, itemPath + "enabled"))
-                continue;
-            String craftID = Get(String.class, EConfig.SETTINGS,itemPath + "fire.result.id");
-            String craftCustomName = Get(String.class, EConfig.SETTINGS, itemPath + "fire.result.name");
-            String craftCustomLore = Get(String.class, EConfig.SETTINGS, itemPath + "fire.result.lore");
-            int craftAmount = Get(Integer.class, EConfig.SETTINGS, itemPath + "fire.result.id-amount");
-            int bookInventorySlot = Get(Integer.class, EConfig.SETTINGS, itemPath + "fire.result.id-book");
-            ItemStack result = new ItemStack(Material.getMaterial(craftID), craftAmount);
-            ItemMeta meta = result.getItemMeta();
-            if(craftCustomName != null && !craftCustomName.isEmpty())
-                meta.setDisplayName((craftCustomName).replace("&", "§"));
-            if(craftCustomLore != null && !craftCustomLore.isEmpty())
-                meta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
-            result.setItemMeta(meta);
-            FurnaceRecipe recipe = new FurnaceRecipe(result, Material.getMaterial(Get(String.class, EConfig.SETTINGS, itemPath + "fire.slot.1")));
-            AddRecipe(craftID, new CustomRecipe(recipe, bookInventorySlot, itemPath, str));
-        }
-    }
-
-    /*
-        Load Book
-     */
-    private void LoadBook()
-    {
-        if(Get(Boolean.class, EConfig.SETTINGS, "others.book.enabled"))
-        {
-            String craftID = Get(String.class, EConfig.SETTINGS,"others.book.craft.result.id");
-            ItemStack book = new ItemStack(Material.getMaterial(craftID), 1);
-            ItemMeta meta = book.getItemMeta();
-            meta.setDisplayName(Get(String.class, EConfig.SETTINGS,"others.book.craft.result.name").replace("&", "§"));
-            meta.setLore(Arrays.asList(Get(String.class, EConfig.SETTINGS,"others.book.craft.result.lore").replace("&", "§")));
-            book.setItemMeta(meta);
-            ShapedRecipe craft = new ShapedRecipe(NamespacedKey.randomKey(), book);
-            craft.shape("123", "456", "789");
-            for(int i = 1; i <= 9; i++)
-            {
-                String itemID = Get(String.class, EConfig.SETTINGS,"others.book.craft.slots." + i);
-                if(itemID == null || itemID.isEmpty())
-                    continue;
-                craft.setIngredient(Integer.toString(i).charAt(0), Material.getMaterial(Get(String.class, EConfig.SETTINGS,"others.book.craft.slots." + i)));
-            }
-            AddRecipe(craftID, new CustomRecipe(craft, -1, null, null));
-        }
+        ShapedRecipesLoader.LoadShapedRecipes();
+        FurnaceRecipesLoader.LoadFurnacesRecipes();
+        RecipesBookLoader.LoadRecipesBook();
     }
 }

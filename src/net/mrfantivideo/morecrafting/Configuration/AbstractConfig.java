@@ -26,40 +26,45 @@ public abstract class AbstractConfig
         }
     }
 
-    /*
-        Gets CustomConfigFile
+    /**
+     * Get Custom Config File
+     * @return Custom Config File
      */
     public CustomConfigFile GetCustomFile()
     {
         return m_file;
     }
 
-    /*
-        Gets FileConfiguration
+    /**
+     * Get Configuration
+     * @return File Configuration
      */
     public FileConfiguration GetConfiguration()
     {
         return m_file.GetConfiguration();
     }
 
-    /*
-        Gets File
+    /**
+     * Get File
+     * @return File
      */
     public File GetFile()
     {
         return m_file.GetFile();
     }
 
-    /*
-        Gets File Name
+    /**
+     * Get File Name
+     * @return File Name
      */
     public String GetFileName()
     {
         return m_fileName;
     }
 
-    /*
-        Load config
+    /**
+     * Load File
+     * @throws IOException
      */
     protected void Load() throws IOException
     {
@@ -72,8 +77,8 @@ public abstract class AbstractConfig
         m_file = new CustomConfigFile(file, configuration);
     }
 
-    /*
-        Save config
+    /**
+     * Save Configuration
      */
     public void Save()
     {

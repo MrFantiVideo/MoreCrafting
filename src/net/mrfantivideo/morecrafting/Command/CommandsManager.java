@@ -4,28 +4,35 @@ import net.mrfantivideo.morecrafting.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandsManager implements CommandExecutor
 {
     private static CommandsManager s_instance;
-    private Map<String, AbstractCommand> m_commands = new HashMap<String, AbstractCommand>();
 
-    public CommandsManager()
-    {
-        s_instance = this;
-        Main.GetInstance().getCommand("morecrafting").setExecutor(this);
-    }
-
+    /**
+     * Get Commands Manager Instance
+     * @return
+     */
     public static CommandsManager GetInstance()
     {
         return s_instance;
     }
 
-    /*
-        Register a new command
+    private Map<String, AbstractCommand> m_commands = new HashMap<String, AbstractCommand>();
+
+    public CommandsManager()
+    {
+        if(s_instance != null)
+            return;
+        s_instance = this;
+        Main.GetInstance().getCommand("morecrafting").setExecutor(this);
+    }
+
+    /**
+     * Register a new command
+     * @param command Command to register
      */
     public void RegisterCommand(AbstractCommand command)
     {
@@ -34,8 +41,9 @@ public class CommandsManager implements CommandExecutor
         m_commands.put(command.GetCommandPrefix(), command);
     }
 
-    /*
-        Unregister the specified command
+    /**
+     * Unregister the specified command
+     * @param command Command to unregister
      */
     public void UnregisterCommand(AbstractCommand command)
     {
@@ -44,8 +52,13 @@ public class CommandsManager implements CommandExecutor
         m_commands.remove(command.GetCommandPrefix());
     }
 
-    /*
-        Handle commands
+    /**
+     * Handle Commands
+     * @param sender Command Sender
+     * @param cmd Command
+     * @param commandLabel Command Label
+     * @param args Command Arguments
+     * @return true if command succesfully executed, false otherwise
      */
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
@@ -60,13 +73,13 @@ public class CommandsManager implements CommandExecutor
                     if(command.HasPermission(sender))
                         return m_commands.get(commandLowered).Execute(sender, cmd, commandLabel, args);
                     else
-                        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".permission-denied").replace("&", "§"));
+                        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdPermissionDeniedMsg());
                 }
                 else
-                    sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-unknown").replace("&", "§"));
+                    sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdUnknownMsg());
             }
             else
-                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages.default.prefix").replace("&", "§") + Main.GetInstance().GetConfigMessages().GetConfiguration().getString("messages." + Main.GetInstance().GetConfigSettings().GetConfiguration().getString("language") + ".command-version").replace("&", "§").replace("%minecraft%", "Minecraft 1.14.2").replace("%version%", "3.0"));
+                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdVersionMsg().replace("%minecraft%", "Minecraft 1.14.2").replace("%version%", "3.0"));
         }
         return false;
     }

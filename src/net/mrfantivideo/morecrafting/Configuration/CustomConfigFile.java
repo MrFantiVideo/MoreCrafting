@@ -19,24 +19,27 @@ public class CustomConfigFile
         m_fileConfiguration = fileConfiguration;
     }
 
-    /*
-        Get File
+    /**
+     * Get File
+     * @return File
      */
     public File GetFile()
     {
         return m_file;
     }
 
-    /*
-        Get Configuration
+    /**
+     * Get Configuration
+     * @return File Configuration
      */
     public FileConfiguration GetConfiguration()
     {
         return m_fileConfiguration;
     }
 
-    /*
-        Set file
+    /**
+     * Set File
+     * @param file File
      */
     public void SetFile(File file)
     {
@@ -44,8 +47,8 @@ public class CustomConfigFile
         m_fileConfiguration = YamlConfiguration.loadConfiguration(file);
     }
 
-    /*
-        Save file
+    /**
+     * Save File
      */
     public void Save()
     {

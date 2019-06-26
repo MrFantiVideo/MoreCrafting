@@ -11,33 +11,21 @@ public class CustomRecipe
     private FurnaceRecipe m_furnaceRecipe;
 
     private  String m_configItemName;
-    private String m_configItemPath;
 
     private int m_bookInventorySlot;
 
-    public CustomRecipe(ShapedRecipe recipe, int bookInventorySlot, String configItemPath, String configItemName)
+    public CustomRecipe(ShapedRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_recipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
-        m_configItemPath = configItemPath;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(FurnaceRecipe recipe, int bookInventorySlot, String configItemPath, String configItemName)
+    public CustomRecipe(FurnaceRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_furnaceRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
-        m_configItemPath = configItemPath;
         m_configItemName = configItemName;
-    }
-
-    /**
-     * Gets config item path
-     * @return Path
-     */
-    public String GetConfigPath()
-    {
-        return m_configItemPath;
     }
 
     /**

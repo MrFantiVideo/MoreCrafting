@@ -5,7 +5,6 @@ import net.mrfantivideo.morecrafting.Configuration.CustomConfigFile;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Utils.LogUtils;
 import org.bukkit.configuration.file.YamlConfiguration;
-
 import java.io.File;
 
 public class ConfigMessages extends AbstractConfig
@@ -13,6 +12,126 @@ public class ConfigMessages extends AbstractConfig
     public ConfigMessages()
     {
         super("");
+    }
+
+    /**
+     * Get Message from config
+     * @param path Path to message
+     * @return Message if path is valid, null otherwise
+     */
+    public String GetMessage(String path)
+    {
+        if(m_file.GetConfiguration().contains(path))
+            return m_file.GetConfiguration().getString(path).replace("&", "§");
+        return null;
+    }
+
+    /**
+     * Get the prefix from config
+     * @return Prefix if exists, null otherwise
+     */
+    public String GetPrefix()
+    {
+        return GetMessage("messages.default.prefix");
+    }
+
+    /**
+     * Get GUI Title from config
+     * @return GUI Title if exists, null otherwise
+     */
+    public String GetGUITitle()
+    {
+        return GetMessage("messages.default.gui-title");
+    }
+
+    /**
+     * Get GUI Title Main from config
+     * @return GUI Title Main if exists, null otherwise
+     */
+    public String GetGUITitleMain()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-main");
+    }
+
+    /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleRecipe()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-recipe");
+    }
+
+    /**
+     * Get Cmd Version Message from config
+     * @return Cmd Version Message if exists, null otherwise
+     */
+    public String GetCmdVersionMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-version");
+    }
+
+    /**
+     * Get Cmd Unknown Message from config
+     * @return Cmd Unknown Message if exists, null otherwise
+     */
+    public String GetCmdUnknownMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-unknown");
+    }
+
+    /**
+     * Get Cmd Reload Message from config
+     * @return Cmd Reload Message if exists, null otherwise
+     */
+    public String GetCmdReloadMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-reload");
+    }
+
+    /**
+     * Get Cmd Help Message from config
+     * @return Cmd Help Message if exists, null otherwise
+     */
+    public String GetCmdHelpMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-help");
+    }
+
+    /**
+     * Get Cmd MoreCrafting Message from config
+     * @return Cmd MoreCrafting Message if exists, null otherwise
+     */
+    public String GetCmdMoreCraftingMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-help-morecrafting");
+    }
+
+    /**
+     * Get Cmd Help Book Message from config
+     * @return Cmd Help Book Message if exists, null otherwise
+     */
+    public String GetCmdHelpBookMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-help-book");
+    }
+
+    /**
+     * Get Cmd Help Reload Message from config
+     * @return Cmd Help Reload Message if exists, null otherwise
+     */
+    public String GetCmdHelpReloadMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".command-help-reload");
+    }
+
+    /**
+     * Get Cmd Permission Denied Message from config
+     * @return Cmd Permission Denied Message if exists, null otherwise
+     */
+    public String GetCmdPermissionDeniedMsg()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".permission-denied");
     }
 
     @Override

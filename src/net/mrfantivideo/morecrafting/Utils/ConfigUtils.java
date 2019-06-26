@@ -11,13 +11,16 @@ public class ConfigUtils
         switch(config)
         {
             case SETTINGS:
-                obj = Main.GetInstance().GetConfigSettings().GetConfiguration().get(path);
+                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.GetInstance().GetConfigSettings().GetConfiguration().get(path);
                 break;
             case MESSAGES:
-                obj = Main.GetInstance().GetConfigMessages().GetConfiguration().get(path);
+                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.GetInstance().GetConfigMessages().GetConfiguration().get(path);
                 break;
             case PERMISSIONS:
-                obj = Main.GetInstance().GetConfigPermissions().GetConfiguration().get(path);
+                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.GetInstance().GetConfigPermissions().GetConfiguration().get(path);
                 break;
         }
         if(obj != null)

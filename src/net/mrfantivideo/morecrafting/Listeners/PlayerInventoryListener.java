@@ -1,8 +1,8 @@
 package net.mrfantivideo.morecrafting.Listeners;
 
+import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
-import net.mrfantivideo.morecrafting.Utils.EConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,10 +13,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-
 import java.util.Map;
-
-import static net.mrfantivideo.morecrafting.Utils.ConfigUtils.Get;
 
 public class PlayerInventoryListener implements Listener
 {
@@ -29,31 +26,26 @@ public class PlayerInventoryListener implements Listener
 
         if(stack == null)
             return;
-        if(((inv.getTitle().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§")))))
+
+        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetGUITitleRecipe()))
         {
             event.setCancelled(true);
             return;
         }
 
-        if(((inv.getTitle().equalsIgnoreCase(Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-main").replace("&", "§")))))
-        {
+        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetGUITitleMain())) {
             CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByMaterial(stack.getType());
-            if(recipe != null)
-            {
+            if (recipe != null) {
                 Inventory inventory;
-                if(recipe.IsFurnaceRecipe())
-                {
-                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§"));
+                if (recipe.IsFurnaceRecipe()) {
+                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetGUITitleRecipe());
                     inventory.setItem(0, recipe.GetFurnaceRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
-                }
-                else
-                {
-                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Get(String.class, EConfig.MESSAGES, "messages.default.prefix").replace("&", "§") + Get(String.class, EConfig.MESSAGES, "messages." + Get(String.class, EConfig.SETTINGS, "language") + "." + "gui-title-recipe").replace("&", "§"));
-                    for(Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet())
-                    {
-                        if(entry.getValue() == null)
+                } else {
+                    inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetGUITitleRecipe());
+                    for (Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet()) {
+                        if (entry.getValue() == null)
                             continue;
                         inventory.setItem(Integer.valueOf(entry.getKey().toString()), entry.getValue().clone());
                     }
