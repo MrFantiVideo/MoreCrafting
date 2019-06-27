@@ -281,13 +281,15 @@ recipes:
           id: DIAMOND_SWORD
           id-amount: 1
           id-book: 23
+          experience: 10
+          cooking-time: 10
         slot:
           1: SNOW
           
   blasting:
     BLASTING-RECIPE-1:
       enabled: true
-      smoking:
+      blasting:
         result:
           id: DIAMOND_PICKAXE
           id-amount: 1
@@ -301,7 +303,7 @@ others:
     give-book: true
     craft:
       result:
-        name: "&eMoreCrafting"
+        name: "&6MoreCrafting"
         lore: "&7by Mr.FantiVideo"
         id: KNOWLEDGE_BOOK
         id-amount: 1
