@@ -90,6 +90,15 @@ public class ConfigMessages extends AbstractConfig
     }
 
     /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleStonecutting()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-stonecutting");
+    }
+    
+    /**
      * Get Cmd Version Message from config
      * @return Cmd Version Message if exists, null otherwise
      */

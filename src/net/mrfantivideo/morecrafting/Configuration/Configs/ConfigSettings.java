@@ -31,6 +31,8 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getConfigurationSection("recipes.smoking." + recipeName + "." + pathValue).getKeys(false);
         else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
             return m_file.GetConfiguration().getConfigurationSection("recipes.blasting." + recipeName + "." + pathValue).getKeys(false);
+        else if(m_file.GetConfiguration().contains("recipes.stonecutting." + recipeName + "." + pathValue))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.stonecutting." + recipeName + "." + pathValue).getKeys(false);
         return null;
     }
 
@@ -77,6 +79,17 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getConfigurationSection("recipes.blasting").getKeys(false);
         return null;
     }
+    
+    /**
+     * Get Furnace Recipes
+     * @return Furnace Recipes if exists, null otherwise
+     */
+    public Set<String> GetStonecuttingRecipes()
+    {
+        if(m_file.GetConfiguration().contains("recipes.stonecutting"))
+            return m_file.GetConfiguration().getConfigurationSection("recipes.stonecutting").getKeys(false);
+        return null;
+    }
 
     /**
      * Get Recipe Value
@@ -95,6 +108,8 @@ public class ConfigSettings extends AbstractConfig
             return GetValue(type, "recipes.smoking." + recipeName + "." + pathValue);
         else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
             return GetValue(type, "recipes.blasting." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.stonecutting." + recipeName + "." + pathValue))
+            return GetValue(type, "recipes.stonecutting." + recipeName + "." + pathValue);
         else
             return null;
     }
@@ -116,6 +131,8 @@ public class ConfigSettings extends AbstractConfig
             return GetValueFloat(type, "recipes.smoking." + recipeName + "." + pathValue);
         else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
             return GetValueFloat(type, "recipes.blasting." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.stonecutting." + recipeName + "." + pathValue))
+            return GetValueFloat(type, "recipes.stonecutting." + recipeName + "." + pathValue);
 		return 0;
     }
 

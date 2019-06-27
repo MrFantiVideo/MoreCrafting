@@ -14,6 +14,7 @@ messages:
     gui-title-furnace: "&8Furnace"
     gui-title-smoker: "&8Smoker"
     gui-title-blasting: "&8Blast Furnace"
+    gui-title-blasting: "&8Stonecutting"
     command-version: "&7Version &6%version% &7by &6Mr.FantiVideo&7. §8(%minecraft%)"
     command-unknown: "&cUnknown command."
     command-reload: "&aReload complete."

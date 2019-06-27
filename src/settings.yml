@@ -31,7 +31,7 @@ recipes:
         result:
           id: GRASS_BLOCK
           id-amount: 6
-          id-book: 1
+          id-book: 0
           enchantments:
             arrowDmg:
               enchant: ARROW_DAMAGE
@@ -52,7 +52,7 @@ recipes:
         result:
           id: GRASS_PATH
           id-amount: 6
-          id-book: 5
+          id-book: 1
         slots:
           1: STICK
           2: STICK
@@ -69,7 +69,7 @@ recipes:
         result:
           id: SADDLE
           id-amount: 1
-          id-book: 6
+          id-book: 2
         slots:
           1: LEATHER
           2: LEATHER
@@ -86,7 +86,7 @@ recipes:
         result:
           id: NAME_TAG
           id-amount: 1
-          id-book: 7
+          id-book: 3
         slots:
           1: IRON_INGOT
           2: LEAD
@@ -99,10 +99,9 @@ recipes:
       enabled: true
       craft:
         result:
-          lore: "&7(Crafting)"
           id: ICE
           id-amount: 1
-          id-book: 8
+          id-book: 4
         slots:
           1: SNOWBALL
           2: SNOWBALL
@@ -113,6 +112,7 @@ recipes:
           7: SNOWBALL
           8: SNOWBALL
           9: SNOWBALL
+
 #    EXEMPLE-CRAFTING:
 #      enabled: true
 #      fire:
@@ -141,7 +141,7 @@ recipes:
           id: QUARTZ_BLOCK
           id-amount: 1
           id-book: 9
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: SMOOTH_QUARTZ
@@ -152,7 +152,7 @@ recipes:
           id: RED_SANDSTONE
           id-amount: 1
           id-book: 10
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: SMOOTH_RED_SANDSTONE
@@ -163,7 +163,7 @@ recipes:
           id: SANDSTONE
           id-amount: 1
           id-book: 11
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: SMOOTH_SANDSTONE
@@ -174,7 +174,7 @@ recipes:
           id: STONE
           id-amount: 1
           id-book: 12
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: SMOOTH_STONE
@@ -185,7 +185,7 @@ recipes:
           id: BRICK
           id-amount: 4
           id-book: 13
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: BRICKS
@@ -196,7 +196,7 @@ recipes:
           id: NETHER_BRICK
           id-amount: 4
           id-book: 14
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: NETHER_BRICKS
@@ -207,7 +207,7 @@ recipes:
           id: END_STONE
           id-amount: 4
           id-book: 15
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: END_STONE_BRICKS
@@ -218,7 +218,7 @@ recipes:
           id: POPPED_CHORUS_FRUIT
           id-amount: 1
           id-book: 16
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: PURPUR_BLOCK
@@ -229,7 +229,7 @@ recipes:
           id: PRISMARINE_SHARD
           id-amount: 4
           id-book: 17
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: PRISMARINE
@@ -240,7 +240,7 @@ recipes:
           id: QUARTZ
           id-amount: 4
           id-book: 18
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: QUARTZ_BLOCK
@@ -251,7 +251,7 @@ recipes:
           id: MAGMA_CREAM
           id-amount: 4
           id-book: 19
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: MAGMA_BLOCK
@@ -262,7 +262,7 @@ recipes:
           id: PACKED_ICE
           id-amount: 9
           id-book: 20
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: BLUE_ICE
@@ -270,11 +270,10 @@ recipes:
       enabled: true
       fire:
         result:
-          lore: "&7(Furnace)"
           id: ICE
           id-amount: 9
           id-book: 21
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: PACKED_ICE
@@ -285,10 +284,11 @@ recipes:
           id: SNOWBALL
           id-amount: 4
           id-book: 22
-          experience: 100
+          experience: 0.10
           cooking-time: 100
         slot:
           1: SNOW_BLOCK
+
 #    EXEMPLE-FURNACE:
 #      enabled: true
 #      fire:
@@ -309,8 +309,8 @@ recipes:
           id: DIAMOND_SWORD
           id-amount: 1
           id-book: 23
-          experience: 100
-          cooking-time: 100
+          experience: 0.10
+          cooking-time: 75
         slot:
           1: SNOW
           
@@ -322,8 +322,19 @@ recipes:
           id: DIAMOND_PICKAXE
           id-amount: 1
           id-book: 24
-          experience: 10
-          cooking-time: 10
+          experience: 0.10
+          cooking-time: 50
+        slot:
+          1: SNOW_BLOCK
+          
+  stonecutting:
+    STONECUTTING-RECIPE-1:
+      enabled: true
+      stonecutting:
+        result:
+          id: DIAMOND_PICKAXE
+          id-amount: 1
+          id-book: 25
         slot:
           1: SNOW_BLOCK
           
