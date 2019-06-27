@@ -141,6 +141,8 @@ recipes:
           id: QUARTZ_BLOCK
           id-amount: 1
           id-book: 9
+          experience: 100
+          cooking-time: 100
         slot:
           1: SMOOTH_QUARTZ
     FIRE-RECIPE-2:
@@ -150,6 +152,8 @@ recipes:
           id: RED_SANDSTONE
           id-amount: 1
           id-book: 10
+          experience: 100
+          cooking-time: 100
         slot:
           1: SMOOTH_RED_SANDSTONE
     FIRE-RECIPE-3:
@@ -159,6 +163,8 @@ recipes:
           id: SANDSTONE
           id-amount: 1
           id-book: 11
+          experience: 100
+          cooking-time: 100
         slot:
           1: SMOOTH_SANDSTONE
     FIRE-RECIPE-4:
@@ -168,6 +174,8 @@ recipes:
           id: STONE
           id-amount: 1
           id-book: 12
+          experience: 100
+          cooking-time: 100
         slot:
           1: SMOOTH_STONE
     FIRE-RECIPE-5:
@@ -177,6 +185,8 @@ recipes:
           id: BRICK
           id-amount: 4
           id-book: 13
+          experience: 100
+          cooking-time: 100
         slot:
           1: BRICKS
     FIRE-RECIPE-6:
@@ -186,6 +196,8 @@ recipes:
           id: NETHER_BRICK
           id-amount: 4
           id-book: 14
+          experience: 100
+          cooking-time: 100
         slot:
           1: NETHER_BRICKS
     FIRE-RECIPE-7:
@@ -195,6 +207,8 @@ recipes:
           id: END_STONE
           id-amount: 4
           id-book: 15
+          experience: 100
+          cooking-time: 100
         slot:
           1: END_STONE_BRICKS
     FIRE-RECIPE-8:
@@ -204,6 +218,8 @@ recipes:
           id: POPPED_CHORUS_FRUIT
           id-amount: 1
           id-book: 16
+          experience: 100
+          cooking-time: 100
         slot:
           1: PURPUR_BLOCK
     FIRE-RECIPE-9:
@@ -213,6 +229,8 @@ recipes:
           id: PRISMARINE_SHARD
           id-amount: 4
           id-book: 17
+          experience: 100
+          cooking-time: 100
         slot:
           1: PRISMARINE
     FIRE-RECIPE-10:
@@ -222,6 +240,8 @@ recipes:
           id: QUARTZ
           id-amount: 4
           id-book: 18
+          experience: 100
+          cooking-time: 100
         slot:
           1: QUARTZ_BLOCK
     FIRE-RECIPE-11:
@@ -231,6 +251,8 @@ recipes:
           id: MAGMA_CREAM
           id-amount: 4
           id-book: 19
+          experience: 100
+          cooking-time: 100
         slot:
           1: MAGMA_BLOCK
     FIRE-RECIPE-12:
@@ -240,6 +262,8 @@ recipes:
           id: PACKED_ICE
           id-amount: 9
           id-book: 20
+          experience: 100
+          cooking-time: 100
         slot:
           1: BLUE_ICE
     FIRE-RECIPE-13:
@@ -250,6 +274,8 @@ recipes:
           id: ICE
           id-amount: 9
           id-book: 21
+          experience: 100
+          cooking-time: 100
         slot:
           1: PACKED_ICE
     FIRE-RECIPE-14:
@@ -259,6 +285,8 @@ recipes:
           id: SNOWBALL
           id-amount: 4
           id-book: 22
+          experience: 100
+          cooking-time: 100
         slot:
           1: SNOW_BLOCK
 #    EXEMPLE-FURNACE:
@@ -281,8 +309,8 @@ recipes:
           id: DIAMOND_SWORD
           id-amount: 1
           id-book: 23
-          experience: 10
-          cooking-time: 10
+          experience: 100
+          cooking-time: 100
         slot:
           1: SNOW
           
@@ -294,6 +322,8 @@ recipes:
           id: DIAMOND_PICKAXE
           id-amount: 1
           id-book: 24
+          experience: 10
+          cooking-time: 10
         slot:
           1: SNOW_BLOCK
           

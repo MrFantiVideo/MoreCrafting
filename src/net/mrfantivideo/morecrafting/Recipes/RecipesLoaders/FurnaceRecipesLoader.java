@@ -82,8 +82,10 @@ public final class FurnaceRecipesLoader
         Material material = Material.getMaterial(burnMaterial);
         if(material == null)
             return null;
-        @SuppressWarnings("deprecation")
-		FurnaceRecipe recipe = new FurnaceRecipe(result, material);
+        float experience = config.GetRecipeValueFloat(Float.class, recipeName, "fire.result.experience");
+        int cookingtime = config.GetRecipeValue(Integer.class, recipeName, "fire.result.cooking-time");
+		@SuppressWarnings("deprecation")
+		FurnaceRecipe recipe = new FurnaceRecipe(NamespacedKey.randomKey(), result, material, experience, cookingtime);
         return recipe;
     }
 

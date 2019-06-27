@@ -82,8 +82,10 @@ public final class BlastingRecipesLoader
         Material material = Material.getMaterial(burnMaterial);
         if(material == null)
             return null;
-        @SuppressWarnings("deprecation")
-		BlastingRecipe recipe = new BlastingRecipe(NamespacedKey.randomKey(), result, material, 10, 10);
+        float experience = config.GetRecipeValueFloat(Float.class, recipeName, "blasting.result.experience");
+        int cookingtime = config.GetRecipeValue(Integer.class, recipeName, "blasting.result.cooking-time");
+		@SuppressWarnings("deprecation")
+		BlastingRecipe recipe = new BlastingRecipe(NamespacedKey.randomKey(), result, material, experience, cookingtime);
         return recipe;
     }
 

@@ -82,7 +82,7 @@ public final class SmokingRecipesLoader
         Material material = Material.getMaterial(burnMaterial);
         if(material == null)
             return null;
-        Float experience = config.GetRecipeValue(Float.class, recipeName, "smoking.result.experience");
+        float experience = config.GetRecipeValueFloat(Float.class, recipeName, "smoking.result.experience");
         int cookingtime = config.GetRecipeValue(Integer.class, recipeName, "smoking.result.cooking-time");
 		@SuppressWarnings("deprecation")
 		SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), result, material, experience, cookingtime);

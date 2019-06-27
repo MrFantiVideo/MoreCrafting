@@ -98,7 +98,43 @@ public class ConfigSettings extends AbstractConfig
         else
             return null;
     }
+    
+    /**
+     * Get Recipe Value
+     * @param type Return type
+     * @param recipeName Recipe Name
+     * @param pathValue Path To Value
+     * @return 
+     */
+    public <T> float GetRecipeValueFloat(Class<T> type, String recipeName, String pathValue)
+    {
+        if(m_file.GetConfiguration().contains("recipes.crafting." + recipeName + "." + pathValue))
+            return GetValueFloat(type, "recipes.crafting." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.furnace." + recipeName + "." + pathValue))
+            return GetValueFloat(type, "recipes.furnace." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
+            return GetValueFloat(type, "recipes.smoking." + recipeName + "." + pathValue);
+        else if(m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
+            return GetValueFloat(type, "recipes.blasting." + recipeName + "." + pathValue);
+		return 0;
+    }
 
+    /**
+     * Get Value
+     * @param type Return type
+     * @param path Path
+     * @param <T> Return Type
+     * @return Type value if exists, null otherwise
+     */
+    @SuppressWarnings({ "null" })
+	public <T> float GetValueFloat(Class<T> type, String path)
+    {
+        if(m_file.GetConfiguration().contains(path))
+            return (float)m_file.GetConfiguration().getDouble(path);
+        else
+            return (Float) null;
+    }
+    
     /**
      * Get Value
      * @param type Return type
