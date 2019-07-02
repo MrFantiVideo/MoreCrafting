@@ -277,17 +277,6 @@ recipes:
           cooking-time: 100
         slot:
           1: PACKED_ICE
-    FIRE-RECIPE-14:
-      enabled: true
-      fire:
-        result:
-          id: SNOWBALL
-          id-amount: 4
-          id-book: 22
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: SNOW_BLOCK
 
 #    EXEMPLE-FURNACE:
 #      enabled: true
@@ -343,9 +332,29 @@ recipes:
       enabled: true
       campfire:
         result:
-          id: DIAMOND_HOE
-          id-amount: 1
-          id-book: 26
+          id: PACKED_ICE
+          id-amount: 9
+          id-book: 20
+          cooking-time: 50
+        slot:
+          1: BLUE_ICE
+    CAMPFIRE-RECIPE-2:
+      enabled: true
+      campfire:
+        result:
+          id: ICE
+          id-amount: 9
+          id-book: 21
+          cooking-time: 50
+        slot:
+          1: PACKED_ICE
+    CAMPFIRE-RECIPE-3:
+      enabled: true
+      campfire:
+        result:
+          id: SNOWBALL
+          id-amount: 4
+          id-book: 22
           cooking-time: 50
         slot:
           1: SNOW_BLOCK
