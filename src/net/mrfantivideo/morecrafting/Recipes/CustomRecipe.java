@@ -1,6 +1,7 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
 import org.bukkit.inventory.BlastingRecipe;
+import org.bukkit.inventory.CampfireRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
@@ -14,6 +15,7 @@ public class CustomRecipe
     private SmokingRecipe m_smokingRecipe;
     private BlastingRecipe m_blastingRecipe;
     private StonecuttingRecipe m_stonecuttingRecipe;
+    private CampfireRecipe m_campfireRecipe;
 
     private  String m_configItemName;
 
@@ -50,6 +52,13 @@ public class CustomRecipe
     public CustomRecipe(StonecuttingRecipe recipe, int bookInventorySlot, String configItemName) 
     {
         m_stonecuttingRecipe = recipe;
+        m_bookInventorySlot = bookInventorySlot;
+        m_configItemName = configItemName;
+	}
+    
+    public CustomRecipe(CampfireRecipe recipe, int bookInventorySlot, String configItemName) 
+    {
+        m_campfireRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
 	}
@@ -103,9 +112,18 @@ public class CustomRecipe
      * Get the stonecutting recipe
      * @return Stonecutting Recipe
      */
-    public BlastingRecipe GetStonecuttingRecipe()
+    public StonecuttingRecipe GetStonecuttingRecipe()
     {
-        return m_blastingRecipe;
+        return m_stonecuttingRecipe;
+    }
+    
+    /**
+     * Get the campfire recipe
+     * @return Campire Recipe
+     */
+    public CampfireRecipe GetCampfireRecipe()
+    {
+        return m_campfireRecipe;
     }
 
     /**
@@ -122,6 +140,8 @@ public class CustomRecipe
             return m_blastingRecipe.getResult();
         else if(IsStonecuttingRecipe())
             return m_stonecuttingRecipe.getResult();
+        else if(IsCampfireRecipe())
+            return m_campfireRecipe.getResult();
         else
             return m_recipe.getResult();
     }
@@ -151,6 +171,15 @@ public class CustomRecipe
     public boolean IsStonecuttingRecipe()
     {
         return m_stonecuttingRecipe != null;
+    }
+    
+	/**
+     * Is this a furnace recipe
+     * @return true if this is a furnace recipe, false otherwise
+     */
+    public boolean IsCampfireRecipe()
+    {
+        return m_campfireRecipe != null;
     }
     
 	/**

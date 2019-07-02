@@ -332,9 +332,21 @@ recipes:
       enabled: true
       stonecutting:
         result:
-          id: DIAMOND_PICKAXE
+          id: DIAMOND_HOE
           id-amount: 1
           id-book: 25
+        slot:
+          1: SNOW_BLOCK
+          
+  campfire:
+    CAMPFIRE-RECIPE-1:
+      enabled: true
+      campfire:
+        result:
+          id: DIAMOND_HOE
+          id-amount: 1
+          id-book: 26
+          cooking-time: 50
         slot:
           1: SNOW_BLOCK
           

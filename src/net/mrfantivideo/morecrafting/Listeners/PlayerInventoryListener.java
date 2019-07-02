@@ -56,6 +56,12 @@ public class PlayerInventoryListener implements Listener
             event.setCancelled(true);
             return;
         }
+        
+        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCampfire()))
+        {
+            event.setCancelled(true);
+            return;
+        }
 
         if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain())) {
             CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByMaterial(stack.getType());
@@ -77,9 +83,14 @@ public class PlayerInventoryListener implements Listener
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
                 } else if (recipe.IsStonecuttingRecipe()) {
-                    inventory = Bukkit.createInventory(null, InventoryType.STONECUTTER, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting());
-                    inventory.setItem(0, recipe.GetBlastingRecipe().getInput().clone());
+                    inventory = Bukkit.createInventory(null, InventoryType.STONECUTTER, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleStonecutting());
+                    inventory.setItem(0, recipe.GetStonecuttingRecipe().getInput().clone());
                     inventory.setItem(1, recipe.GetResult().clone());
+                } else if (recipe.IsCampfireRecipe()) {
+                    inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCampfire());
+                    inventory.setItem(0, recipe.GetCampfireRecipe().getInput().clone());
+                    inventory.setItem(1, new ItemStack(Material.CAMPFIRE));
+                    inventory.setItem(2, recipe.GetResult().clone());
                 } else {
                     inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCrafting());
                     for (Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet()) {

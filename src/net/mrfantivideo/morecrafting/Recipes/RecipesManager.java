@@ -2,16 +2,20 @@ package net.mrfantivideo.morecrafting.Recipes;
 
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.BlastingRecipesLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.CampfireRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.FurnaceRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.RecipesBookLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.ShapedRecipesLoader;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.SmokingRecipesLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.StonecuttingRecipesLoader;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.BlastingRecipe;
+import org.bukkit.inventory.CampfireRecipe;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.SmokingRecipe;
+import org.bukkit.inventory.StonecuttingRecipe;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -133,6 +137,32 @@ public class RecipesManager
             return recipe.GetBlastingRecipe();
         return null;
     }
+    
+    /**
+     * Get recipe from Name
+     * @param recipeName Name
+     * @return FurnaceRecipe or null
+     */
+    public StonecuttingRecipe GetStonecuttingRecipe(String recipeName)
+    {
+        CustomRecipe recipe = GetRecipe(recipeName);
+        if(recipe != null && recipe.IsStonecuttingRecipe())
+            return recipe.GetStonecuttingRecipe();
+        return null;
+    }
+    
+    /**
+     * Get recipe from Name
+     * @param recipeName Name
+     * @return FurnaceRecipe or null
+     */
+    public CampfireRecipe GetCampfireRecipe(String recipeName)
+    {
+        CustomRecipe recipe = GetRecipe(recipeName);
+        if(recipe != null && recipe.IsCampfireRecipe())
+            return recipe.GetCampfireRecipe();
+        return null;
+    }
 
     /**
      * Get all recipes
@@ -157,6 +187,10 @@ public class RecipesManager
             Main.GetInstance().getServer().addRecipe(recipe.GetSmokingRecipe());
         else if(recipe.IsBlastingRecipe())
             Main.GetInstance().getServer().addRecipe(recipe.GetBlastingRecipe());
+        else if(recipe.IsStonecuttingRecipe())
+            Main.GetInstance().getServer().addRecipe(recipe.GetStonecuttingRecipe());
+        else if(recipe.IsCampfireRecipe())
+            Main.GetInstance().getServer().addRecipe(recipe.GetCampfireRecipe());
         else
             Main.GetInstance().getServer().addRecipe(recipe.GetRecipe());
     }
@@ -195,6 +229,8 @@ public class RecipesManager
         FurnaceRecipesLoader.LoadFurnacesRecipes();
         SmokingRecipesLoader.LoadSmokingRecipes();
         BlastingRecipesLoader.LoadBlastingRecipes();
+        StonecuttingRecipesLoader.LoadStonecuttingRecipes();
+        CampfireRecipesLoader.LoadCampfireRecipes();
         RecipesBookLoader.LoadRecipesBook();
     }
 }

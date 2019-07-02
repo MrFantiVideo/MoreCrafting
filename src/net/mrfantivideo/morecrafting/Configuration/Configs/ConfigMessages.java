@@ -99,6 +99,15 @@ public class ConfigMessages extends AbstractConfig
     }
     
     /**
+     * Get GUI Title Recipe from config
+     * @return GUI Title Recipe if exists, null otherwise
+     */
+    public String GetGUITitleCampfire()
+    {
+        return GetMessage("messages." + Main.GetInstance().GetConfigSettings().GetLanguage() + ".gui-title-campfire");
+    }
+    
+    /**
      * Get Cmd Version Message from config
      * @return Cmd Version Message if exists, null otherwise
      */
