@@ -1,5 +1,6 @@
 package net.mrfantivideo.morecrafting.Listeners;
 
+import net.mrfantivideo.morecrafting.Items.CustomStack;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
@@ -13,57 +14,51 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+
 import java.util.Map;
 
-public class PlayerInventoryListener implements Listener
-{
+public class PlayerInventoryListener implements Listener {
     @EventHandler
-    public void OnPlayerInventoryClick(InventoryClickEvent event)
-    {
+    public void OnPlayerInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         InventoryView inv = event.getView();
         ItemStack stack = event.getCurrentItem();
+        CustomStack cStack = (stack instanceof CustomStack) ? (CustomStack)stack : null;
 
-        if(stack == null)
+        if (stack == null || cStack == null)
             return;
 
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCrafting()))
-        {
-            event.setCancelled(true);
-            return;
-        }
-        
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleFurnace()))
-        {
-            event.setCancelled(true);
-            return;
-        }
-        
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleSmoker()))
-        {
-            event.setCancelled(true);
-            return;
-        }
-        
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting()))
-        {
-            event.setCancelled(true);
-            return;
-        }
-        
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleStonecutting()))
-        {
-            event.setCancelled(true);
-            return;
-        }
-        
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCampfire()))
-        {
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCrafting())) {
             event.setCancelled(true);
             return;
         }
 
-        if(inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain())) {
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleFurnace())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleSmoker())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleStonecutting())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCampfire())) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain())) {
             CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByMaterial(stack.getType());
             if (recipe != null) {
                 Inventory inventory;

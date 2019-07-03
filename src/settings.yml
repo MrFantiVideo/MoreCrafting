@@ -136,7 +136,7 @@ recipes:
   furnace:
     FIRE-RECIPE-1:
       enabled: true
-      fire:
+      craft:
         result:
           id: QUARTZ_BLOCK
           id-amount: 1
@@ -147,7 +147,7 @@ recipes:
           1: SMOOTH_QUARTZ
     FIRE-RECIPE-2:
       enabled: true
-      fire:
+      craft:
         result:
           id: RED_SANDSTONE
           id-amount: 1
@@ -158,7 +158,7 @@ recipes:
           1: SMOOTH_RED_SANDSTONE
     FIRE-RECIPE-3:
       enabled: true
-      fire:
+      craft:
         result:
           id: SANDSTONE
           id-amount: 1
@@ -169,7 +169,7 @@ recipes:
           1: SMOOTH_SANDSTONE
     FIRE-RECIPE-4:
       enabled: true
-      fire:
+      craft:
         result:
           id: STONE
           id-amount: 1
@@ -180,7 +180,7 @@ recipes:
           1: SMOOTH_STONE
     FIRE-RECIPE-5:
       enabled: true
-      fire:
+      craft:
         result:
           id: BRICK
           id-amount: 4
@@ -191,7 +191,7 @@ recipes:
           1: BRICKS
     FIRE-RECIPE-6:
       enabled: true
-      fire:
+      craft:
         result:
           id: NETHER_BRICK
           id-amount: 4
@@ -202,7 +202,7 @@ recipes:
           1: NETHER_BRICKS
     FIRE-RECIPE-7:
       enabled: true
-      fire:
+      craft:
         result:
           id: END_STONE
           id-amount: 4
@@ -213,7 +213,7 @@ recipes:
           1: END_STONE_BRICKS
     FIRE-RECIPE-8:
       enabled: true
-      fire:
+      craft:
         result:
           id: POPPED_CHORUS_FRUIT
           id-amount: 1
@@ -224,7 +224,7 @@ recipes:
           1: PURPUR_BLOCK
     FIRE-RECIPE-9:
       enabled: true
-      fire:
+      craft:
         result:
           id: PRISMARINE_SHARD
           id-amount: 4
@@ -235,7 +235,7 @@ recipes:
           1: PRISMARINE
     FIRE-RECIPE-10:
       enabled: true
-      fire:
+      craft:
         result:
           id: QUARTZ
           id-amount: 4
@@ -246,7 +246,7 @@ recipes:
           1: QUARTZ_BLOCK
     FIRE-RECIPE-11:
       enabled: true
-      fire:
+      craft:
         result:
           id: MAGMA_CREAM
           id-amount: 4
@@ -257,7 +257,7 @@ recipes:
           1: MAGMA_BLOCK
     FIRE-RECIPE-12:
       enabled: true
-      fire:
+      craft:
         result:
           id: PACKED_ICE
           id-amount: 9
@@ -268,7 +268,7 @@ recipes:
           1: BLUE_ICE
     FIRE-RECIPE-13:
       enabled: true
-      fire:
+      craft:
         result:
           id: ICE
           id-amount: 9
@@ -293,7 +293,7 @@ recipes:
   smoking:
     SMOKING-RECIPE-1:
       enabled: true
-      smoking:
+      craft:
         result:
           id: DIAMOND_SWORD
           id-amount: 1
@@ -306,7 +306,7 @@ recipes:
   blasting:
     BLASTING-RECIPE-1:
       enabled: true
-      blasting:
+      craft:
         result:
           id: DIAMOND_PICKAXE
           id-amount: 1
@@ -319,7 +319,7 @@ recipes:
   stonecutting:
     STONECUTTING-RECIPE-1:
       enabled: true
-      stonecutting:
+      craft:
         result:
           id: DIAMOND_HOE
           id-amount: 1
@@ -330,7 +330,7 @@ recipes:
   campfire:
     CAMPFIRE-RECIPE-1:
       enabled: true
-      campfire:
+      craft:
         result:
           id: PACKED_ICE
           id-amount: 9
@@ -340,7 +340,7 @@ recipes:
           1: BLUE_ICE
     CAMPFIRE-RECIPE-2:
       enabled: true
-      campfire:
+      craft:
         result:
           id: ICE
           id-amount: 9
@@ -350,7 +350,7 @@ recipes:
           1: PACKED_ICE
     CAMPFIRE-RECIPE-3:
       enabled: true
-      campfire:
+      craft:
         result:
           id: SNOWBALL
           id-amount: 4

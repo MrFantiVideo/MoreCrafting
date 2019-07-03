@@ -1,13 +1,7 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
 import net.mrfantivideo.morecrafting.Main;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.BlastingRecipesLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.CampfireRecipesLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.FurnaceRecipesLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.RecipesBookLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.ShapedRecipesLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.SmokingRecipesLoader;
-import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.StonecuttingRecipesLoader;
+import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.*;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.BlastingRecipe;
@@ -225,12 +219,11 @@ public class RecipesManager
     public void LoadRecipes()
     {
         Clear();
-        ShapedRecipesLoader.LoadShapedRecipes();
-        FurnaceRecipesLoader.LoadFurnacesRecipes();
-        SmokingRecipesLoader.LoadSmokingRecipes();
-        BlastingRecipesLoader.LoadBlastingRecipes();
-        StonecuttingRecipesLoader.LoadStonecuttingRecipes();
-        CampfireRecipesLoader.LoadCampfireRecipes();
+        new ShapedRecipesLoader().LoadRecipe();
+        new FurnaceRecipesLoader().LoadRecipe();
+        new SmokingRecipesLoader().LoadRecipe();
+        new BlastingRecipesLoader().LoadRecipe();
+        new CampfireRecipesLoader().LoadRecipe();
         RecipesBookLoader.LoadRecipesBook();
     }
 }

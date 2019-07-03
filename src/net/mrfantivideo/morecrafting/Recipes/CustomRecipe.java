@@ -10,6 +10,11 @@ import org.bukkit.inventory.StonecuttingRecipe;
 
 public class CustomRecipe
 {
+    public static void Get(Object recipe, int bookInventorySlot, String configItemName)
+    {
+
+    }
+
     private ShapedRecipe m_recipe;
     private FurnaceRecipe m_furnaceRecipe;
     private SmokingRecipe m_smokingRecipe;
@@ -17,7 +22,7 @@ public class CustomRecipe
     private StonecuttingRecipe m_stonecuttingRecipe;
     private CampfireRecipe m_campfireRecipe;
 
-    private  String m_configItemName;
+    private String m_configItemName;
 
     private int m_bookInventorySlot;
 
@@ -35,36 +40,37 @@ public class CustomRecipe
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(SmokingRecipe recipe, int bookInventorySlot, String configItemName) 
+    public CustomRecipe(SmokingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_smokingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
-	}
+    }
 
-    public CustomRecipe(BlastingRecipe recipe, int bookInventorySlot, String configItemName) 
+    public CustomRecipe(BlastingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_blastingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
-	}
-    
-    public CustomRecipe(StonecuttingRecipe recipe, int bookInventorySlot, String configItemName) 
+    }
+
+    public CustomRecipe(StonecuttingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_stonecuttingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
-	}
-    
-    public CustomRecipe(CampfireRecipe recipe, int bookInventorySlot, String configItemName) 
+    }
+
+    public CustomRecipe(CampfireRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_campfireRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
-	}
-    
-	/**
+    }
+
+    /**
      * Gets config item name
+     *
      * @return Name
      */
     public String GetConfigName()
@@ -74,6 +80,7 @@ public class CustomRecipe
 
     /**
      * Get the Shaped Recipe
+     *
      * @return Recipe
      */
     public ShapedRecipe GetRecipe()
@@ -83,42 +90,47 @@ public class CustomRecipe
 
     /**
      * Get the furnace recipe
+     *
      * @return Furnace Recipe
      */
     public FurnaceRecipe GetFurnaceRecipe()
     {
         return m_furnaceRecipe;
     }
-    
+
     /**
      * Get the smoking recipe
+     *
      * @return Smoking Recipe
      */
     public SmokingRecipe GetSmokingRecipe()
     {
         return m_smokingRecipe;
     }
-    
+
     /**
      * Get the blasting recipe
+     *
      * @return Blasting Recipe
      */
     public BlastingRecipe GetBlastingRecipe()
     {
         return m_blastingRecipe;
     }
-    
+
     /**
      * Get the stonecutting recipe
+     *
      * @return Stonecutting Recipe
      */
     public StonecuttingRecipe GetStonecuttingRecipe()
     {
         return m_stonecuttingRecipe;
     }
-    
+
     /**
      * Get the campfire recipe
+     *
      * @return Campire Recipe
      */
     public CampfireRecipe GetCampfireRecipe()
@@ -128,26 +140,28 @@ public class CustomRecipe
 
     /**
      * Get result
+     *
      * @return ItemStack
      */
     public ItemStack GetResult()
     {
-        if(IsFurnaceRecipe())
+        if (IsFurnaceRecipe())
             return m_furnaceRecipe.getResult();
-        else if(IsSmokingRecipe())
+        else if (IsSmokingRecipe())
             return m_smokingRecipe.getResult();
-        else if(IsBlastingRecipe())
+        else if (IsBlastingRecipe())
             return m_blastingRecipe.getResult();
-        else if(IsStonecuttingRecipe())
+        else if (IsStonecuttingRecipe())
             return m_stonecuttingRecipe.getResult();
-        else if(IsCampfireRecipe())
+        else if (IsCampfireRecipe())
             return m_campfireRecipe.getResult();
         else
             return m_recipe.getResult();
     }
-    
-	/**
+
+    /**
      * Is this a furnace recipe
+     *
      * @return true if this is a furnace recipe, false otherwise
      */
     public boolean IsSmokingRecipe()
@@ -155,35 +169,39 @@ public class CustomRecipe
         return m_smokingRecipe != null;
     }
 
-	/**
+    /**
      * Is this a furnace recipe
+     *
      * @return true if this is a furnace recipe, false otherwise
      */
     public boolean IsBlastingRecipe()
     {
         return m_blastingRecipe != null;
     }
-    
-	/**
+
+    /**
      * Is this a furnace recipe
+     *
      * @return true if this is a furnace recipe, false otherwise
      */
     public boolean IsStonecuttingRecipe()
     {
         return m_stonecuttingRecipe != null;
     }
-    
-	/**
+
+    /**
      * Is this a furnace recipe
+     *
      * @return true if this is a furnace recipe, false otherwise
      */
     public boolean IsCampfireRecipe()
     {
         return m_campfireRecipe != null;
     }
-    
-	/**
+
+    /**
      * Is this a furnace recipe
+     *
      * @return true if this is a furnace recipe, false otherwise
      */
     public boolean IsFurnaceRecipe()
@@ -193,6 +211,7 @@ public class CustomRecipe
 
     /**
      * Gets the book inventory slot
+     *
      * @return Book Inventory Slot
      */
     public int GetBookInventorySlot()
