@@ -22,7 +22,7 @@ public class ReloadCommand extends AbstractCommand
     {
         Main.GetInstance().LoadSettings();
         RecipesManager.GetInstance().LoadRecipes();
-        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetCmdReloadMsg());
+        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdReloadMsg());
         return true;
     }
 }

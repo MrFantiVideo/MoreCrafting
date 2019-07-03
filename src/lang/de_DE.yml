@@ -1,15 +1,26 @@
 # == Messages ============================================== #
 #                                                            #
-#  �ndern Sie entsprechend der Sprache.                      #
+#  Ändern Sie entsprechend der Sprache.                      #
 #                                                            #
 # ========================================================== #
 
 messages:
   default:
-    prefix: "&eMoreCrafting &8- "
+    prefix: "&6MoreCrafting » "
+    gui-title: "&8MoreCrafting » "
   de_DE:
     gui-title-main: "&8Hauptmenü"
-    gui-title-recipe: "&8Rezept"
-    command-unknown: "&cUnbekannter Befehl."
+    gui-title-crafting: "&8Handwerk"
+    gui-title-furnace: "&8Ofen"
+    gui-title-smoker: "&8Räucherofen"
+    gui-title-blasting: "&8Schmelzofen"
+    gui-title-stonecutting: "&8Steinsäge"
+    gui-title-campfire: "&8Lagerfeuer"
+    command-version: "&7Version &6%version% &7by &6Mr.FantiVideo&7. §8(%minecraft%)"
+    command-unknown: "&cUnbekannte Bestellung."
     command-reload: "&aNachladen abgeschlossen."
-    permission-denied: "&cDu hast keine Erlaubnis."
+    command-help: "&7&oAlle Bestellungen verfügbar."
+    command-help-morecrafting: "&7&oPlugin version."
+    command-help-book: "&7&oGib das Rezeptbuch."
+    command-help-reload: "&7&oLädt die Konfigurationsdateien neu."
+    permission-denied: "&cSie haben keine Erlaubnis."
