@@ -2,15 +2,12 @@ package net.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
 
 import com.sun.istack.internal.NotNull;
 import net.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
-import net.mrfantivideo.morecrafting.Items.CustomStack;
 import net.mrfantivideo.morecrafting.Main;
-import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import net.mrfantivideo.morecrafting.Utils.NBTEditor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -57,7 +54,7 @@ public abstract class AbstractRecipesLoader
         {
             if(!GetConfig().GetBool(GetFormattedPath(recipe, "enabled")))
                 continue;
-            CustomStack resultItem = GetRecipeResult(recipe);
+            ItemStack resultItem = GetRecipeResult(recipe);
             if(resultItem == null)
                 continue;
             Object shapedRecipe = GetRecipe(recipe, resultItem);
@@ -74,7 +71,7 @@ public abstract class AbstractRecipesLoader
      * @param stack Recipe Result
      * @return Recipe
      */
-    protected Object GetRecipe(String recipeName, CustomStack stack)
+    protected Object GetRecipe(String recipeName, ItemStack stack)
     {
         ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), stack);
         recipe.shape("123", "456", "789");
@@ -96,7 +93,7 @@ public abstract class AbstractRecipesLoader
      * @param recipeName Recipe Name
      * @return CustomStack
      */
-    protected CustomStack GetRecipeResult(String recipeName)
+    protected ItemStack GetRecipeResult(String recipeName)
     {
         String craftMaterial = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.id"));
         if(craftMaterial == null || Material.getMaterial(craftMaterial) == null)
@@ -104,7 +101,8 @@ public abstract class AbstractRecipesLoader
         int resultItemAmount = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.id-amount"));
         if(resultItemAmount <= 0)
             return null;
-        CustomStack resultItem = new CustomStack(GetBasePath() + recipeName, Material.getMaterial(craftMaterial), resultItemAmount);
+        ItemStack resultItem = new ItemStack(Material.getMaterial(craftMaterial), resultItemAmount);
+        resultItem = NBTEditor.set(resultItem, recipeName, "recipeName");
         ItemMeta resultItemMeta = resultItem.getItemMeta();
 
         String craftCustomName = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.name"));
@@ -125,7 +123,7 @@ public abstract class AbstractRecipesLoader
      * @param recipeName Recipe Name
      * @param stack Custom Stack
      */
-    protected void ApplyEnchantments(String recipeName, CustomStack stack)
+    protected void ApplyEnchantments(String recipeName, ItemStack stack)
     {
         Set<String> enchantSet = GetConfig().GetSection(GetFormattedPath(recipeName, "craft.result.enchantments"));
         if(enchantSet == null)

@@ -3,13 +3,9 @@ package net.mrfantivideo.morecrafting.Recipes;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.*;
 
+import net.mrfantivideo.morecrafting.Utils.NBTEditor;
 import org.bukkit.Material;
-import org.bukkit.inventory.BlastingRecipe;
-import org.bukkit.inventory.CampfireRecipe;
-import org.bukkit.inventory.FurnaceRecipe;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.SmokingRecipe;
-import org.bukkit.inventory.StonecuttingRecipe;
+import org.bukkit.inventory.*;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -199,6 +195,17 @@ public class RecipesManager
         for(CustomRecipe recipe : m_recipes.values())
         {
             if(recipe.GetResult().getType() == material)
+                return recipe;
+        }
+        return null;
+    }
+
+    public CustomRecipe GetRecipeByName(String recipeName)
+    {
+        for(CustomRecipe recipe : m_recipes.values())
+        {
+            ItemStack result = recipe.GetResult();
+            if (NBTEditor.contains(result, "recipeName") && NBTEditor.getString(result, "recipeName").equalsIgnoreCase(recipeName))
                 return recipe;
         }
         return null;

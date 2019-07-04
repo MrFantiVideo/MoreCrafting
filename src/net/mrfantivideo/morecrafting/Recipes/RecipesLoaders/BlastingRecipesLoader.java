@@ -1,11 +1,11 @@
 package net.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
 
-import net.mrfantivideo.morecrafting.Items.CustomStack;
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.BlastingRecipe;
+import org.bukkit.inventory.ItemStack;
 
 public class BlastingRecipesLoader extends AbstractRecipesLoader
 {
@@ -22,7 +22,7 @@ public class BlastingRecipesLoader extends AbstractRecipesLoader
     }
 
     @Override
-    protected Object GetRecipe(String recipeName, CustomStack stack)
+    protected Object GetRecipe(String recipeName, ItemStack stack)
     {
         String burnMaterial = GetConfig().GetString(GetFormattedPath(recipeName, "craft.slot.1"));
         if(burnMaterial == null || burnMaterial.isEmpty())
