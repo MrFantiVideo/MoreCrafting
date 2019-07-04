@@ -421,6 +421,13 @@ public final class NBTEditor
         }
     }
 
+    /**
+     * Get tag
+     * @param tag Tag
+     * @param keys Keys
+     * @return Object value
+     * @throws Exception
+     */
     private static Object getTag(Object tag, Object... keys) throws Exception
     {
         if (keys.length == 0)

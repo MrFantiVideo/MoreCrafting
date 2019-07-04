@@ -231,6 +231,7 @@ public class RecipesManager
         new SmokingRecipesLoader().LoadRecipe();
         new BlastingRecipesLoader().LoadRecipe();
         new CampfireRecipesLoader().LoadRecipe();
+        new StonecuttingRecipesLoader().LoadRecipe();
         RecipesBookLoader.LoadRecipesBook();
     }
 }

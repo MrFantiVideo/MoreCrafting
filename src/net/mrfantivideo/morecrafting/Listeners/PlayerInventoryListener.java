@@ -26,7 +26,7 @@ public class PlayerInventoryListener implements Listener
         InventoryView inv = event.getView();
         ItemStack stack = event.getCurrentItem();
 
-        if (stack == null || !NBTEditor.contains(stack, "recipeName"))
+        if (stack == null)
             return;
 
         if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCrafting()))
@@ -64,6 +64,9 @@ public class PlayerInventoryListener implements Listener
             event.setCancelled(true);
             return;
         }
+
+        if(!NBTEditor.contains(stack, "recipeName"))
+            return;
 
         if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain()))
         {
