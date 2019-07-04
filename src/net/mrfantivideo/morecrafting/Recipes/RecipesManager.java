@@ -200,14 +200,15 @@ public class RecipesManager
         return null;
     }
 
+    /**
+     * Find recipe by its settings name
+     * @param recipeName Recipe settings name
+     * @return CustomRecipe if the recipe exists, null otherwise
+     */
     public CustomRecipe GetRecipeByName(String recipeName)
     {
-        for(CustomRecipe recipe : m_recipes.values())
-        {
-            ItemStack result = recipe.GetResult();
-            if (NBTEditor.contains(result, "recipeName") && NBTEditor.getString(result, "recipeName").equalsIgnoreCase(recipeName))
-                return recipe;
-        }
+        if(m_recipes.containsKey(recipeName))
+            return m_recipes.get(recipeName);
         return null;
     }
 
