@@ -32,7 +32,8 @@ public class FurnaceRecipesLoader extends AbstractRecipesLoader
             return null;
         float experience = GetConfig().GetFloat(GetFormattedPath(recipeName,"craft.result.experience"));
         int cookingtime = GetConfig().GetInt(GetFormattedPath(recipeName,"craft.result.cooking-time"));
-        FurnaceRecipe recipe = new FurnaceRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
+        @SuppressWarnings("deprecation")
+		FurnaceRecipe recipe = new FurnaceRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
         return recipe;
     }
 }

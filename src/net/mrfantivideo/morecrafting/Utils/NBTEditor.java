@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 
@@ -346,7 +344,8 @@ public final class NBTEditor
      * @param keys   The keys in descending order
      * @return The new item stack if the object provided is an item, else original object
      */
-    public final static <T> T set(T object, Object value, Object... keys)
+    @SuppressWarnings("unchecked")
+	public final static <T> T set(T object, Object value, Object... keys)
     {
         if (object instanceof ItemStack)
             return (T) setItemTag((ItemStack) object, value, keys);

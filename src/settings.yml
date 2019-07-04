@@ -132,7 +132,7 @@ recipes:
 #          7: DIRT
 #          8: DIRT
 #          9: DIRT
-          
+
   furnace:
     FIRE-RECIPE-1:
       enabled: true
@@ -140,7 +140,7 @@ recipes:
         result:
           id: QUARTZ_BLOCK
           id-amount: 1
-          id-book: 9
+          id-book: 5
           experience: 0.10
           cooking-time: 100
         slot:
@@ -151,7 +151,7 @@ recipes:
         result:
           id: RED_SANDSTONE
           id-amount: 1
-          id-book: 10
+          id-book: 6
           experience: 0.10
           cooking-time: 100
         slot:
@@ -162,7 +162,7 @@ recipes:
         result:
           id: SANDSTONE
           id-amount: 1
-          id-book: 11
+          id-book: 7
           experience: 0.10
           cooking-time: 100
         slot:
@@ -173,160 +173,160 @@ recipes:
         result:
           id: STONE
           id-amount: 1
-          id-book: 12
+          id-book: 8
           experience: 0.10
           cooking-time: 100
         slot:
           1: SMOOTH_STONE
-    FIRE-RECIPE-5:
-      enabled: true
-      craft:
-        result:
-          id: BRICK
-          id-amount: 4
-          id-book: 13
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: BRICKS
-    FIRE-RECIPE-6:
-      enabled: true
-      craft:
-        result:
-          id: NETHER_BRICK
-          id-amount: 4
-          id-book: 14
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: NETHER_BRICKS
-    FIRE-RECIPE-7:
-      enabled: true
-      craft:
-        result:
-          id: END_STONE
-          id-amount: 4
-          id-book: 15
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: END_STONE_BRICKS
-    FIRE-RECIPE-8:
-      enabled: true
-      craft:
-        result:
-          id: POPPED_CHORUS_FRUIT
-          id-amount: 1
-          id-book: 16
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: PURPUR_BLOCK
-    FIRE-RECIPE-9:
-      enabled: true
-      craft:
-        result:
-          id: PRISMARINE_SHARD
-          id-amount: 4
-          id-book: 17
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: PRISMARINE
-    FIRE-RECIPE-10:
-      enabled: true
-      craft:
-        result:
-          id: QUARTZ
-          id-amount: 4
-          id-book: 18
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: QUARTZ_BLOCK
-    FIRE-RECIPE-11:
-      enabled: true
-      craft:
-        result:
-          id: MAGMA_CREAM
-          id-amount: 4
-          id-book: 19
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: MAGMA_BLOCK
-    FIRE-RECIPE-12:
-      enabled: true
-      craft:
-        result:
-          id: PACKED_ICE
-          id-amount: 9
-          id-book: 20
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: BLUE_ICE
-    FIRE-RECIPE-13:
-      enabled: true
-      craft:
-        result:
-          id: ICE
-          id-amount: 9
-          id-book: 21
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: PACKED_ICE
 
-#    EXEMPLE-FURNACE:
-#      enabled: true
-#      fire:
-#        result:
-#          name: "&eEXEMPLE"
-#          lore: "&7A NEW FURNACE RECIPE !"
-#          id: DIRT
-#          id-amount: 1
-#          id-book: 24
-#        slot:
-#          1: GRASS
-          
   smoking:
     SMOKING-RECIPE-1:
       enabled: true
       craft:
         result:
-          id: DIAMOND_SWORD
+          id: GOLD_NUGGET
           id-amount: 1
-          id-book: 23
+          id-book: 9
           experience: 0.10
           cooking-time: 75
         slot:
-          1: SNOW
-          
+          1: GOLDEN_APPLE
+
   blasting:
     BLASTING-RECIPE-1:
       enabled: true
       craft:
         result:
-          id: DIAMOND_PICKAXE
-          id-amount: 1
-          id-book: 24
+          id: BRICK
+          id-amount: 4
+          id-book: 10
           experience: 0.10
-          cooking-time: 50
+          cooking-time: 100
         slot:
-          1: SNOW_BLOCK
-          
+          1: BRICKS
+    BLASTING-RECIPE-2:
+      enabled: true
+      craft:
+        result:
+          id: NETHER_BRICK
+          id-amount: 4
+          id-book: 11
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: NETHER_BRICKS
+    BLASTING-RECIPE-3:
+      enabled: true
+      craft:
+        result:
+          id: END_STONE
+          id-amount: 4
+          id-book: 12
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: END_STONE_BRICKS
+    BLASTING-RECIPE-4:
+      enabled: true
+      craft:
+        result:
+          id: POPPED_CHORUS_FRUIT
+          id-amount: 1
+          id-book: 13
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: PURPUR_BLOCK
+    BLASTING-RECIPE-5:
+      enabled: true
+      craft:
+        result:
+          id: PRISMARINE_SHARD
+          id-amount: 4
+          id-book: 14
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: PRISMARINE
+    BLASTING-RECIPE-6:
+      enabled: true
+      craft:
+        result:
+          id: QUARTZ
+          id-amount: 4
+          id-book: 15
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: QUARTZ_BLOCK
+    BLASTING-RECIPE-7:
+      enabled: true
+      craft:
+        result:
+          id: MAGMA_CREAM
+          id-amount: 4
+          id-book: 16
+          experience: 0.10
+          cooking-time: 100
+        slot:
+          1: MAGMA_BLOCK
+
   stonecutting:
     STONECUTTING-RECIPE-1:
       enabled: true
       craft:
         result:
-          id: DIAMOND_HOE
+          id: OAK_WOOD
           id-amount: 1
-          id-book: 25
+          id-book: 17
         slot:
-          1: SNOW_BLOCK
-          
+          1: OAK_LOG
+    STONECUTTING-RECIPE-2:
+      enabled: true
+      craft:
+        result:
+          id: SPRUCE_WOOD
+          id-amount: 1
+          id-book: 18
+        slot:
+          1: SPRUCE_LOG
+    STONECUTTING-RECIPE-3:
+      enabled: true
+      craft:
+        result:
+          id: BIRCH_WOOD
+          id-amount: 1
+          id-book: 19
+        slot:
+          1: BIRCH_LOG
+    STONECUTTING-RECIPE-4:
+      enabled: true
+      craft:
+        result:
+          id: JUNGLE_WOOD
+          id-amount: 1
+          id-book: 20
+        slot:
+          1: JUNGLE_LOG
+    STONECUTTING-RECIPE-5:
+      enabled: true
+      craft:
+        result:
+          id: ACACIA_WOOD
+          id-amount: 1
+          id-book: 21
+        slot:
+          1: ACACIA_LOG
+    STONECUTTING-RECIPE-6:
+      enabled: true
+      craft:
+        result:
+          id: DARK_OAK_WOOD
+          id-amount: 1
+          id-book: 22
+        slot:
+          1: DARK_OAK_LOG
+
   campfire:
     CAMPFIRE-RECIPE-1:
       enabled: true
@@ -334,7 +334,7 @@ recipes:
         result:
           id: PACKED_ICE
           id-amount: 9
-          id-book: 20
+          id-book: 23
           cooking-time: 50
         slot:
           1: BLUE_ICE
@@ -344,7 +344,7 @@ recipes:
         result:
           id: ICE
           id-amount: 9
-          id-book: 21
+          id-book: 24
           cooking-time: 50
         slot:
           1: PACKED_ICE
@@ -354,7 +354,7 @@ recipes:
         result:
           id: SNOWBALL
           id-amount: 4
-          id-book: 22
+          id-book: 25
           cooking-time: 50
         slot:
           1: SNOW_BLOCK
@@ -382,4 +382,3 @@ others:
     gui:
       menu:
         size: 27
-    

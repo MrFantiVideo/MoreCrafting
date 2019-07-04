@@ -32,7 +32,8 @@ public class SmokingRecipesLoader extends AbstractRecipesLoader
             return null;
         float experience = GetConfig().GetFloat(GetFormattedPath(recipeName,"craft.result.experience"));
         int cookingtime = GetConfig().GetInt(GetFormattedPath(recipeName,"craft.result.cooking-time"));
-        SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
+        @SuppressWarnings("deprecation")
+		SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
         return recipe;
     }
 }

@@ -32,7 +32,8 @@ public class CampfireRecipesLoader extends AbstractRecipesLoader
             return null;
         //float experience = GetConfig().GetFloat(GetFormattedPath(recipeName,"craft.result.experience"));
         int cookingtime = GetConfig().GetInt(GetFormattedPath(recipeName,"craft.result.cooking-time"));
-        CampfireRecipe recipe = new CampfireRecipe(NamespacedKey.randomKey(), stack, material, 1, cookingtime);
+        @SuppressWarnings("deprecation")
+		CampfireRecipe recipe = new CampfireRecipe(NamespacedKey.randomKey(), stack, material, 1, cookingtime);
         return recipe;
     }
 }

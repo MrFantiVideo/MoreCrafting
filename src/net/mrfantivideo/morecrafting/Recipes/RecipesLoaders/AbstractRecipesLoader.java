@@ -73,7 +73,8 @@ public abstract class AbstractRecipesLoader
      */
     protected Object GetRecipe(String recipeName, ItemStack stack)
     {
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), stack);
+        @SuppressWarnings("deprecation")
+		ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), stack);
         recipe.shape("123", "456", "789");
         for(int i = 1; i <= 9; i++)
         {

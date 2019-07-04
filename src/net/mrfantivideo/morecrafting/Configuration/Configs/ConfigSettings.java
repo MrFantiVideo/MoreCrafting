@@ -1,7 +1,6 @@
 package net.mrfantivideo.morecrafting.Configuration.Configs;
 
 import net.mrfantivideo.morecrafting.Configuration.AbstractConfig;
-import org.bukkit.inventory.Inventory;
 
 import java.util.Set;
 
@@ -64,7 +63,8 @@ public class ConfigSettings extends AbstractConfig
         return (float)value;
     }
 
-    public <T> T GetValue(Class<T> type, String path)
+    @SuppressWarnings("unchecked")
+	public <T> T GetValue(Class<T> type, String path)
     {
         if (m_file.GetConfiguration().contains(path))
             return (T) m_file.GetConfiguration().get(path);

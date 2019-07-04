@@ -4,21 +4,21 @@ import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.StonecuttingRecipe;
 
-public class BlastingRecipesLoader extends AbstractRecipesLoader
+public class StonecuttingRecipesLoader extends AbstractRecipesLoader
 {
-    public BlastingRecipesLoader()
+    public StonecuttingRecipesLoader()
     {
-        super("recipes.blasting");
+        super("recipes.stonecutting");
     }
 
     @Override
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
-        RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((BlastingRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading Blasting Recipe: " + recipeName);
+        RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((StonecuttingRecipe) recipe, bookInventorySlot, recipeName));
+        System.out.println("Loading Stonecutting Recipe: " + recipeName);
     }
 
     @Override
@@ -30,10 +30,8 @@ public class BlastingRecipesLoader extends AbstractRecipesLoader
         Material material = Material.getMaterial(burnMaterial);
         if(material == null)
             return null;
-        float experience = GetConfig().GetFloat(GetFormattedPath(recipeName,"craft.result.experience"));
-        int cookingtime = GetConfig().GetInt(GetFormattedPath(recipeName,"craft.result.cooking-time"));
         @SuppressWarnings("deprecation")
-		BlastingRecipe recipe = new BlastingRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
+		StonecuttingRecipe recipe = new StonecuttingRecipe(NamespacedKey.randomKey(), stack, material);
         return recipe;
     }
 }
