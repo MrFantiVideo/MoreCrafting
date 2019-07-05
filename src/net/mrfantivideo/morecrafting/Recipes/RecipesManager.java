@@ -3,7 +3,6 @@ package net.mrfantivideo.morecrafting.Recipes;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.*;
 
-import net.mrfantivideo.morecrafting.Utils.NBTEditor;
 import org.bukkit.Material;
 import org.bukkit.inventory.*;
 
@@ -231,8 +230,8 @@ public class RecipesManager
         new FurnaceRecipesLoader().LoadRecipe();
         new SmokingRecipesLoader().LoadRecipe();
         new BlastingRecipesLoader().LoadRecipe();
-        new CampfireRecipesLoader().LoadRecipe();
         new StonecuttingRecipesLoader().LoadRecipe();
+        new CampfireRecipesLoader().LoadRecipe();
         RecipesBookLoader.LoadRecipesBook();
     }
 }
