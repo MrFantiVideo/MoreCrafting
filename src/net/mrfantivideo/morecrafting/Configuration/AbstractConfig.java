@@ -22,7 +22,7 @@ public abstract class AbstractConfig
         }
         catch(IOException ex)
         {
-            LogUtils.LogError("An error occured while loading the file configuration '" + fileName + "'", ex);
+            LogUtils.LogError("An error occured while loading the file configuration '" + fileName + "'");
         }
     }
 

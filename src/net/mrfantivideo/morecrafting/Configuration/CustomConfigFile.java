@@ -60,7 +60,7 @@ public class CustomConfigFile
         }
         catch(IOException ex)
         {
-            LogUtils.LogError("Could not save config file '" + GetFile().getName() + "'", ex);
+            LogUtils.LogError("Could not save config file '" + GetFile().getName() + "'");
         }
     }
 }
