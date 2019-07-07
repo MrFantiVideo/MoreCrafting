@@ -2,6 +2,7 @@ package net.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
 
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import net.mrfantivideo.morecrafting.Utils.LogUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.CampfireRecipe;
@@ -18,10 +19,7 @@ public class CampfireRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((CampfireRecipe) recipe, bookInventorySlot, recipeName));
-        String debug = GetConfig().GetDebug();
-        if(debug == "true")
-            System.out.println("Loading Campfire Recipe: " + recipeName);
-        return;
+        LogUtils.LogInfo("[Campfire Recipes Loader] Loading Recipe '" + recipeName + "'");
     }
 
     @Override

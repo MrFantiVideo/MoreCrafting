@@ -19,6 +19,7 @@ public class Main extends JavaPlugin
     private ConfigSettings m_configSettings;
     private ConfigPermissions m_configPermissions;
     private ConfigMessages m_configMessages;
+    private boolean m_debug = false;
 
     public Main()
     {
@@ -59,6 +60,15 @@ public class Main extends JavaPlugin
     public ConfigMessages GetConfigMessages()
     {
         return m_configMessages;
+    }
+
+    /**
+     * Is Debug enabled
+     * @return true if debug is enabled, false otherwise
+     */
+    public boolean IsDebugging()
+    {
+        return m_debug;
     }
 
     /**
@@ -132,5 +142,6 @@ public class Main extends JavaPlugin
         m_configSettings = new ConfigSettings();
         m_configMessages = new ConfigMessages();
         m_configPermissions = new ConfigPermissions();
+        m_debug = GetConfigSettings().GetDebug();
     }
 }

@@ -28,14 +28,10 @@ public class ConfigSettings extends AbstractConfig
      *
      * @return Debug if exists, null otherwise
      */
-    public String GetDebug()
+    public boolean GetDebug()
     {
-        if (m_file.GetConfiguration().contains("debug"))
-            return m_file.GetConfiguration().getString("debug");
-        return null;
+        return GetBool("debug");
     }
-
-
 
     public Set<String> GetSection(String path)
     {
@@ -84,129 +80,6 @@ public class ConfigSettings extends AbstractConfig
             return (T) m_file.GetConfiguration().get(path);
         else
             return null;
-    }
-
-    /**
-     * Get Recipes
-     *
-     * @return Recipes if exists, null otherwise
-     */
-    public Set<String> GetRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.crafting"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.crafting").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Furnace Recipes
-     *
-     * @return Furnace Recipes if exists, null otherwise
-     */
-    public Set<String> GetFurnaceRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.furnace"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.furnace").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Smoking Recipes
-     *
-     * @return Smoking Recipes if exists, null otherwise
-     */
-    public Set<String> GetSmokingRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.smoking"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.smoking").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Blasting Recipes
-     *
-     * @return Blasting Recipes if exists, null otherwise
-     */
-    public Set<String> GetBlastingRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.blasting"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.blasting").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Stonecutting Recipes
-     *
-     * @return Stonecutting Recipes if exists, null otherwise
-     */
-    public Set<String> GetStonecuttingRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.stonecutting"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.stonecutting").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Campfire Recipes
-     *
-     * @return Campfire Recipes if exists, null otherwise
-     */
-    public Set<String> GetCampfireRecipes()
-    {
-        if (m_file.GetConfiguration().contains("recipes.campfire"))
-            return m_file.GetConfiguration().getConfigurationSection("recipes.campfire").getKeys(false);
-        return null;
-    }
-
-    /**
-     * Get Recipe Value
-     *
-     * @param type       Return type
-     * @param recipeName Recipe Name
-     * @param pathValue  Path To Value
-     * @return Type value if exists, null otherwise
-     */
-    public <T> T GetRecipeValue(Class<T> type, String recipeName, String pathValue)
-    {
-        if (m_file.GetConfiguration().contains("recipes.crafting." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.crafting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.furnace." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.furnace." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.smoking." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.blasting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.stonecutting." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.stonecutting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.campfire." + recipeName + "." + pathValue))
-            return GetValue(type, "recipes.campfire." + recipeName + "." + pathValue);
-        else
-            return null;
-    }
-
-    /**
-     * Get Recipe Value
-     *
-     * @param type       Return type
-     * @param recipeName Recipe Name
-     * @param pathValue  Path To Value
-     * @return
-     */
-    public <T> float GetRecipeValueFloat(Class<T> type, String recipeName, String pathValue)
-    {
-        if (m_file.GetConfiguration().contains("recipes.crafting." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.crafting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.furnace." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.furnace." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.smoking." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.smoking." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.blasting." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.blasting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.stonecutting." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.stonecutting." + recipeName + "." + pathValue);
-        else if (m_file.GetConfiguration().contains("recipes.campfire." + recipeName + "." + pathValue))
-            return GetValueFloat(type, "recipes.campfire." + recipeName + "." + pathValue);
-        return 0;
     }
 
     /**

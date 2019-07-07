@@ -6,25 +6,47 @@ import java.util.logging.Level;
 
 public class LogUtils
 {
+
+    /**
+     * Log info
+     *
+     * @param message Log Message
+     */
+    public static void LogInfo(String message)
+    {
+        Log(Level.INFO, message);
+    }
+
     /**
      * Log error
-     * @param message
-     * @param ex
+     *
+     * @param message Log Message
      */
-    public static void LogError(String message, Exception ex)
+    public static void LogError(String message)
     {
-        if(ex != null)
-            Main.GetInstance().getLogger().log(Level.SEVERE, message, ex);
-        else
-            Main.GetInstance().getLogger().log(Level.SEVERE, message);
+        Log(Level.SEVERE, message);
     }
 
     /**
      * Log Warning
-     * @param message
+     *
+     * @param message Log Message
      */
     public static void LogWarning(String message)
     {
-        Main.GetInstance().getLogger().log(Level.WARNING, message);
+        Log(Level.WARNING, message);
+    }
+
+    /**
+     * Log message to console
+     *
+     * @param level   Log Level
+     * @param message Log Message
+     */
+    public static void Log(Level level, String message)
+    {
+        if (!Main.GetInstance().IsDebugging())
+            return;
+        Main.GetInstance().getLogger().log(level, message);
     }
 }
