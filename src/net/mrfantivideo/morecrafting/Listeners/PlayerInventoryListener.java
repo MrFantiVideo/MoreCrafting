@@ -14,6 +14,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.StonecutterInventory;
 
 import java.util.Map;
 
@@ -65,7 +66,7 @@ public class PlayerInventoryListener implements Listener
             return;
         }
 
-        if(!NBTEditor.contains(stack, "recipeName"))
+        if (!NBTEditor.contains(stack, "recipeName"))
             return;
 
         if (inv.getTitle().equalsIgnoreCase(Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain()))
@@ -80,30 +81,35 @@ public class PlayerInventoryListener implements Listener
                     inventory.setItem(0, recipe.GetFurnaceRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
-                } else if (recipe.IsSmokingRecipe())
+                }
+                else if (recipe.IsSmokingRecipe())
                 {
                     inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleSmoker());
                     inventory.setItem(0, recipe.GetSmokingRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
-                } else if (recipe.IsBlastingRecipe())
+                }
+                else if (recipe.IsBlastingRecipe())
                 {
                     inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleBlasting());
                     inventory.setItem(0, recipe.GetBlastingRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.COAL));
                     inventory.setItem(2, recipe.GetResult().clone());
-                } else if (recipe.IsStonecuttingRecipe())
+                }
+                else if (recipe.IsStonecuttingRecipe())
                 {
                     inventory = Bukkit.createInventory(null, InventoryType.STONECUTTER, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleStonecutting());
                     inventory.setItem(0, recipe.GetStonecuttingRecipe().getInput().clone());
                     inventory.setItem(1, recipe.GetResult().clone());
-                } else if (recipe.IsCampfireRecipe())
+                }
+                else if (recipe.IsCampfireRecipe())
                 {
                     inventory = Bukkit.createInventory(null, InventoryType.FURNACE, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCampfire());
                     inventory.setItem(0, recipe.GetCampfireRecipe().getInput().clone());
                     inventory.setItem(1, new ItemStack(Material.CAMPFIRE));
                     inventory.setItem(2, recipe.GetResult().clone());
-                } else
+                }
+                else
                 {
                     inventory = Bukkit.createInventory(null, InventoryType.WORKBENCH, Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleCrafting());
                     for (Map.Entry<Character, ItemStack> entry : recipe.GetRecipe().getIngredientMap().entrySet())
