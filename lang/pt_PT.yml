@@ -1,0 +1,26 @@
+# == Messages ============================================== #
+#                                                            #
+#  Mude de acordo com o idioma.                              #
+#                                                            #
+# ========================================================== #
+
+messages:
+  default:
+    prefix: "&6MoreCrafting » "
+    gui-title: "&8MoreCrafting » "
+  pt_PT:
+    gui-title-main: "&8Main Menu"
+    gui-title-crafting: "&8Construir"
+    gui-title-furnace: "&8Fornalha"
+    gui-title-smoker: "&8Fumeiro"
+    gui-title-blasting: "&8Alto-Forno"
+    gui-title-stonecutting: "&8Cortador de Pedra"
+    gui-title-campfire: "&8Fogueira"
+    command-version: "&7Version &6%version% &7by &6Mr.FantiVideo&7. §8(%minecraft%)"
+    command-unknown: "&cComando desconhecido."
+    command-reload: "&aRecarregar concluído."
+    command-help: "&7&oTodos os comandos disponíveis."
+    command-help-morecrafting: "&7&oPlugin version."
+    command-help-book: "&7&oDê o livro de receitas."
+    command-help-reload: "&7&oRecarregar arquivos de configuração."
+    permission-denied: "&cVocê não tem permissão."
