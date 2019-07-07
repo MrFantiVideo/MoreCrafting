@@ -4,6 +4,7 @@ import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.RecipesLoaders.*;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.*;
 
 import java.util.Collection;
@@ -232,6 +233,14 @@ public class RecipesManager
         new BlastingRecipesLoader().LoadRecipe();
         new StonecuttingRecipesLoader().LoadRecipe();
         new CampfireRecipesLoader().LoadRecipe();
+        DebugStonecutting();
         RecipesBookLoader.LoadRecipesBook();
+    }
+
+    private void DebugStonecutting()
+    {
+        ItemStack resultItem = new ItemStack(Material.GRASS);
+        RecipeChoice choice = new RecipeChoice.MaterialChoice(Material.DIAMOND, Material.EMERALD, Material.COBBLESTONE);
+        StonecuttingRecipe recipe = new StonecuttingRecipe(NamespacedKey.randomKey(), resultItem, choice);
     }
 }

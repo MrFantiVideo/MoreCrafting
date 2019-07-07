@@ -197,12 +197,12 @@ public class ConfigMessages extends AbstractConfig
             }
         }
         else
-            LogUtils.LogError("Could not load file configuration 'ConfigMessages', no language found in file 'settings.yml'", null);
+            LogUtils.LogError("Could not load file configuration 'ConfigMessages', no language found in file 'settings.yml'");
     }
 
     @Override
     public void Save()
     {
-        LogUtils.LogError("Could not save 'ConfigMessages', operation not supported", null);
+        LogUtils.LogError("Could not save 'ConfigMessages', operation not supported");
     }
 }
