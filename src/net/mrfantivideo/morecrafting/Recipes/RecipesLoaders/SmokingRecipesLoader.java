@@ -18,7 +18,10 @@ public class SmokingRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((SmokingRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading Smoking Recipe: " + recipeName);
+        String debug = GetConfig().GetDebug();
+        if(debug == "true")
+            System.out.println("Loading Smoking Recipe: " + recipeName);
+        return;
     }
 
     @Override

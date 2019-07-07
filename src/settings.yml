@@ -13,15 +13,29 @@
 
 language: "en_US"
 
-# == Blocs / Items ========================================= #
+# == Debug Mode ============================================ #
 #                                                            #
-#  List of ID Minecraft :                                    #
-#  https://minecraft-ids.grahamedgecombe.com/                #
-#                                                            #
-#  List of Enchantment :                                     #
-#                                                            #
+#  Lets you know the loaded recipes.                         #
 #                                                            #
 # ========================================================== #
+
+debug: false
+
+# == Blocs / Items ================================================================ #
+#                                                                                   #
+#  List of ID Minecraft :                                                           #
+#  https://minecraft-ids.grahamedgecombe.com/                                       #
+#                                                                                   #
+#  List of Enchantment :                                                            #
+#  ARROW_DAMAGE, ARROW_FIRE, ARROW_INFINITE, ARROW_KNOCKBACK, BINDING_CURSE,        #
+#  CHANNELING, DAMAGE_ALL, DAMAGE_ARTHROPODS, DAMAGE_UNDEAD, DEPTH_STRIDER,         #
+#  DIG_SPEED, DURABILITY, FIRE_ASPECT, FROST_WALKER, IMPALING, KNOCKBACK,           #
+#  LOOT_BONUS_BLOCKS, LOOT_BONUS_MOBS, LOYALTY, LUCK, LURE, MENDING, MULTISHOT,     #
+#  OXYGEN, PIERCING, PROTECTION_ENVIRONMENTAL, PROTECTION_EXPLOSIONS,               #
+#  PROTECTION_FALL, PROTECTION_FIRE, PROTECTION_PROJECTILE, QUICK_CHARGE, RIPTIDE,  #
+#  SILK_TOUCH, SWEEPING_EDGE, THORNS, VANISHING_CURSE, WATER_WORKER.                #
+#                                                                                   #
+# ================================================================================= #
 
 recipes:
   crafting:
@@ -32,10 +46,6 @@ recipes:
           id: GRASS_BLOCK
           id-amount: 6
           id-book: 0
-          enchantments:
-            arrowDmg:
-              enchant: ARROW_DAMAGE
-              enchant-level: 1
         slots:
           1: WHEAT_SEEDS
           2: WHEAT_SEEDS
@@ -115,13 +125,20 @@ recipes:
 
 #    EXEMPLE-CRAFTING:
 #      enabled: true
-#      fire:
+#      craft:
 #        result:
-#          name: "&eEXEMPLE"
+#          name: "&eEXEMPLE" 
 #          lore: "&7A NEW CRAFTING RECIPE !"
 #          id: GRASS
 #          id-amount: 9
-#          id-book: 23
+#          id-book: 1
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
 #        slot:
 #          1: DIRT
 #          2: DIRT
@@ -179,6 +196,27 @@ recipes:
         slot:
           1: SMOOTH_STONE
 
+#    EXEMPLE-FURNACE:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW FURNACE RECIPE !"
+#          id: GRASS
+#          id-amount: 9
+#          id-book: 2
+#          experience: 0.10
+#          cooking-time: 75
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
+#        slot:
+#          1: DIRT
+
   smoking:
     SMOKING-RECIPE-1:
       enabled: true
@@ -192,6 +230,27 @@ recipes:
         slot:
           1: GOLDEN_APPLE
 
+#    EXEMPLE-SMOKING:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW SMOKING RECIPE !"
+#          id: GRASS
+#          id-amount: 9
+#          id-book: 3
+#          experience: 0.10
+#          cooking-time: 75
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
+#        slot:
+#          1: DIRT
+
   blasting:
     BLASTING-RECIPE-1:
       enabled: true
@@ -201,7 +260,7 @@ recipes:
           id-amount: 4
           id-book: 10
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: BRICKS
     BLASTING-RECIPE-2:
@@ -212,7 +271,7 @@ recipes:
           id-amount: 4
           id-book: 11
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: NETHER_BRICKS
     BLASTING-RECIPE-3:
@@ -223,7 +282,7 @@ recipes:
           id-amount: 4
           id-book: 12
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: END_STONE_BRICKS
     BLASTING-RECIPE-4:
@@ -234,7 +293,7 @@ recipes:
           id-amount: 1
           id-book: 13
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: PURPUR_BLOCK
     BLASTING-RECIPE-5:
@@ -245,7 +304,7 @@ recipes:
           id-amount: 4
           id-book: 14
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: PRISMARINE
     BLASTING-RECIPE-6:
@@ -256,7 +315,7 @@ recipes:
           id-amount: 4
           id-book: 15
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: QUARTZ_BLOCK
     BLASTING-RECIPE-7:
@@ -267,9 +326,30 @@ recipes:
           id-amount: 4
           id-book: 16
           experience: 0.10
-          cooking-time: 100
+          cooking-time: 65
         slot:
           1: MAGMA_BLOCK
+
+#    EXEMPLE-BLASTING:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW BLASTING RECIPE !"
+#          id: GRASS
+#          id-amount: 9
+#          id-book: 4
+#          experience: 0.10
+#          cooking-time: 75
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
+#        slot:
+#          1: DIRT
 
   stonecutting:
     STONECUTTING-RECIPE-1:
@@ -327,6 +407,25 @@ recipes:
         slot:
           1: DARK_OAK_LOG
 
+#    EXEMPLE-STONECUTTING:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW STONECUTTING RECIPE !"
+#          id: GRASS
+#          id-amount: 9
+#          id-book: 5
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
+#        slot:
+#          1: DIRT
+
   campfire:
     CAMPFIRE-RECIPE-1:
       enabled: true
@@ -335,7 +434,7 @@ recipes:
           id: PACKED_ICE
           id-amount: 9
           id-book: 23
-          cooking-time: 50
+          cooking-time: 60
         slot:
           1: BLUE_ICE
     CAMPFIRE-RECIPE-2:
@@ -345,7 +444,7 @@ recipes:
           id: ICE
           id-amount: 9
           id-book: 24
-          cooking-time: 50
+          cooking-time: 60
         slot:
           1: PACKED_ICE
     CAMPFIRE-RECIPE-3:
@@ -355,9 +454,29 @@ recipes:
           id: SNOWBALL
           id-amount: 4
           id-book: 25
-          cooking-time: 50
+          cooking-time: 60
         slot:
           1: SNOW_BLOCK
+
+#    EXEMPLE-CAMPFIRE:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW CAMPFIRE RECIPE !"
+#          id: GRASS
+#          id-amount: 9
+#          id-book: 2
+#          cooking-time: 75
+#          enchantments:
+#            ENCHANT-1:
+#              enchant: ARROW_DAMAGE
+#              enchant-level: 1
+#            ENCHANT-2:
+#              enchant: KNOCKBACK
+#              enchant-level: 1
+#        slot:
+#          1: DIRT
           
 others:
   book:

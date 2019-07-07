@@ -104,7 +104,7 @@ public class RecipesManager
     /**
      * Get recipe from Name
      * @param recipeName Name
-     * @return FurnaceRecipe or null
+     * @return SmokingRecipe or null
      */
     public SmokingRecipe GetSmokingRecipe(String recipeName)
     {
@@ -117,7 +117,7 @@ public class RecipesManager
     /**
      * Get recipe from Name
      * @param recipeName Name
-     * @return FurnaceRecipe or null
+     * @return BlastingRecipe or null
      */
     public BlastingRecipe GetBlastingRecipe(String recipeName)
     {
@@ -130,7 +130,7 @@ public class RecipesManager
     /**
      * Get recipe from Name
      * @param recipeName Name
-     * @return FurnaceRecipe or null
+     * @return StonecuttingRecipe or null
      */
     public StonecuttingRecipe GetStonecuttingRecipe(String recipeName)
     {
@@ -143,7 +143,7 @@ public class RecipesManager
     /**
      * Get recipe from Name
      * @param recipeName Name
-     * @return FurnaceRecipe or null
+     * @return CampfireRecipe or null
      */
     public CampfireRecipe GetCampfireRecipe(String recipeName)
     {

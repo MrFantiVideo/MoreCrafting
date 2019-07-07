@@ -18,7 +18,10 @@ public class FurnaceRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((FurnaceRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading Furnace Recipe: " + recipeName);
+        String debug = GetConfig().GetDebug();
+        if(debug == "true")
+            System.out.println("Loading Furnace Recipe: " + recipeName);
+        return;
     }
 
     @Override

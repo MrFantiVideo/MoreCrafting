@@ -18,7 +18,10 @@ public class StonecuttingRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((StonecuttingRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading Stonecutting Recipe: " + recipeName);
+        String debug = GetConfig().GetDebug();
+        if(debug == "true")
+            System.out.println("Loading Stonecutting Recipe: " + recipeName);
+        return;
     }
 
     @Override

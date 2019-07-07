@@ -18,7 +18,10 @@ public class BlastingRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((BlastingRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading Blasting Recipe: " + recipeName);
+        String debug = GetConfig().GetDebug();
+        if(debug == "true")
+            System.out.println("Loading Blasting Recipe: " + recipeName);
+        return;
     }
 
     @Override

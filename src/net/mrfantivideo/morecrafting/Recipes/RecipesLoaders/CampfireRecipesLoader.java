@@ -18,7 +18,10 @@ public class CampfireRecipesLoader extends AbstractRecipesLoader
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
         RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((CampfireRecipe) recipe, bookInventorySlot, recipeName));
-        System.out.println("Loading CampFire Recipe: " + recipeName);
+        String debug = GetConfig().GetDebug();
+        if(debug == "true")
+            System.out.println("Loading Campfire Recipe: " + recipeName);
+        return;
     }
 
     @Override

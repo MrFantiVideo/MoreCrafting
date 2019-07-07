@@ -131,7 +131,7 @@ public class CustomRecipe
     /**
      * Get the campfire recipe
      *
-     * @return Campire Recipe
+     * @return Campfire Recipe
      */
     public CampfireRecipe GetCampfireRecipe()
     {
@@ -160,9 +160,9 @@ public class CustomRecipe
     }
 
     /**
-     * Is this a furnace recipe
+     * Is this a smoking recipe
      *
-     * @return true if this is a furnace recipe, false otherwise
+     * @return true if this is a smoking recipe, false otherwise
      */
     public boolean IsSmokingRecipe()
     {
@@ -170,9 +170,9 @@ public class CustomRecipe
     }
 
     /**
-     * Is this a furnace recipe
+     * Is this a blasting recipe
      *
-     * @return true if this is a furnace recipe, false otherwise
+     * @return true if this is a blasting recipe, false otherwise
      */
     public boolean IsBlastingRecipe()
     {
@@ -180,9 +180,9 @@ public class CustomRecipe
     }
 
     /**
-     * Is this a furnace recipe
+     * Is this a stonecutting recipe
      *
-     * @return true if this is a furnace recipe, false otherwise
+     * @return true if this is a stonecutting recipe, false otherwise
      */
     public boolean IsStonecuttingRecipe()
     {
@@ -190,9 +190,9 @@ public class CustomRecipe
     }
 
     /**
-     * Is this a furnace recipe
+     * Is this a campfire recipe
      *
-     * @return true if this is a furnace recipe, false otherwise
+     * @return true if this is a campfire recipe, false otherwise
      */
     public boolean IsCampfireRecipe()
     {

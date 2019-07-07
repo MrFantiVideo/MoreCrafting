@@ -22,6 +22,20 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getString("language");
         return null;
     }
+    
+    /**
+     * Get Debug from config
+     *
+     * @return Debug if exists, null otherwise
+     */
+    public String GetDebug()
+    {
+        if (m_file.GetConfiguration().contains("debug"))
+            return m_file.GetConfiguration().getString("debug");
+        return null;
+    }
+
+
 
     public Set<String> GetSection(String path)
     {
@@ -97,9 +111,9 @@ public class ConfigSettings extends AbstractConfig
     }
 
     /**
-     * Get Furnace Recipes
+     * Get Smoking Recipes
      *
-     * @return Furnace Recipes if exists, null otherwise
+     * @return Smoking Recipes if exists, null otherwise
      */
     public Set<String> GetSmokingRecipes()
     {
@@ -109,9 +123,9 @@ public class ConfigSettings extends AbstractConfig
     }
 
     /**
-     * Get Furnace Recipes
+     * Get Blasting Recipes
      *
-     * @return Furnace Recipes if exists, null otherwise
+     * @return Blasting Recipes if exists, null otherwise
      */
     public Set<String> GetBlastingRecipes()
     {
@@ -121,9 +135,9 @@ public class ConfigSettings extends AbstractConfig
     }
 
     /**
-     * Get Furnace Recipes
+     * Get Stonecutting Recipes
      *
-     * @return Furnace Recipes if exists, null otherwise
+     * @return Stonecutting Recipes if exists, null otherwise
      */
     public Set<String> GetStonecuttingRecipes()
     {
@@ -133,9 +147,9 @@ public class ConfigSettings extends AbstractConfig
     }
 
     /**
-     * Get Furnace Recipes
+     * Get Campfire Recipes
      *
-     * @return Furnace Recipes if exists, null otherwise
+     * @return Campfire Recipes if exists, null otherwise
      */
     public Set<String> GetCampfireRecipes()
     {

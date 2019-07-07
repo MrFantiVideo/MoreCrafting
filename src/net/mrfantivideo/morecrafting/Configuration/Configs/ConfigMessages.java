@@ -54,8 +54,8 @@ public class ConfigMessages extends AbstractConfig
     }
 
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Crafting from config
+     * @return GUI Title Recipe Crafting if exists, null otherwise
      */
     public String GetGUITitleCrafting()
     {
@@ -63,8 +63,8 @@ public class ConfigMessages extends AbstractConfig
     }
     
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Furnace from config
+     * @return GUI Title Recipe Furnace if exists, null otherwise
      */
     public String GetGUITitleFurnace()
     {
@@ -72,8 +72,8 @@ public class ConfigMessages extends AbstractConfig
     }
     
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Smoker from config
+     * @return GUI Title Recipe Smoker if exists, null otherwise
      */
     public String GetGUITitleSmoker()
     {
@@ -81,8 +81,8 @@ public class ConfigMessages extends AbstractConfig
     }
     
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Blasting from config
+     * @return GUI Title Recipe Blasting if exists, null otherwise
      */
     public String GetGUITitleBlasting()
     {
@@ -90,8 +90,8 @@ public class ConfigMessages extends AbstractConfig
     }
 
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Stonecutting from config
+     * @return GUI Title Recipe Stonecutting if exists, null otherwise
      */
     public String GetGUITitleStonecutting()
     {
@@ -99,8 +99,8 @@ public class ConfigMessages extends AbstractConfig
     }
     
     /**
-     * Get GUI Title Recipe from config
-     * @return GUI Title Recipe if exists, null otherwise
+     * Get GUI Title Recipe Campfire from config
+     * @return GUI Title Recipe Campfire if exists, null otherwise
      */
     public String GetGUITitleCampfire()
     {
