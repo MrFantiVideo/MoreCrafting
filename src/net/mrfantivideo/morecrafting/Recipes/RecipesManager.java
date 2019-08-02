@@ -225,7 +225,6 @@ public class RecipesManager
      */
     public void LoadRecipes()
     {
-        Clear();
         new ShapedRecipesLoader().LoadRecipe();
         new FurnaceRecipesLoader().LoadRecipe();
         new SmokingRecipesLoader().LoadRecipe();
