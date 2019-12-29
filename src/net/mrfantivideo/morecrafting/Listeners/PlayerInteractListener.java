@@ -3,7 +3,6 @@ package net.mrfantivideo.morecrafting.Listeners;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
 import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
-import net.mrfantivideo.morecrafting.Utils.PermissionsUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -31,9 +30,13 @@ public class PlayerInteractListener implements Listener
         if(recipe != null)
         {
             ItemStack book = recipe.getResult();
-            if(book != null && stack.getType() == book.getType() && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && stack.getItemMeta().getDisplayName().equalsIgnoreCase(book.getItemMeta().getDisplayName()))
+            if(book != null && stack.getType() == 
+               book.getType() && stack.hasItemMeta() && 
+               stack.getItemMeta().hasDisplayName() && 
+               stack.getItemMeta().getDisplayName().equalsIgnoreCase(book.getItemMeta().getDisplayName()))
             {
-                if(player.isOp() || PermissionsUtils.HasAnyPermission(player, "permissions.morecrafting.book", "permissions.morecrafting.*"))
+                if(player.isOp() || player.hasPermission(Main.GetInstance().GetConfigPermissions().GetBookPerm()) || 
+                   player.hasPermission(Main.GetInstance().GetConfigPermissions().GetAllPerm()))
                 {
                     if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
                     {
@@ -49,6 +52,9 @@ public class PlayerInteractListener implements Listener
                         player.openInventory(inventory);
                         event.setCancelled(true);
                     }
+                }
+                else {
+                	player.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdPermissionDeniedMsg());
                 }
             }
         }

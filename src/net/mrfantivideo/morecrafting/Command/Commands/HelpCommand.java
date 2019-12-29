@@ -14,7 +14,8 @@ public class HelpCommand extends AbstractCommand
     
     public boolean HasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetPermission("permissions.morecrafting.admin.help")) || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAllPerm()));
+        return (sender.isOp() || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminHelpPerm()) || 
+        		sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminAllPerm()));
     }
 
     public boolean Execute(CommandSender sender, Command cmd, String commandLabel, String[] args)

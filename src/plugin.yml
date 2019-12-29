@@ -1,8 +1,8 @@
 name: MoreCrafting
-version: 3.1
+version: 3.4
 author: MrFantiVideo
 main: net.mrfantivideo.morecrafting.Main
-api-version: 1.14
+api-version: 1.15
 
 commands:
     morecrafting:

@@ -1,4 +1,5 @@
 permissions:
+  morecrafting.admin.help: morecrafting.admin.help
   morecrafting.admin.reload: morecrafting.admin.reload
   morecrafting.admin.book: morecrafting.admin.book
   morecrafting.admin.*: morecrafting.admin.*

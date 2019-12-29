@@ -79,7 +79,7 @@ public class CommandsManager implements CommandExecutor
                     sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdUnknownMsg());
             }
             else
-                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdVersionMsg().replace("%minecraft%", "Minecraft 1.14").replace("%version%", "3.1"));
+                sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdVersionMsg().replace("%minecraft%", "Minecraft 1.15").replace("%version%", "3.4"));
         }
         return false;
     }

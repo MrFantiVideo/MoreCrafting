@@ -15,7 +15,8 @@ public class ReloadCommand extends AbstractCommand
 
     public boolean HasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminReloadPerm()) || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminAllPerm()));
+        return (sender.isOp() || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminReloadPerm()) || 
+        		sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminAllPerm()));
     }
 
     public boolean Execute(CommandSender sender, Command cmd, String commandLabel, String[] args)
