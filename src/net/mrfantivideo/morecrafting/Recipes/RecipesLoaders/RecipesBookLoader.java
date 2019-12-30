@@ -19,52 +19,54 @@ public final class RecipesBookLoader
      */
     public static void LoadRecipesBook()
     {
-        ConfigSettings config = Main.GetInstance().GetConfigSettings();
-        if(!config.GetValue(Boolean.class, "others.book.enabled"))
+        ConfigSettings config = Main.getInstance().getConfigSettings();
+        if (!config.GetValue(Boolean.class, "others.book.enabled"))
             return;
         String craftMaterial = config.GetValue(String.class, "others.book.craft.result.id");
-        if(craftMaterial == null || craftMaterial.isEmpty())
+        if (craftMaterial == null || craftMaterial.isEmpty())
             return;
         Material material = Material.getMaterial(craftMaterial);
-        if(material == null)
+        if (material == null)
             return;
         ItemStack book = new ItemStack(material, 1);
         ItemMeta bookMeta = book.getItemMeta();
 
         String bookName = config.GetValue(String.class, "others.book.craft.result.name").replace("&", "§");
-        if(bookName != null && !bookName.isEmpty())
+        if (bookName != null && !bookName.isEmpty())
             bookMeta.setDisplayName(bookName);
 
         String bookLore = config.GetValue(String.class, "others.book.craft.result.lore").replace("&", "§");
-        if(bookLore != null && !bookLore.isEmpty())
+        if (bookLore != null && !bookLore.isEmpty())
             bookMeta.setLore(Arrays.asList(bookLore));
 
         book.setItemMeta(bookMeta);
 
         ShapedRecipe shapedRecipe = GetRecipe(config, book);
-        if(shapedRecipe == null)
+        if (shapedRecipe == null)
             return;
         RecipesManager.GetInstance().AddRecipe("MoreCraftingRecipeBook", new CustomRecipe(shapedRecipe, -1, "MoreCraftingRecipeBook"));
     }
 
     /**
      * Get Recpe
+     *
      * @param config Config
      * @param result Result
+     *
      * @return ShapedRecipe if successfully loaded, null otherwise
      */
     private static ShapedRecipe GetRecipe(ConfigSettings config, ItemStack result)
     {
         @SuppressWarnings("deprecation")
-		ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), result);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), result);
         recipe.shape("123", "456", "789");
-        for(int i = 1; i <= 9; i++)
+        for (int i = 1; i <= 9; i++)
         {
             String itemMaterial = config.GetValue(String.class, "others.book.craft.slots." + i);
-            if(itemMaterial == null || itemMaterial.isEmpty())
+            if (itemMaterial == null || itemMaterial.isEmpty())
                 continue;
             Material material = Material.getMaterial(itemMaterial);
-            if(material == null)
+            if (material == null)
                 continue;
             recipe.setIngredient(Integer.toString(i).charAt(0), material);
         }

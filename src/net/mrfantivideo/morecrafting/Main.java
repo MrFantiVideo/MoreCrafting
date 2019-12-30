@@ -15,58 +15,63 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin
 {
-    private static Main s_instance;
-    private ConfigSettings m_configSettings;
-    private ConfigPermissions m_configPermissions;
-    private ConfigMessages m_configMessages;
-    private boolean m_debug = false;
+    private static Main              s_instance;
+    private        ConfigSettings    m_configSettings;
+    private        ConfigPermissions m_configPermissions;
+    private        ConfigMessages    m_configMessages;
+    private        boolean           m_debug = false;
 
-    public Main()
+    public Main ()
     {
         s_instance = this;
     }
 
     /**
      * Get Main Instance
+     *
      * @return Instance
      */
-    public static Main GetInstance()
+    public static Main getInstance ()
     {
         return s_instance;
     }
 
     /**
      * Get Config Settings
+     *
      * @return Config Settings
      */
-    public ConfigSettings GetConfigSettings()
+    public ConfigSettings getConfigSettings ()
     {
         return m_configSettings;
     }
 
     /**
      * Get Config Permissions
+     *
      * @return Config Permissions
      */
-    public ConfigPermissions GetConfigPermissions()
+    public ConfigPermissions getConfigPermissions ()
     {
         return m_configPermissions;
     }
 
     /**
      * Get Config Messages
+     *
      * @return Config Messages
      */
-    public ConfigMessages GetConfigMessages()
+    public ConfigMessages getConfigMessages ()
     {
         return m_configMessages;
     }
 
     /**
      * Is Debug enabled
+     *
      * @return true if debug is enabled, false otherwise
      */
-    public boolean IsDebugging()
+    public boolean isDebugging ()
     {
         return m_debug;
     }
@@ -74,9 +79,9 @@ public class Main extends JavaPlugin
     /**
      * On Enable
      */
-    public void onEnable()
+    public void onEnable ()
     {
-        LoadSettings();
+        loadSettings();
 
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerInventoryListener(), this);
@@ -88,23 +93,23 @@ public class Main extends JavaPlugin
 
         new RecipesManager();
 
-        BroadcastEnableMessage(true);
+        broadcastEnableMessage(true);
     }
 
     /**
      * On Disable
      */
-    public void onDisable()
+    public void onDisable ()
     {
-        BroadcastEnableMessage(false);
+        broadcastEnableMessage(false);
     }
 
     /**
      * Broadcast Enabled Message
      */
-    private void BroadcastEnableMessage(boolean enable)
+    private void broadcastEnableMessage (boolean enable)
     {
-        if(enable)
+        if (enable)
         {
             System.out.println(" ");
             getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "             ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»");
@@ -117,8 +122,7 @@ public class Main extends JavaPlugin
             getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "º Created by " + ChatColor.GRAY + "Mr.FantiVideo" + ChatColor.DARK_GRAY + " º 2018 - 2020 º");
             getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍ¼");
             System.out.println(" ");
-        }
-        else
+        } else
         {
             System.out.println(" ");
             getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "             ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»");
@@ -137,11 +141,11 @@ public class Main extends JavaPlugin
     /**
      * Load Settings
      */
-    public void LoadSettings()
+    public void loadSettings ()
     {
         m_configSettings = new ConfigSettings();
         m_configMessages = new ConfigMessages();
         m_configPermissions = new ConfigPermissions();
-        m_debug = GetConfigSettings().GetDebug();
+        m_debug = getConfigSettings().GetDebug();
     }
 }

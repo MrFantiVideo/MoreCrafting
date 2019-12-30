@@ -15,15 +15,15 @@ public class ReloadCommand extends AbstractCommand
 
     public boolean HasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminReloadPerm()) || 
-        		sender.hasPermission(Main.GetInstance().GetConfigPermissions().GetAdminAllPerm()));
+        return (sender.isOp() || sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminReloadPerm()) ||
+                sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminAllPerm()));
     }
 
     public boolean Execute(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
-        Main.GetInstance().LoadSettings();
+        Main.getInstance().loadSettings();
         RecipesManager.GetInstance().LoadRecipes();
-        sender.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdReloadMsg());
+        sender.sendMessage(Main.getInstance().getConfigMessages().GetPrefix() + Main.getInstance().getConfigMessages().GetCmdReloadMsg());
         return true;
     }
 }

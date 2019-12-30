@@ -22,7 +22,7 @@ public class ConfigSettings extends AbstractConfig
             return m_file.GetConfiguration().getString("language");
         return null;
     }
-    
+
     /**
      * Get Debug from config
      *
@@ -70,11 +70,11 @@ public class ConfigSettings extends AbstractConfig
     public float GetFloat(String path)
     {
         double value = GetDouble(path);
-        return (float)value;
+        return (float) value;
     }
 
     @SuppressWarnings("unchecked")
-	public <T> T GetValue(Class<T> type, String path)
+    public <T> T GetValue(Class<T> type, String path)
     {
         if (m_file.GetConfiguration().contains(path))
             return (T) m_file.GetConfiguration().get(path);
@@ -88,6 +88,7 @@ public class ConfigSettings extends AbstractConfig
      * @param type Return type
      * @param path Path
      * @param <T>  Return Type
+     *
      * @return Type value if exists, null otherwise
      */
     @SuppressWarnings({"null"})

@@ -11,7 +11,7 @@ import java.io.IOException;
 public abstract class AbstractConfig
 {
     protected CustomConfigFile m_file;
-    private String m_fileName;
+    private   String           m_fileName;
 
     public AbstractConfig(String fileName)
     {
@@ -19,8 +19,7 @@ public abstract class AbstractConfig
         try
         {
             Load();
-        }
-        catch(IOException ex)
+        } catch (IOException ex)
         {
             LogUtils.LogError("An error occured while loading the file configuration '" + fileName + "'");
         }
@@ -28,6 +27,7 @@ public abstract class AbstractConfig
 
     /**
      * Get Custom Config File
+     *
      * @return Custom Config File
      */
     public CustomConfigFile GetCustomFile()
@@ -37,6 +37,7 @@ public abstract class AbstractConfig
 
     /**
      * Get Configuration
+     *
      * @return File Configuration
      */
     public FileConfiguration GetConfiguration()
@@ -46,6 +47,7 @@ public abstract class AbstractConfig
 
     /**
      * Get File
+     *
      * @return File
      */
     public File GetFile()
@@ -55,6 +57,7 @@ public abstract class AbstractConfig
 
     /**
      * Get File Name
+     *
      * @return File Name
      */
     public String GetFileName()
@@ -64,15 +67,16 @@ public abstract class AbstractConfig
 
     /**
      * Load File
+     *
      * @throws IOException
      */
     protected void Load() throws IOException
     {
-        if(m_file != null)
+        if (m_file != null)
             return;
-        File file = new File(Main.GetInstance().getDataFolder(), GetFileName());
-        if(!file.exists())
-            Main.GetInstance().saveResource(GetFileName(), false);
+        File file = new File(Main.getInstance().getDataFolder(), GetFileName());
+        if (!file.exists())
+            Main.getInstance().saveResource(GetFileName(), false);
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
         m_file = new CustomConfigFile(file, configuration);
     }
@@ -82,7 +86,7 @@ public abstract class AbstractConfig
      */
     public void Save()
     {
-        if(m_file != null)
+        if (m_file != null)
             GetCustomFile().Save();
     }
 }

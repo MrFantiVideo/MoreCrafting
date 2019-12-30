@@ -21,6 +21,7 @@ public class CustomConfigFile
 
     /**
      * Get File
+     *
      * @return File
      */
     public File GetFile()
@@ -30,6 +31,7 @@ public class CustomConfigFile
 
     /**
      * Get Configuration
+     *
      * @return File Configuration
      */
     public FileConfiguration GetConfiguration()
@@ -39,6 +41,7 @@ public class CustomConfigFile
 
     /**
      * Set File
+     *
      * @param file File
      */
     public void SetFile(File file)
@@ -52,13 +55,12 @@ public class CustomConfigFile
      */
     public void Save()
     {
-        if(m_file == null || m_fileConfiguration == null)
+        if (m_file == null || m_fileConfiguration == null)
             return;
         try
         {
             GetConfiguration().save(GetFile());
-        }
-        catch(IOException ex)
+        } catch (IOException ex)
         {
             LogUtils.LogError("Could not save config file '" + GetFile().getName() + "'");
         }

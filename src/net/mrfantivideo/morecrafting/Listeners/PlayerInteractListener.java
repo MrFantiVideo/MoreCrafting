@@ -23,28 +23,28 @@ public class PlayerInteractListener implements Listener
         Action action = event.getAction();
         ItemStack stack = event.getItem();
 
-        if(stack == null)
+        if (stack == null)
             return;
 
         ShapedRecipe recipe = RecipesManager.GetCustomShapedRecipe("MoreCraftingRecipeBook");
-        if(recipe != null)
+        if (recipe != null)
         {
             ItemStack book = recipe.getResult();
-            if(book != null && stack.getType() == 
-               book.getType() && stack.hasItemMeta() && 
-               stack.getItemMeta().hasDisplayName() && 
-               stack.getItemMeta().getDisplayName().equalsIgnoreCase(book.getItemMeta().getDisplayName()))
+            if (book != null && stack.getType() ==
+                    book.getType() && stack.hasItemMeta() &&
+                    stack.getItemMeta().hasDisplayName() &&
+                    stack.getItemMeta().getDisplayName().equalsIgnoreCase(book.getItemMeta().getDisplayName()))
             {
-                if(player.isOp() || player.hasPermission(Main.GetInstance().GetConfigPermissions().GetBookPerm()) || 
-                   player.hasPermission(Main.GetInstance().GetConfigPermissions().GetAllPerm()))
+                if (player.isOp() || player.hasPermission(Main.getInstance().getConfigPermissions().GetBookPerm()) ||
+                        player.hasPermission(Main.getInstance().getConfigPermissions().GetAllPerm()))
                 {
-                    if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
+                    if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
                     {
-                        int inventorySize = Main.GetInstance().GetConfigSettings().GetValue(Integer.class, "others.book.gui.menu.size");
-                        if(inventorySize <= 0)
+                        int inventorySize = Main.getInstance().getConfigSettings().GetValue(Integer.class, "others.book.gui.menu.size");
+                        if (inventorySize <= 0)
                             return;
-                        String inventoryTitle = Main.GetInstance().GetConfigMessages().GetGUITitle() + Main.GetInstance().GetConfigMessages().GetGUITitleMain();
-                        if(inventoryTitle == null || inventoryTitle.isEmpty())
+                        String inventoryTitle = Main.getInstance().getConfigMessages().GetGUITitle() + Main.getInstance().getConfigMessages().GetGUITitleMain();
+                        if (inventoryTitle == null || inventoryTitle.isEmpty())
                             return;
                         Inventory inventory = Bukkit.createInventory(null, inventorySize, inventoryTitle);
                         FillInventory(inventory);
@@ -53,8 +53,9 @@ public class PlayerInteractListener implements Listener
                         event.setCancelled(true);
                     }
                 }
-                else {
-                	player.sendMessage(Main.GetInstance().GetConfigMessages().GetPrefix() + Main.GetInstance().GetConfigMessages().GetCmdPermissionDeniedMsg());
+                else
+                {
+                    player.sendMessage(Main.getInstance().getConfigMessages().GetPrefix() + Main.getInstance().getConfigMessages().GetCmdPermissionDeniedMsg());
                 }
             }
         }
@@ -62,13 +63,14 @@ public class PlayerInteractListener implements Listener
 
     /**
      * Fill inventory
+     *
      * @param inv Inventory
      */
     private void FillInventory(Inventory inv)
     {
-        for(CustomRecipe recipe : RecipesManager.GetInstance().GetRecipes())
+        for (CustomRecipe recipe : RecipesManager.GetInstance().GetRecipes())
         {
-            if(recipe.GetBookInventorySlot() <= -1)
+            if (recipe.GetBookInventorySlot() <= -1)
                 continue;
             ItemStack item = recipe.GetResult().clone();
             item.setAmount(1);

@@ -15,7 +15,7 @@ public class ShapedRecipesLoader extends AbstractRecipesLoader
     @Override
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
-        RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((ShapedRecipe)recipe, bookInventorySlot, recipeName));
+        RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((ShapedRecipe) recipe, bookInventorySlot, recipeName));
         LogUtils.LogInfo("[Crafting Recipes Loader] Loading Recipe '" + recipeName + "'");
     }
 }

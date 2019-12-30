@@ -14,6 +14,7 @@ public abstract class AbstractCommand
 
     /**
      * Get Command Prefix
+     *
      * @return Command Prefix
      */
     public String GetCommandPrefix()
@@ -33,7 +34,9 @@ public abstract class AbstractCommand
 
     /**
      * Checks if the Command's sender has permission
+     *
      * @param sender Commmand Sender
+     *
      * @return true if the sender has permission, false otherwise
      */
     public abstract boolean HasPermission(CommandSender sender);

@@ -45,8 +45,8 @@ public class LogUtils
      */
     public static void Log(Level level, String message)
     {
-        if (!Main.GetInstance().IsDebugging())
+        if (!Main.getInstance().isDebugging())
             return;
-        Main.GetInstance().getLogger().log(level, message);
+        Main.getInstance().getLogger().log(level, message);
     }
 }

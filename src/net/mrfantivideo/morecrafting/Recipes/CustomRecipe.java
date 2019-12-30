@@ -1,29 +1,16 @@
 package net.mrfantivideo.morecrafting.Recipes;
 
-import org.bukkit.inventory.BlastingRecipe;
-import org.bukkit.inventory.CampfireRecipe;
-import org.bukkit.inventory.FurnaceRecipe;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.SmokingRecipe;
-import org.bukkit.inventory.StonecuttingRecipe;
+import org.bukkit.inventory.*;
 
 public class CustomRecipe
 {
-    public static void Get(Object recipe, int bookInventorySlot, String configItemName)
-    {
-
-    }
-
-    private ShapedRecipe m_recipe;
-    private FurnaceRecipe m_furnaceRecipe;
-    private SmokingRecipe m_smokingRecipe;
-    private BlastingRecipe m_blastingRecipe;
+    private ShapedRecipe       m_recipe;
+    private FurnaceRecipe      m_furnaceRecipe;
+    private SmokingRecipe      m_smokingRecipe;
+    private BlastingRecipe     m_blastingRecipe;
     private StonecuttingRecipe m_stonecuttingRecipe;
-    private CampfireRecipe m_campfireRecipe;
-
+    private CampfireRecipe     m_campfireRecipe;
     private String m_configItemName;
-
     private int m_bookInventorySlot;
 
     public CustomRecipe(ShapedRecipe recipe, int bookInventorySlot, String configItemName)
@@ -66,6 +53,11 @@ public class CustomRecipe
         m_campfireRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
+    }
+
+    public static void Get(Object recipe, int bookInventorySlot, String configItemName)
+    {
+
     }
 
     /**

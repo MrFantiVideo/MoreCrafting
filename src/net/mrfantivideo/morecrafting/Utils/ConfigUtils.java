@@ -8,23 +8,23 @@ public class ConfigUtils
     public static <T> T Get(Class<T> type, EConfig config, String path)
     {
         Object obj = null;
-        switch(config)
+        switch (config)
         {
             case SETTINGS:
-                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
-                    obj = Main.GetInstance().GetConfigSettings().GetConfiguration().get(path);
+                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.getInstance().getConfigSettings().GetConfiguration().get(path);
                 break;
             case MESSAGES:
-                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
-                    obj = Main.GetInstance().GetConfigMessages().GetConfiguration().get(path);
+                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.getInstance().getConfigMessages().GetConfiguration().get(path);
                 break;
             case PERMISSIONS:
-                if(Main.GetInstance().GetConfigSettings().GetConfiguration().contains(path))
-                    obj = Main.GetInstance().GetConfigPermissions().GetConfiguration().get(path);
+                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
+                    obj = Main.getInstance().getConfigPermissions().GetConfiguration().get(path);
                 break;
         }
-        if(obj != null)
-            return (T)obj;
+        if (obj != null)
+            return (T) obj;
         else
         {
             //LogUtils.LogWarning("Could not find the specified key '" + path + "' in '" + config.toString() + "'. Does it exists ?");

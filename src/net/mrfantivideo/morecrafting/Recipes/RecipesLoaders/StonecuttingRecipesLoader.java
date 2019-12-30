@@ -26,13 +26,13 @@ public class StonecuttingRecipesLoader extends AbstractRecipesLoader
     protected Object GetRecipe(String recipeName, ItemStack stack)
     {
         String burnMaterial = GetConfig().GetString(GetFormattedPath(recipeName, "craft.slot.1"));
-        if(burnMaterial == null || burnMaterial.isEmpty())
+        if (burnMaterial == null || burnMaterial.isEmpty())
             return null;
         Material material = Material.getMaterial(burnMaterial);
-        if(material == null)
+        if (material == null)
             return null;
         @SuppressWarnings("deprecation")
-		StonecuttingRecipe recipe = new StonecuttingRecipe(NamespacedKey.randomKey(), stack, material);
+        StonecuttingRecipe recipe = new StonecuttingRecipe(NamespacedKey.randomKey(), stack, material);
         return recipe;
     }
 }
