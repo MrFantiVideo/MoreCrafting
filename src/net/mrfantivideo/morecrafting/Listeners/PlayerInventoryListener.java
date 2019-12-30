@@ -27,7 +27,7 @@ public class PlayerInventoryListener implements Listener
         InventoryView inv = event.getView();
         ItemStack stack = event.getCurrentItem();
 
-        if (stack == null)
+        if (stack == null || stack.getType() == Material.AIR)
             return;
 
         if (inv.getTitle().equalsIgnoreCase(Main.getInstance().getConfigMessages().GetGUITitle() + Main.getInstance().getConfigMessages().GetGUITitleCrafting()))
