@@ -15,11 +15,11 @@ public class ConfigUtils
                     obj = Main.getInstance().getConfigSettings().GetConfiguration().get(path);
                 break;
             case MESSAGES:
-                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
+                if (Main.getInstance().getConfigMessages().GetConfiguration().contains(path))
                     obj = Main.getInstance().getConfigMessages().GetConfiguration().get(path);
                 break;
             case PERMISSIONS:
-                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
+                if (Main.getInstance().getConfigPermissions().GetConfiguration().contains(path))
                     obj = Main.getInstance().getConfigPermissions().GetConfiguration().get(path);
                 break;
         }
