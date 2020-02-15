@@ -84,7 +84,7 @@ public abstract class AbstractRecipesLoader
         head.setItemMeta(meta);
         return head;
     }
-    
+
     protected ItemStack GetPotionEffect(PotionEffectType effect, int duration, int level, boolean ambient, boolean particles, boolean color)
     {
         ItemStack potion = new ItemStack(Material.PLAYER_HEAD, 1);
@@ -93,7 +93,7 @@ public abstract class AbstractRecipesLoader
         potion.setItemMeta(meta);
         return potion;
     }
-    
+
     /**
      * Get Recipe
      *
@@ -127,36 +127,36 @@ public abstract class AbstractRecipesLoader
      */
     protected ItemStack GetRecipeResult(String recipeName)
     {
-        String craftMaterial = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.id"));
-        if (craftMaterial == null || Material.getMaterial(craftMaterial) == null)
-            return null;
-        int resultItemAmount = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.id-amount"));
-        if (resultItemAmount <= 0)
-            return null;
-        ItemStack resultItem = new ItemStack(Material.getMaterial(craftMaterial), resultItemAmount);
-        Flag.setFlag(resultItem, "recipeName", recipeName, PersistentDataType.STRING);
-        ItemMeta resultItemMeta = resultItem.getItemMeta();
-
-        String craftCustomName = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.name"));
-        if (craftCustomName != null && !craftCustomName.isEmpty())
-            resultItemMeta.setDisplayName(craftCustomName.replace("&", "§"));
-
-        String craftCustomLore = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.lore"));
-        if (craftCustomLore != null && !craftCustomLore.isEmpty())
-            resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
-
-        String craftCustomHead = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.uuid"));
-        if (craftCustomHead != null && !craftCustomHead.isEmpty())
+        ItemStack resultItem;
+        if (GetConfig().GetConfiguration().contains(GetFormattedPath(recipeName, "craft.result.uuid")))
         {
             UUID uuid = GetConfig().GetUUID(GetFormattedPath(recipeName, "craft.result.uuid"));
             if (uuid == null)
             {
                 Bukkit.getServer().getConsoleSender().sendMessage("Couldn't load recipe '" + recipeName + "', Invalid UUID");
-                continue;
+                return new ItemStack(Material.AIR);
             }
             resultItem = GetPlayerHead(uuid);
         }
-        
+        else
+        {
+            String craftMaterial = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.id"));
+            if (craftMaterial == null || Material.getMaterial(craftMaterial) == null)
+                return null;
+            int resultItemAmount = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.id-amount"));
+            if (resultItemAmount <= 0)
+                return null;
+            resultItem = new ItemStack(Material.getMaterial(craftMaterial), resultItemAmount);
+        }
+
+        Flag.setFlag(resultItem, "recipeName", recipeName, PersistentDataType.STRING);
+        ItemMeta resultItemMeta = resultItem.getItemMeta();
+        String craftCustomName = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.name"));
+        if (craftCustomName != null && !craftCustomName.isEmpty())
+            resultItemMeta.setDisplayName(craftCustomName.replace("&", "§"));
+        String craftCustomLore = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.lore"));
+        if (craftCustomLore != null && !craftCustomLore.isEmpty())
+            resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
         resultItem.setItemMeta(resultItemMeta);
         ApplyEnchantments(recipeName, resultItem);
         return resultItem;
