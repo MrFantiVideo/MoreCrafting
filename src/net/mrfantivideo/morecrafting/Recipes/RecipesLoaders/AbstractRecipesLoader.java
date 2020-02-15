@@ -13,8 +13,11 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -62,22 +65,9 @@ public abstract class AbstractRecipesLoader
         {
             if (!GetConfig().GetBool(GetFormattedPath(recipe, "enabled")))
                 continue;
-            ItemStack resultItem;
-            if (GetConfig().GetConfiguration().contains(GetFormattedPath(recipe, "craft.result.uuid")))
-            {
-                UUID uuid = GetConfig().GetUUID(GetFormattedPath(recipe, "craft.result.uuid"));
-                if (uuid == null)
-                {
-                    Bukkit.getServer().getConsoleSender().sendMessage("Couldn't load recipe '" + recipe + "', Invalid UUID");
-                    continue;
-                }
-                resultItem = GetPlayerHead(uuid);
-            }
-            else
-                resultItem = GetRecipeResult(recipe);
+            ItemStack resultItem = GetRecipeResult(recipe);
             if (resultItem == null)
                 continue;
-            Flag.setFlag(resultItem, "recipeName", recipe, PersistentDataType.STRING);
             Object shapedRecipe = GetRecipe(recipe, resultItem);
             if (shapedRecipe == null)
                 continue;
@@ -94,7 +84,16 @@ public abstract class AbstractRecipesLoader
         head.setItemMeta(meta);
         return head;
     }
-
+    
+    protected ItemStack GetPotionEffect(PotionEffectType effect, int duration, int level, boolean ambient, boolean particles, boolean color)
+    {
+        ItemStack potion = new ItemStack(Material.PLAYER_HEAD, 1);
+        PotionMeta meta = (PotionMeta) ItemStackUtils.getMeta(potion);
+        meta.addCustomEffect(new PotionEffect(effect, duration, level, ambient, particles, color), true);
+        potion.setItemMeta(meta);
+        return potion;
+    }
+    
     /**
      * Get Recipe
      *
@@ -146,6 +145,18 @@ public abstract class AbstractRecipesLoader
         if (craftCustomLore != null && !craftCustomLore.isEmpty())
             resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
 
+        String craftCustomHead = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.uuid"));
+        if (craftCustomHead != null && !craftCustomHead.isEmpty())
+        {
+            UUID uuid = GetConfig().GetUUID(GetFormattedPath(recipeName, "craft.result.uuid"));
+            if (uuid == null)
+            {
+                Bukkit.getServer().getConsoleSender().sendMessage("Couldn't load recipe '" + recipeName + "', Invalid UUID");
+                continue;
+            }
+            resultItem = GetPlayerHead(uuid);
+        }
+        
         resultItem.setItemMeta(resultItemMeta);
         ApplyEnchantments(recipeName, resultItem);
         return resultItem;
