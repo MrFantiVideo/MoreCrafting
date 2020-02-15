@@ -128,7 +128,7 @@ recipes:
         result:
           id: ICE
           id-amount: 1
-          id-book: 27
+          id-book: 26
           uuid: a9929927-c695-476a-b132-0d77e6a84b41
         slots:
           5: SNOWBALL
