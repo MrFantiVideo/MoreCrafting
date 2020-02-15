@@ -17,7 +17,6 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -85,15 +84,6 @@ public abstract class AbstractRecipesLoader
         return head;
     }
 
-    protected ItemStack GetPotionEffect(PotionEffectType effect, int duration, int level, boolean ambient, boolean particles, boolean color)
-    {
-        ItemStack potion = new ItemStack(Material.PLAYER_HEAD, 1);
-        PotionMeta meta = (PotionMeta) ItemStackUtils.getMeta(potion);
-        meta.addCustomEffect(new PotionEffect(effect, duration, level, ambient, particles, color), true);
-        potion.setItemMeta(meta);
-        return potion;
-    }
-
     /**
      * Get Recipe
      *
@@ -159,6 +149,7 @@ public abstract class AbstractRecipesLoader
             resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
         resultItem.setItemMeta(resultItemMeta);
         ApplyEnchantments(recipeName, resultItem);
+        ApplyPotions(recipeName, resultItem);
         return resultItem;
     }
 
@@ -188,6 +179,28 @@ public abstract class AbstractRecipesLoader
             stack.addUnsafeEnchantment(enchantment, enchantLevel);
         }
     }
+    
+    protected void ApplyPotions(String recipeName, ItemStack stack)
+    {
+        Set<String> potionSet = GetConfig().GetSection(GetFormattedPath(recipeName, "craft.result.potions"));
+        if (potionSet == null)
+            return;
+        for (String potion : potionSet)
+        {
+        	ItemStack potionmeta = new ItemStack(Material.POTION, 1);
+        	PotionMeta meta = (PotionMeta) ItemStackUtils.getMeta(potionmeta);
+            PotionEffect effect = GetConfig().GetPotionEffect(GetFormattedPath(recipeName, "craft.result.potions." + potion + ".effect"));
+            if (effect == null)
+                continue;
+            int duration = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.potions." + potion + ".duration"));
+            if (duration <= 0)
+                continue;
+            boolean ambient = GetConfig().GetBool(GetFormattedPath(recipeName, "craft.result.potions." + potion + ".ambient"));
+            meta.addCustomEffect(effect, ambient);
+            stack.setItemMeta(meta);
+        }
+    }
+    
 
     /**
      * Get formatted path
