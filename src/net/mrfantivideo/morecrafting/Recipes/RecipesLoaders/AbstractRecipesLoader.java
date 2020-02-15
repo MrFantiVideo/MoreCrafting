@@ -63,7 +63,7 @@ public abstract class AbstractRecipesLoader
             if (!GetConfig().GetBool(GetFormattedPath(recipe, "enabled")))
                 continue;
             ItemStack resultItem;
-            if (GetConfig().GetConfiguration().contains("craft.result.uuid"))
+            if (GetConfig().GetConfiguration().contains(GetFormattedPath(recipe, "craft.result.uuid")))
             {
                 UUID uuid = GetConfig().GetUUID(GetFormattedPath(recipe, "craft.result.uuid"));
                 if (uuid == null)
