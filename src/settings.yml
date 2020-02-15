@@ -122,6 +122,16 @@ recipes:
           7: SNOWBALL
           8: SNOWBALL
           9: SNOWBALL
+    SUPERTRUC:
+      enabled: true
+      craft:
+        result:
+          id: ICE
+          id-amount: 1
+          id-book: 27
+          uuid: a9929927-c695-476a-b132-0d77e6a84b41
+        slots:
+          5: SNOWBALL
 
 #    EXEMPLE-CRAFTING:
 #      enabled: true

@@ -3,6 +3,7 @@ package net.mrfantivideo.morecrafting.Configuration.Configs;
 import net.mrfantivideo.morecrafting.Configuration.AbstractConfig;
 
 import java.util.Set;
+import java.util.UUID;
 
 public class ConfigSettings extends AbstractConfig
 {
@@ -60,6 +61,11 @@ public class ConfigSettings extends AbstractConfig
     public int GetInt(String path)
     {
         return GetValue(Integer.class, path);
+    }
+    
+    public UUID GetUUID(String path)
+    {
+    	return GetValue(UUID.class, path);
     }
 
     public double GetDouble(String path)

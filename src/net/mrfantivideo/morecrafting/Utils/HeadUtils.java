@@ -18,7 +18,7 @@ public final class HeadUtils
      *
      * @return Item Stack
      */
-    public static ItemStack getPlayerHead(String displayName, UUID playerUUID)
+	protected ItemStack GetPlayerHead(String displayName, UUID playerUUID)
     {
         ItemStack head = new ItemStack(Material.PLAYER_HEAD, 1);
         SkullMeta meta = (SkullMeta) ItemStackUtils.getMeta(head);

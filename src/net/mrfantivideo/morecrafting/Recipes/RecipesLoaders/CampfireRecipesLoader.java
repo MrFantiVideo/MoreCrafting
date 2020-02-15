@@ -1,12 +1,13 @@
 package net.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
 
-import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
-import net.mrfantivideo.morecrafting.Utils.LogUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.CampfireRecipe;
 import org.bukkit.inventory.ItemStack;
+
+import net.mrfantivideo.morecrafting.Recipes.CustomRecipe;
+import net.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import net.mrfantivideo.morecrafting.Utils.LogUtils;
 
 public class CampfireRecipesLoader extends AbstractRecipesLoader
 {

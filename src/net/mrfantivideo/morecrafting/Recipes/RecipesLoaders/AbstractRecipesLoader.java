@@ -4,16 +4,21 @@ import com.sun.istack.internal.NotNull;
 import net.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import net.mrfantivideo.morecrafting.Main;
 import net.mrfantivideo.morecrafting.UnrealCoreImports.Flag;
+import net.mrfantivideo.morecrafting.UnrealCoreImports.ItemStackUtils;
+
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Arrays;
 import java.util.Set;
+import java.util.UUID;
 
 public abstract class AbstractRecipesLoader
 {
@@ -63,12 +68,24 @@ public abstract class AbstractRecipesLoader
             Object shapedRecipe = GetRecipe(recipe, resultItem);
             if (shapedRecipe == null)
                 continue;
+			ItemStack head = GetPlayerHead(GetConfig().GetUUID(GetFormattedPath(recipe, "craft.result.uuid")));
+            if (head == null)
+                continue;
             int bookInventorySlot = GetConfig().GetInt(GetFormattedPath(recipe, "craft.result.id-book"));
             OnRecipeLoaded(shapedRecipe, bookInventorySlot, recipe);
         }
     }
 
-    /**
+    protected ItemStack GetPlayerHead(UUID playerUUID)
+    {
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD, 1);
+        SkullMeta meta = (SkullMeta) ItemStackUtils.getMeta(head);
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(playerUUID));
+        head.setItemMeta(meta);
+        return head;
+    }
+    
+	/**
      * Get Recipe
      *
      * @param recipeName Recipe Name
@@ -119,13 +136,14 @@ public abstract class AbstractRecipesLoader
 
         String craftCustomLore = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.lore"));
         if (craftCustomLore != null && !craftCustomLore.isEmpty())
-            resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
-
+        	resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
+        
         resultItem.setItemMeta(resultItemMeta);
         ApplyEnchantments(recipeName, resultItem);
         return resultItem;
     }
-
+    
+    
     /**
      * Apply available enchantments to the specified customstack
      *
@@ -151,7 +169,7 @@ public abstract class AbstractRecipesLoader
             stack.addUnsafeEnchantment(enchantment, enchantLevel);
         }
     }
-
+    
     /**
      * Get formatted path
      *
