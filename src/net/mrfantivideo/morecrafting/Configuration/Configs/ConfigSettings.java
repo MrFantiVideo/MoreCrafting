@@ -65,7 +65,10 @@ public class ConfigSettings extends AbstractConfig
     
     public UUID GetUUID(String path)
     {
-    	return GetValue(UUID.class, path);
+        String value = GetString(path);
+        if(value == null || value.isEmpty())
+            return null;
+    	return UUID.fromString(value);
     }
 
     public double GetDouble(String path)

@@ -62,14 +62,23 @@ public abstract class AbstractRecipesLoader
         {
             if (!GetConfig().GetBool(GetFormattedPath(recipe, "enabled")))
                 continue;
-            ItemStack resultItem = GetRecipeResult(recipe);
+            ItemStack resultItem;
+            if (GetConfig().GetConfiguration().contains("craft.result.uuid"))
+            {
+                UUID uuid = GetConfig().GetUUID(GetFormattedPath(recipe, "craft.result.uuid"));
+                if (uuid == null)
+                {
+                    Bukkit.getServer().getConsoleSender().sendMessage("Couldn't load recipe '" + recipe + "', Invalid UUID");
+                    continue;
+                }
+                resultItem = GetPlayerHead(uuid);
+            }
+            else
+                resultItem = GetRecipeResult(recipe);
             if (resultItem == null)
                 continue;
-            Object shapedRecipe = GetRecipe(recipe, resultItem);
+            ShapedRecipe shapedRecipe = GetRecipe(recipe, resultItem);
             if (shapedRecipe == null)
-                continue;
-			ItemStack head = GetPlayerHead(GetConfig().GetUUID(GetFormattedPath(recipe, "craft.result.uuid")));
-            if (head == null)
                 continue;
             int bookInventorySlot = GetConfig().GetInt(GetFormattedPath(recipe, "craft.result.id-book"));
             OnRecipeLoaded(shapedRecipe, bookInventorySlot, recipe);
@@ -84,16 +93,15 @@ public abstract class AbstractRecipesLoader
         head.setItemMeta(meta);
         return head;
     }
-    
-	/**
+
+    /**
      * Get Recipe
      *
      * @param recipeName Recipe Name
      * @param stack      Recipe Result
-     *
      * @return Recipe
      */
-    protected Object GetRecipe(String recipeName, ItemStack stack)
+    protected ShapedRecipe GetRecipe(String recipeName, ItemStack stack)
     {
         @SuppressWarnings("deprecation")
         ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), stack);
@@ -115,7 +123,6 @@ public abstract class AbstractRecipesLoader
      * Get the result of the specified recipe
      *
      * @param recipeName Recipe Name
-     *
      * @return CustomStack
      */
     protected ItemStack GetRecipeResult(String recipeName)
@@ -136,14 +143,14 @@ public abstract class AbstractRecipesLoader
 
         String craftCustomLore = GetConfig().GetString(GetFormattedPath(recipeName, "craft.result.lore"));
         if (craftCustomLore != null && !craftCustomLore.isEmpty())
-        	resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
-        
+            resultItemMeta.setLore(Arrays.asList((craftCustomLore).replace("&", "§")));
+
         resultItem.setItemMeta(resultItemMeta);
         ApplyEnchantments(recipeName, resultItem);
         return resultItem;
     }
-    
-    
+
+
     /**
      * Apply available enchantments to the specified customstack
      *
@@ -169,13 +176,12 @@ public abstract class AbstractRecipesLoader
             stack.addUnsafeEnchantment(enchantment, enchantLevel);
         }
     }
-    
+
     /**
      * Get formatted path
      *
      * @param recipeName  Recipe Name
      * @param pathToValue Path to Value
-     *
      * @return Formatted Path
      */
     protected String GetFormattedPath(String recipeName, String pathToValue)
