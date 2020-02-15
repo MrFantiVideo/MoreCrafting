@@ -72,12 +72,12 @@ public abstract class AbstractRecipesLoader
                     continue;
                 }
                 resultItem = GetPlayerHead(uuid);
-                Flag.setFlag(resultItem, "recipeName", recipe, PersistentDataType.STRING);
             }
             else
                 resultItem = GetRecipeResult(recipe);
             if (resultItem == null)
                 continue;
+            Flag.setFlag(resultItem, "recipeName", recipe, PersistentDataType.STRING);
             Object shapedRecipe = GetRecipe(recipe, resultItem);
             if (shapedRecipe == null)
                 continue;
