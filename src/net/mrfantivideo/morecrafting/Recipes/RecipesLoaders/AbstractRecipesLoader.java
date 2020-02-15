@@ -77,7 +77,7 @@ public abstract class AbstractRecipesLoader
                 resultItem = GetRecipeResult(recipe);
             if (resultItem == null)
                 continue;
-            ShapedRecipe shapedRecipe = GetRecipe(recipe, resultItem);
+            Object shapedRecipe = GetRecipe(recipe, resultItem);
             if (shapedRecipe == null)
                 continue;
             int bookInventorySlot = GetConfig().GetInt(GetFormattedPath(recipe, "craft.result.id-book"));
@@ -101,7 +101,7 @@ public abstract class AbstractRecipesLoader
      * @param stack      Recipe Result
      * @return Recipe
      */
-    protected ShapedRecipe GetRecipe(String recipeName, ItemStack stack)
+    protected Object GetRecipe(String recipeName, ItemStack stack)
     {
         @SuppressWarnings("deprecation")
         ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.randomKey(), stack);
