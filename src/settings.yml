@@ -1,6 +1,6 @@
 #  MoreCrating
 #  by Mr.FantiVideo
-#  2018 - 2019
+#  2018 - 2020
 
 # == Languages ============================================= #
 #                                                            #
@@ -34,6 +34,13 @@ debug: false
 #  OXYGEN, PIERCING, PROTECTION_ENVIRONMENTAL, PROTECTION_EXPLOSIONS,               #
 #  PROTECTION_FALL, PROTECTION_FIRE, PROTECTION_PROJECTILE, QUICK_CHARGE, RIPTIDE,  #
 #  SILK_TOUCH, SWEEPING_EDGE, THORNS, VANISHING_CURSE, WATER_WORKER.                #
+#                                                                                   #
+#  List of Potion Effect :                                                          #
+#  ABSORPTION, BAD_OMEN, BLINDNESS, CONDUIT_POWER, CONFUSION, DAMAGE_RESISTANCE,    #
+#  DOLPHINS_GRACE, FAST_DIGGING, FIRE_RESISTANCE, GLOWING, HARM, HEAL,              #
+#  HEALTH_BOOST, HERO_OF_THE_VILLAGE, HUNGER, INCREASE_DAMAGE, INVISIBILITY, JUMP,  #
+#  LEVITATION, LUCK, NIGHT_VISION, POISON, REGENERATION, SATURATION, SLOW,          #
+#  SLOW_DIGGING, SLOW_FALLING, SPEED, UNLUCK, WATER_BREATHING, WEAKNESS, WITHER.    #
 #                                                                                   #
 # ================================================================================= #
 
@@ -122,18 +129,8 @@ recipes:
           7: SNOWBALL
           8: SNOWBALL
           9: SNOWBALL
-    SUPERTRUC:
-      enabled: true
-      craft:
-        result:
-          id: ICE
-          id-amount: 1
-          id-book: 26
-          uuid: a9929927-c695-476a-b132-0d77e6a84b41
-        slots:
-          5: SNOWBALL
 
-#    EXEMPLE-CRAFTING:
+#    EXEMPLE-CRAFTING-1:
 #      enabled: true
 #      craft:
 #        result:
@@ -159,6 +156,39 @@ recipes:
 #          7: DIRT
 #          8: DIRT
 #          9: DIRT
+
+#    EXEMPLE-CRAFT-2:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW CRAFTING RECIPE !"
+#          id: PLAYER_HEAD
+#          id-amount: 1
+#          id-book: 2
+#          uuid: a9929927-c695-476a-b132-0d77e6a84b41
+#        slots:
+#          5: APPLE
+
+#    EXEMPLE-CRAFT-3:
+#      enabled: true
+#      craft:
+#        result:
+#          name: "&eEXEMPLE" 
+#          lore: "&7A NEW CRAFTING RECIPE !"
+#          id: POTION
+#          id-amount: 1
+#          id-book: 3
+#          potions:
+#            EFFECT-1:
+#              effect: BLINDNESS
+#              duration: 1000
+#              level: 3
+#              ambient: true
+#              particles: false
+#              icon: true
+#        slots:
+#          5: HONEY_BOTTLE
 
   furnace:
     FIRE-RECIPE-1:

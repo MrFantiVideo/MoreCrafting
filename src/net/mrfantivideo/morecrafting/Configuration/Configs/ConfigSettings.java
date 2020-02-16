@@ -5,8 +5,6 @@ import net.mrfantivideo.morecrafting.Configuration.AbstractConfig;
 import java.util.Set;
 import java.util.UUID;
 
-import org.bukkit.potion.PotionEffect;
-
 public class ConfigSettings extends AbstractConfig
 {
     public ConfigSettings()
@@ -73,12 +71,6 @@ public class ConfigSettings extends AbstractConfig
     	return UUID.fromString(value);
     }
     
-    public PotionEffect GetPotionEffect(String path)
-    {
-    	return GetValue(PotionEffect.class, path);
-    }
-
-
 	public double GetDouble(String path)
     {
         return GetValue(Double.class, path);
@@ -116,5 +108,6 @@ public class ConfigSettings extends AbstractConfig
         else
             return (Float) null;
     }
+
 
 }
