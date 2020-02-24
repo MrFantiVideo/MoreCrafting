@@ -2,7 +2,7 @@ permissions:
   morecrafting.admin.help: morecrafting.admin.help
   morecrafting.admin.reload: morecrafting.admin.reload
   morecrafting.admin.book: morecrafting.admin.book
+  morecrafting.admin.recipes: morecrafting.admin.recipes
   morecrafting.admin.*: morecrafting.admin.*
   morecrafting.book: morecrafting.book
-  morecrafting.recipes: morecrafting.recipes
   morecrafting.*: morecrafting.*
