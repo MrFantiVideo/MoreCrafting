@@ -22,5 +22,6 @@ messages:
     command-help: "&7&oAll available commands."
     command-help-morecrafting: "&7&oPlugin version."
     command-help-book: "&7&oGive the recipe book."
+    command-help-recipes: "&7Displays available recipes."
     command-help-reload: "&7&oReload configuration files."
     permission-denied: "&cYou do not have permission."

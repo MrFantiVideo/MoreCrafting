@@ -1,7 +1,7 @@
 name: MoreCrafting
-version: 3.4
+version: 3.5
 author: MrFantiVideo
-main: net.mrfantivideo.morecrafting.Main
+main: fr.mrfantivideo.morecrafting.Main
 api-version: 1.15
 
 commands:
@@ -11,5 +11,7 @@ commands:
         description: All available commands.
     morecrafting book:
         description: Give the recipe book.
+    morecrafting recipes:
+        description: Displays available recipes.
     morecrafting reload:
         description: Reload configuration files.
