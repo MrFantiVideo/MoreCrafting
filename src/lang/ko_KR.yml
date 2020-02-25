@@ -1,0 +1,27 @@
+# == Messages ============================================== #
+#                                                            #
+#  Change according to the language.                         #
+#                                                            #
+# ========================================================== #
+
+messages:
+  default:
+    prefix: "&6추가 레시피 » "
+    gui-title: "&8추가 레시피 » "
+  ko_KR:
+    gui-title-main: "&8메인 메뉴"
+    gui-title-crafting: "&8제작대"
+    gui-title-furnace: "&8화로"
+    gui-title-smoker: "&8훈연기"
+    gui-title-blasting: "&8용광로"
+    gui-title-stonecutting: "&8석재 절단기"
+    gui-title-campfire: "&8모닥불"
+    command-version: "&7버전 &6%version% &7by &6Mr.FantiVideo&7. §8(%minecraft%)"
+    command-unknown: "&c알 수 없는 명령어"
+    command-reload: "&a다시 불러오기 완료"
+    command-help: "&7&o사용가능한 모든 명령어"
+    command-help-morecrafting: "&7&o플러그인 버전"
+    command-help-book: "&7&o레시피 책을 받습니다."
+    command-help-recipes: "&7&o사용가능한 레시피를 확인합니다."
+    command-help-reload: "&7&o환경설정 파일을 다시 불러옵니다."
+    permission-denied: "&c권한이 부족합니다."
