@@ -6,8 +6,6 @@ import fr.mrfantivideo.morecrafting.commands.RecipesCommand;
 import fr.mrfantivideo.morecrafting.commands.ReloadCommand;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigMessages;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigPermissions;
-import fr.mrfantivideo.morecrafting.Listeners.PlayerInteractListener;
-import fr.mrfantivideo.morecrafting.Listeners.PlayerInventoryListener;
 import fr.mrfantivideo.morecrafting.items.RecipeBookSpecialItem;
 import fr.mrfantivideo.morecrafting.recipes.RecipesManager;
 import fr.unreal852.sunrealcore.commands.CommandsManager;
@@ -85,9 +83,6 @@ public class Main extends JavaPlugin
     public void onEnable()
     {
         //loadSettings();
-
-        getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
-        getServer().getPluginManager().registerEvents(new PlayerInventoryListener(), this);
 
         m_commandsManager = new CommandsManager(this, "morecrafting");
         m_commandsManager.registerCommand(new ReloadCommand());
