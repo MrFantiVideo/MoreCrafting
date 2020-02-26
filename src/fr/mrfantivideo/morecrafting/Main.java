@@ -6,20 +6,20 @@ import fr.mrfantivideo.morecrafting.commands.RecipesCommand;
 import fr.mrfantivideo.morecrafting.commands.ReloadCommand;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigMessages;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigPermissions;
-import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import fr.mrfantivideo.morecrafting.Listeners.PlayerInteractListener;
 import fr.mrfantivideo.morecrafting.Listeners.PlayerInventoryListener;
-import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
+import fr.mrfantivideo.morecrafting.items.RecipeBookSpecialItem;
 import fr.mrfantivideo.morecrafting.recipes.RecipesManager;
 import fr.unreal852.sunrealcore.commands.CommandsManager;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin
 {
     private static Main              s_instance;
     private static CommandsManager   m_commandsManager;
-    private        ConfigSettings    m_configSettings;
     private        ConfigPermissions m_configPermissions;
     private        ConfigMessages    m_configMessages;
     private        boolean           m_debug = false;
@@ -47,16 +47,6 @@ public class Main extends JavaPlugin
     public CommandsManager getCommandsManager()
     {
         return m_commandsManager;
-    }
-
-    /**
-     * Get Config Settings
-     *
-     * @return Config Settings
-     */
-    public ConfigSettings getConfigSettings()
-    {
-        return m_configSettings;
     }
 
     /**
@@ -107,6 +97,7 @@ public class Main extends JavaPlugin
 
         //new RecipesManagerOld();
         RecipesManager.loadRecipes();
+        new RecipeBookSpecialItem("Recipe book", new ItemStack(Material.BOOK), "");
 
         broadcastEnableMessage(true);
     }
@@ -159,9 +150,7 @@ public class Main extends JavaPlugin
      */
     public void loadSettings()
     {
-        m_configSettings = new ConfigSettings();
         m_configMessages = new ConfigMessages();
         m_configPermissions = new ConfigPermissions();
-        m_debug = getConfigSettings().GetDebug();
     }
 }

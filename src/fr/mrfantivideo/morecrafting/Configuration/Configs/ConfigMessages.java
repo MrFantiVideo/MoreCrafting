@@ -19,7 +19,6 @@ public class ConfigMessages extends AbstractConfig
      * Get Message from config
      *
      * @param path Path to message
-     *
      * @return Message if path is valid, null otherwise
      */
     public String GetMessage(String path)
@@ -46,82 +45,82 @@ public class ConfigMessages extends AbstractConfig
 
     public String GetGUITitleMain()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-main");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-main");
     }
 
     public String GetGUITitleCrafting()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-crafting");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-crafting");
     }
 
     public String GetGUITitleFurnace()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-furnace");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-furnace");
     }
 
     public String GetGUITitleSmoker()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-smoker");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-smoker");
     }
 
     public String GetGUITitleBlasting()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-blasting");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-blasting");
     }
 
     public String GetGUITitleStonecutting()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-stonecutting");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-stonecutting");
     }
 
     public String GetGUITitleCampfire()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".gui-title-campfire");
+        return GetMessage("messages." + "fr_FR" + ".gui-title-campfire");
     }
 
     public String GetCmdVersionMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-version");
+        return GetMessage("messages." + "fr_FR" + ".command-version");
     }
 
     public String GetCmdUnknownMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-unknown");
+        return GetMessage("messages." + "fr_FR" + ".command-unknown");
     }
 
     public String GetCmdReloadMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-reload");
+        return GetMessage("messages." + "fr_FR" + ".command-reload");
     }
 
     public String GetCmdHelpMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-help");
+        return GetMessage("messages." + "fr_FR" + ".command-help");
     }
 
     public String GetCmdMoreCraftingMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-help-morecrafting");
+        return GetMessage("messages." + "fr_FR" + ".command-help-morecrafting");
     }
 
     public String GetCmdHelpBookMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-help-book");
+        return GetMessage("messages." + "fr_FR" + ".command-help-book");
     }
-    
-	public String GetCmdHelpRecipesMsg()
-	{
-	    return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-help-recipes");
-	}
+
+    public String GetCmdHelpRecipesMsg()
+    {
+        return GetMessage("messages." + "fr_FR" + ".command-help-recipes");
+    }
 
     public String GetCmdHelpReloadMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".command-help-reload");
+        return GetMessage("messages." + "fr_FR" + ".command-help-reload");
     }
 
     public String GetCmdPermissionDeniedMsg()
     {
-        return GetMessage("messages." + Main.getInstance().getConfigSettings().GetLanguage() + ".permission-denied");
+        return GetMessage("messages." + "fr_FR" + ".permission-denied");
     }
 
     @Override
@@ -129,7 +128,7 @@ public class ConfigMessages extends AbstractConfig
     {
         if (m_file != null)
             return;
-        String lang = Main.getInstance().getConfigSettings().GetConfiguration().getString("language");
+        String lang = "fr_FR";
         if (lang != null && !lang.isEmpty())
         {
             File file = new File(Main.getInstance().getDataFolder() + File.separator + "lang" + File.separator + lang + ".yml");

@@ -1,13 +1,11 @@
 package fr.mrfantivideo.morecrafting.commands;
 
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
-import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
+import fr.mrfantivideo.morecrafting.items.RecipeBookSpecialItem;
 import fr.unreal852.sunrealcore.commands.BaseCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.PlayerInventory;
 
 public class BookCommand extends BaseCommand
 {
@@ -19,11 +17,10 @@ public class BookCommand extends BaseCommand
     @Override
     public boolean execute(CommandSender sender, Command command, String s, String[] strings)
     {
+        if (!(sender instanceof Player))
+            return false;
         Player player = (Player) sender;
-        PlayerInventory inventory = player.getInventory();
-        CustomRecipeOld recipe = RecipesManagerOld.GetInstance().GetRecipe("MoreCraftingRecipeBook");
-        if (recipe != null)
-            inventory.addItem(recipe.GetResult().clone());
+        player.getInventory().addItem(RecipeBookSpecialItem.getInstance().getClonedItemStack());
         return true;
     }
 

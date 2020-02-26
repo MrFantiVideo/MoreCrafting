@@ -1,21 +1,19 @@
 package fr.mrfantivideo.morecrafting.Listeners;
 
-import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
-import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
-import org.bukkit.entity.Player;
+import fr.mrfantivideo.morecrafting.items.RecipeBookSpecialItem;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerInteractListener implements Listener
 {
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event)
+    {
+        event.getPlayer().getInventory().addItem(RecipeBookSpecialItem.getInstance().getClonedItemStack());
+    }
+
+    /*
     @EventHandler
     public void OnPlayerInteract(PlayerInteractEvent event)
     {
@@ -47,6 +45,7 @@ public class PlayerInteractListener implements Listener
                         if (inventoryTitle == null || inventoryTitle.isEmpty())
                             return;
                         Inventory inventory = Bukkit.createInventory(null, inventorySize, inventoryTitle);
+
                         FillInventory(inventory);
                         player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_ELYTRA, 1, 1);
                         player.openInventory(inventory);
@@ -65,7 +64,7 @@ public class PlayerInteractListener implements Listener
      * Fill inventory
      *
      * @param inv Inventory
-     */
+     /
     private void FillInventory(Inventory inv)
     {
         for (CustomRecipeOld recipe : RecipesManagerOld.GetInstance().GetRecipes())
@@ -76,5 +75,5 @@ public class PlayerInteractListener implements Listener
             item.setAmount(1);
             inv.setItem(recipe.GetBookInventorySlot(), item);
         }
-    }
+    }  */
 }

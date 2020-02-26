@@ -1,25 +1,12 @@
 package fr.mrfantivideo.morecrafting.Listeners;
 
-import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
-import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
-import fr.mrfantivideo.morecrafting.UnrealCoreImports.Flag;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryView;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Map;
 
 public class PlayerInventoryListener implements Listener
 {
+    /*
     @EventHandler
     public void OnPlayerInventoryClick(InventoryClickEvent event)
     {
@@ -124,5 +111,5 @@ public class PlayerInventoryListener implements Listener
                 event.setCancelled(true);
             }
         }
-    }
+    } */
 }

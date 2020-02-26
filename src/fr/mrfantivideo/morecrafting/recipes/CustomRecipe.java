@@ -2,14 +2,14 @@ package fr.mrfantivideo.morecrafting.recipes;
 
 import fr.unreal852.sunrealcore.configuration.data.object.ConfigValue;
 import fr.unreal852.sunrealcore.configuration.data.object.IConfigObject;
+import fr.unreal852.sunrealcore.utils.JavaUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
-import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CustomRecipe implements IConfigObject
@@ -20,7 +20,7 @@ public class CustomRecipe implements IConfigObject
     private Boolean               m_enabled;
     @ConfigValue(Path = "recipe-type")
     private CustomRecipeType      m_recipeType;
-    @ConfigValue(Path = "craft.slots")
+    @ConfigValue(Path = "craft.slots", Type = Material.class)
     private Map<String, Material> m_slots;
     @ConfigValue(Path = "craft.result")
     private CustomRecipeResult    m_resultItem;
@@ -28,11 +28,14 @@ public class CustomRecipe implements IConfigObject
     @Override
     public void onConfigLoaded(String name)
     {
+        m_enabled = JavaUtils.ensureNotNull(m_enabled, false);
         if (!m_enabled)
             return;
-        if (m_recipeType == null || m_resultItem == null)
+        m_recipeName = name;
+        m_slots = JavaUtils.ensureNotNull(m_slots, new HashMap<>());
+        if (m_recipeType == null || m_resultItem == null || m_slots.size() == 0)
         {
-            RecipesManager.RECIPES_LOGGER.sendConsoleMessage(ChatColor.RED + "Couldn't load recipe '");
+            RecipesManager.RECIPES_LOGGER.sendConsoleMessage(ChatColor.RED + "Couldn't load recipe '" + name + "'. Missing Recipe Type and/or Recipe Result and/or Crafting slots");
             return;
         }
         m_recipeName = name;
@@ -42,21 +45,25 @@ public class CustomRecipe implements IConfigObject
             {
                 ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack());
                 shapedRecipe.shape("123", "456", "789");
-                for (int i = 1; i <= 9; i++)
-                {
-                    if (get)
-                }
+                for (String key : m_slots.keySet())
+                    shapedRecipe.setIngredient(key.charAt(0), m_slots.get(key));
+                m_recipe = shapedRecipe;
                 break;
             }
             case FURNACE:
+                m_recipe = new FurnaceRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack(), m_slots.get("0"), m_resultItem.getExperience(), m_resultItem.getCookTime());
                 break;
             case CAMPFIRE:
+                m_recipe = new CampfireRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack(), m_slots.get("0"), m_resultItem.getExperience(), m_resultItem.getCookTime());
                 break;
             case BLASTING:
+                m_recipe = new BlastingRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack(), m_slots.get("0"), m_resultItem.getExperience(), m_resultItem.getCookTime());
                 break;
             case SMOKING:
+                m_recipe = new SmokingRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack(), m_slots.get("0"), m_resultItem.getExperience(), m_resultItem.getCookTime());
                 break;
             case STONE_CUTTING:
+                m_recipe = new StonecuttingRecipe(NamespacedKey.randomKey(), m_resultItem.buildItemStack(), m_slots.get("0"));
                 break;
         }
         Bukkit.addRecipe(m_recipe);
@@ -70,6 +77,36 @@ public class CustomRecipe implements IConfigObject
     public String getRecipeName()
     {
         return m_recipeName;
+    }
+
+    /**
+     * Returns Recipe type
+     *
+     * @return Recipe Type
+     */
+    public CustomRecipeType getRecipeType()
+    {
+        return m_recipeType;
+    }
+
+    /**
+     * Returns enable state of this recipe
+     *
+     * @return true if enabled, false otherwise
+     */
+    public boolean isEnabled()
+    {
+        return m_enabled;
+    }
+
+    /**
+     * Returns slots
+     *
+     * @return Slots
+     */
+    public Map<String, Material> getSlots()
+    {
+        return m_slots;
     }
 
     /**

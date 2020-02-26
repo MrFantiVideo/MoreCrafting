@@ -11,8 +11,6 @@ public class ConfigUtils
         switch (config)
         {
             case SETTINGS:
-                if (Main.getInstance().getConfigSettings().GetConfiguration().contains(path))
-                    obj = Main.getInstance().getConfigSettings().GetConfiguration().get(path);
                 break;
             case MESSAGES:
                 if (Main.getInstance().getConfigMessages().GetConfiguration().contains(path))

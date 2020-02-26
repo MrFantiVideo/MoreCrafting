@@ -132,8 +132,8 @@ recipes:
     enabled: true
     recipe-type: FURNACE
     craft:
-      slot:
-        1: SMOOTH_QUARTZ
+      slots:
+        0: SMOOTH_QUARTZ
       result:
         material: QUARTZ_BLOCK
         amount: 1
@@ -143,8 +143,8 @@ recipes:
     enabled: true
     recipe-type: FURNACE
     craft:
-      slot:
-        1: SMOOTH_RED_SANDSTONE
+      slots:
+        0: SMOOTH_RED_SANDSTONE
       result:
         material: RED_SANDSTONE
         amount: 1
@@ -154,8 +154,8 @@ recipes:
     enabled: true
     recipe-type: FURNACE
     craft:
-      slot:
-        1: SMOOTH_SANDSTONE
+      slots:
+        0: SMOOTH_SANDSTONE
       result:
         material: SANDSTONE
         amount: 1
@@ -165,8 +165,8 @@ recipes:
     enabled: true
     recipe-type: FURNACE
     craft:
-      slot:
-        1: SMOOTH_STONE
+      slots:
+        0: SMOOTH_STONE
       result:
         material: STONE
         amount: 1
@@ -176,8 +176,8 @@ recipes:
     enabled: true
     recipe-type: SMOKING
     craft:
-      slot:
-        1: GOLDEN_APPLE
+      slots:
+        0: GOLDEN_APPLE
       result:
         material: GOLD_NUGGET
         amount: 1
@@ -187,8 +187,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: BRICKS
+      slots:
+        0: BRICKS
       result:
         material: BRICK
         amount: 4
@@ -198,8 +198,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: NETHER_BRICKS
+      slots:
+        0: NETHER_BRICKS
       result:
         material: NETHER_BRICK
         amount: 4
@@ -209,8 +209,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: END_STONE_BRICKS
+      slots:
+        0: END_STONE_BRICKS
       result:
         material: END_STONE
         amount: 4
@@ -220,8 +220,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: PURPUR_BLOCK
+      slots:
+        0: PURPUR_BLOCK
       result:
         material: POPPED_CHORUS_FRUIT
         amount: 1
@@ -231,8 +231,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: PRISMARINE
+      slots:
+        0: PRISMARINE
       result:
         material: PRISMARINE_SHARD
         amount: 4
@@ -242,8 +242,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: QUARTZ_BLOCK
+      slots:
+        0: QUARTZ_BLOCK
       result:
         material: QUARTZ
         amount: 4
@@ -253,8 +253,8 @@ recipes:
     enabled: true
     recipe-type: BLASTING
     craft:
-      slot:
-        1: MAGMA_BLOCK
+      slots:
+        0: MAGMA_BLOCK
       result:
         material: MAGMA_CREAM
         amount: 4
@@ -264,8 +264,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: OAK_LOG
+      slots:
+        0: OAK_LOG
       result:
         material: OAK_WOOD
         amount: 1
@@ -273,8 +273,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: SPRUCE_LOG
+      slots:
+        0: SPRUCE_LOG
       result:
         material: SPRUCE_WOOD
         amount: 1
@@ -282,8 +282,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: BIRCH_LOG
+      slots:
+        0: BIRCH_LOG
       result:
         material: BIRCH_WOOD
         amount: 1
@@ -291,8 +291,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: JUNGLE_LOG
+      slots:
+        0: JUNGLE_LOG
       result:
         material: JUNGLE_WOOD
         amount: 1
@@ -300,8 +300,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: ACACIA_LOG
+      slots:
+        0: ACACIA_LOG
       result:
         material: ACACIA_WOOD
         amount: 1
@@ -309,8 +309,8 @@ recipes:
     enabled: true
     recipe-type: STONE_CUTTING
     craft:
-      slot:
-        1: DARK_OAK_LOG
+      slots:
+        0: DARK_OAK_LOG
       result:
         material: DARK_OAK_WOOD
         amount: 1
@@ -318,8 +318,8 @@ recipes:
   enabled: true
   recipe-type: CAMPFIRE
   craft:
-    slot:
-      1: BLUE_ICE
+    slots:
+      0: BLUE_ICE
     result:
       material: PACKED_ICE
       amount: 9
@@ -328,8 +328,8 @@ recipes:
     enabled: true
     recipe-type: CAMPFIRE
     craft:
-      slot:
-        1: PACKED_ICE
+      slots:
+        0: PACKED_ICE
       result:
         material: ICE
         amount: 9
@@ -338,8 +338,8 @@ recipes:
     enabled: true
     recipe-type: CAMPFIRE
     craft:
-      slot:
-        1: SNOW_BLOCK
+      slots:
+        0: SNOW_BLOCK
       result:
         material: SNOWBALL
         amount: 4
@@ -503,8 +503,8 @@ recipes:
           #              enchant-level: 1
           #            ENCHANT-2:
           #              enchant: KNOCKBACK
-          #              enchant-level: 1
-          #        slot:
+        #              enchant-level: 1
+        #        slot:
         #          1: DIRT
 
 others:
