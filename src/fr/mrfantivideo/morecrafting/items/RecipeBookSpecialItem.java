@@ -1,13 +1,11 @@
 package fr.mrfantivideo.morecrafting.items;
 
-import fr.mrfantivideo.morecrafting.items.categories.RecipeBookCategorySpecialItem;
 import fr.mrfantivideo.morecrafting.recipes.CustomRecipeType;
 import fr.unreal852.sunrealcore.specials.item.SpecialItem;
 import fr.unreal852.sunrealcore.specials.events.IHeldChangeable;
 import fr.unreal852.sunrealcore.specials.events.IRightHandClickable;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.Inventory;

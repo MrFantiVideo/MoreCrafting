@@ -22,7 +22,7 @@ public final class RecipesManager
         List<CustomRecipe> recipeList = config.getList(CustomRecipe.class, "recipes");
         for (CustomRecipe recipe : recipeList)
         {
-            if (recipe.getRecipeName() == null || recipe.getRecipeName().isEmpty() || recipe.getRecipe() == null)
+            if (!recipe.isEnabled() || recipe.getRecipeName() == null || recipe.getRecipeName().isEmpty() || recipe.getRecipe() == null)
                 continue;
             RECIPES.put(recipe.getRecipeName(), recipe);
             new RecipeSpecialItem(recipe.getClonedResult(), recipe);
