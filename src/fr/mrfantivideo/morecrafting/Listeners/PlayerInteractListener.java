@@ -1,8 +1,8 @@
 package fr.mrfantivideo.morecrafting.Listeners;
 
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import fr.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
+import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -26,7 +26,7 @@ public class PlayerInteractListener implements Listener
         if (stack == null)
             return;
 
-        ShapedRecipe recipe = RecipesManager.GetCustomShapedRecipe("MoreCraftingRecipeBook");
+        ShapedRecipe recipe = RecipesManagerOld.GetCustomShapedRecipe("MoreCraftingRecipeBook");
         if (recipe != null)
         {
             ItemStack book = recipe.getResult();
@@ -68,7 +68,7 @@ public class PlayerInteractListener implements Listener
      */
     private void FillInventory(Inventory inv)
     {
-        for (CustomRecipe recipe : RecipesManager.GetInstance().GetRecipes())
+        for (CustomRecipeOld recipe : RecipesManagerOld.GetInstance().GetRecipes())
         {
             if (recipe.GetBookInventorySlot() <= -1)
                 continue;

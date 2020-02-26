@@ -1,11 +1,11 @@
-package fr.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
+package fr.mrfantivideo.morecrafting.Recipesold.RecipesLoaders;
 
 import com.sun.istack.internal.NotNull;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.UnrealCoreImports.Flag;
-import fr.mrfantivideo.morecrafting.UnrealCoreImports.ItemStackUtils;
 
+import fr.unreal852.sunrealcore.flags.Flag;
+import fr.unreal852.sunrealcore.utils.ItemStackUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -179,7 +179,7 @@ public abstract class AbstractRecipesLoader
             stack.addUnsafeEnchantment(enchantment, enchantLevel);
         }
     }
-    
+
     protected void ApplyPotions(String recipeName, ItemStack stack)
     {
         Set<String> potionSet = GetConfig().GetSection(GetFormattedPath(recipeName, "craft.result.potions"));
@@ -187,8 +187,8 @@ public abstract class AbstractRecipesLoader
             return;
         for (String potion : potionSet)
         {
-        	ItemStack potionmeta = new ItemStack(Material.POTION, 1);
-        	PotionMeta meta = (PotionMeta) ItemStackUtils.getMeta(potionmeta);
+            ItemStack potionmeta = new ItemStack(Material.POTION, 1);
+            PotionMeta meta = (PotionMeta) ItemStackUtils.getMeta(potionmeta);
             int duration = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.potions." + potion + ".duration"));
             if (duration <= 0)
                 continue;

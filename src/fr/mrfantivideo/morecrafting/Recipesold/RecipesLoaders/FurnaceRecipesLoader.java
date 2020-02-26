@@ -1,25 +1,25 @@
-package fr.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
+package fr.mrfantivideo.morecrafting.Recipesold.RecipesLoaders;
 
-import fr.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import fr.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
+import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
 import fr.mrfantivideo.morecrafting.Utils.LogUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.SmokingRecipe;
 
-public class SmokingRecipesLoader extends AbstractRecipesLoader
+public class FurnaceRecipesLoader extends AbstractRecipesLoader
 {
-    public SmokingRecipesLoader()
+    public FurnaceRecipesLoader()
     {
-        super("recipes.smoking");
+        super("recipes.furnace");
     }
 
     @Override
     protected void OnRecipeLoaded(Object recipe, int bookInventorySlot, String recipeName)
     {
-        RecipesManager.GetInstance().AddRecipe(recipeName, new CustomRecipe((SmokingRecipe) recipe, bookInventorySlot, recipeName));
-        LogUtils.LogInfo("[Smoking Recipes Loader] Loading Recipe '" + recipeName + "'");
+        RecipesManagerOld.GetInstance().AddRecipe(recipeName, new CustomRecipeOld((FurnaceRecipe) recipe, bookInventorySlot, recipeName));
+        LogUtils.LogInfo("[Furnace Recipes Loader] Loading Recipe '" + recipeName + "'");
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SmokingRecipesLoader extends AbstractRecipesLoader
         float experience = GetConfig().GetFloat(GetFormattedPath(recipeName, "craft.result.experience"));
         int cookingtime = GetConfig().GetInt(GetFormattedPath(recipeName, "craft.result.cooking-time"));
         @SuppressWarnings("deprecation")
-        SmokingRecipe recipe = new SmokingRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
+        FurnaceRecipe recipe = new FurnaceRecipe(NamespacedKey.randomKey(), stack, material, experience, cookingtime);
         return recipe;
     }
 }

@@ -1,7 +1,7 @@
-package fr.mrfantivideo.morecrafting.Recipes;
+package fr.mrfantivideo.morecrafting.Recipesold;
 
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipes.RecipesLoaders.*;
+import fr.mrfantivideo.morecrafting.Recipesold.RecipesLoaders.*;
 import org.bukkit.Material;
 import org.bukkit.inventory.*;
 
@@ -9,12 +9,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RecipesManager
+public class RecipesManagerOld
 {
-    private static RecipesManager s_instance;
-    private Map<String, CustomRecipe> m_recipes = new HashMap<>();
+    private static RecipesManagerOld            s_instance;
+    private        Map<String, CustomRecipeOld> m_recipes = new HashMap<>();
 
-    public RecipesManager()
+    public RecipesManagerOld()
     {
         if (s_instance != null)
             return;
@@ -27,7 +27,7 @@ public class RecipesManager
      *
      * @return Instance
      */
-    public static RecipesManager GetInstance()
+    public static RecipesManagerOld GetInstance()
     {
         return s_instance;
     }
@@ -39,7 +39,7 @@ public class RecipesManager
      *
      * @return CustomRecipe or null
      */
-    public static CustomRecipe GetCustomRecipe(String recipeName)
+    public static CustomRecipeOld GetCustomRecipe(String recipeName)
     {
         return GetInstance().GetRecipe(recipeName);
     }
@@ -75,7 +75,7 @@ public class RecipesManager
      *
      * @return CustomRecipe or null
      */
-    public CustomRecipe GetRecipe(String recipeName)
+    public CustomRecipeOld GetRecipe(String recipeName)
     {
         if (m_recipes.containsKey(recipeName))
             return m_recipes.get(recipeName);
@@ -91,7 +91,7 @@ public class RecipesManager
      */
     public ShapedRecipe GetShapedRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && !recipe.IsFurnaceRecipe() && !recipe.IsSmokingRecipe())
             return recipe.GetRecipe();
         return null;
@@ -106,7 +106,7 @@ public class RecipesManager
      */
     public FurnaceRecipe GetFurnaceRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && recipe.IsFurnaceRecipe())
             return recipe.GetFurnaceRecipe();
         return null;
@@ -121,7 +121,7 @@ public class RecipesManager
      */
     public SmokingRecipe GetSmokingRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && recipe.IsSmokingRecipe())
             return recipe.GetSmokingRecipe();
         return null;
@@ -136,7 +136,7 @@ public class RecipesManager
      */
     public BlastingRecipe GetBlastingRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && recipe.IsBlastingRecipe())
             return recipe.GetBlastingRecipe();
         return null;
@@ -151,7 +151,7 @@ public class RecipesManager
      */
     public StonecuttingRecipe GetStonecuttingRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && recipe.IsStonecuttingRecipe())
             return recipe.GetStonecuttingRecipe();
         return null;
@@ -166,7 +166,7 @@ public class RecipesManager
      */
     public CampfireRecipe GetCampfireRecipe(String recipeName)
     {
-        CustomRecipe recipe = GetRecipe(recipeName);
+        CustomRecipeOld recipe = GetRecipe(recipeName);
         if (recipe != null && recipe.IsCampfireRecipe())
             return recipe.GetCampfireRecipe();
         return null;
@@ -177,7 +177,7 @@ public class RecipesManager
      *
      * @return Recipes
      */
-    public Collection<CustomRecipe> GetRecipes()
+    public Collection<CustomRecipeOld> GetRecipes()
     {
         return m_recipes.values();
     }
@@ -188,7 +188,7 @@ public class RecipesManager
      * @param recipeName Recipe Name
      * @param recipe     Recipe
      */
-    public void AddRecipe(String recipeName, CustomRecipe recipe)
+    public void AddRecipe(String recipeName, CustomRecipeOld recipe)
     {
         m_recipes.put(recipeName, recipe);
         if (recipe.IsFurnaceRecipe())
@@ -212,9 +212,9 @@ public class RecipesManager
      *
      * @return CustomRecipe or null
      */
-    public CustomRecipe GetRecipeByMaterial(Material material)
+    public CustomRecipeOld GetRecipeByMaterial(Material material)
     {
-        for (CustomRecipe recipe : m_recipes.values())
+        for (CustomRecipeOld recipe : m_recipes.values())
         {
             if (recipe.GetResult().getType() == material)
                 return recipe;
@@ -229,7 +229,7 @@ public class RecipesManager
      *
      * @return CustomRecipe if the recipe exists, null otherwise
      */
-    public CustomRecipe GetRecipeByName(String recipeName)
+    public CustomRecipeOld GetRecipeByName(String recipeName)
     {
         if (m_recipes.containsKey(recipeName))
             return m_recipes.get(recipeName);

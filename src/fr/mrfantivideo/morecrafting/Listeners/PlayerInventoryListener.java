@@ -1,8 +1,8 @@
 package fr.mrfantivideo.morecrafting.Listeners;
 
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import fr.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
+import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
 import fr.mrfantivideo.morecrafting.UnrealCoreImports.Flag;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -71,7 +71,7 @@ public class PlayerInventoryListener implements Listener
 
         if (inv.getTitle().equalsIgnoreCase(Main.getInstance().getConfigMessages().GetGUITitle() + Main.getInstance().getConfigMessages().GetGUITitleMain()))
         {
-            CustomRecipe recipe = RecipesManager.GetInstance().GetRecipeByName(Flag.getFlag(stack, "recipeName", PersistentDataType.STRING));
+            CustomRecipeOld recipe = RecipesManagerOld.GetInstance().GetRecipeByName(Flag.getFlag(stack, "recipeName", PersistentDataType.STRING));
             if (recipe != null)
             {
                 Inventory inventory;

@@ -45,479 +45,468 @@ debug: false
 # ================================================================================= #
 
 recipes:
-  crafting:
-    RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: GRASS_BLOCK
-          id-amount: 6
-          id-book: 0
-        slots:
-          1: WHEAT_SEEDS
-          2: WHEAT_SEEDS
-          3: WHEAT_SEEDS
-          4: DIRT
-          5: DIRT
-          6: DIRT
-          7: DIRT
-          8: DIRT
-          9: DIRT
-    RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: GRASS_PATH
-          id-amount: 6
-          id-book: 1
-        slots:
-          1: STICK
-          2: STICK
-          3: STICK
-          4: DIRT
-          5: DIRT
-          6: DIRT
-          7: DIRT
-          8: DIRT
-          9: DIRT
-    RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: SADDLE
-          id-amount: 1
-          id-book: 2
-        slots:
-          1: LEATHER
-          2: LEATHER
-          3: LEATHER
-          4: LEATHER
-          5: IRON_INGOT
-          6: LEATHER
-          7: LEAD
-          8: BOWL
-          9: LEAD
-    RECIPE-4:
-      enabled: true
-      craft:
-        result:
-          id: NAME_TAG
-          id-amount: 1
-          id-book: 3
-        slots:
-          1: IRON_INGOT
-          2: LEAD
-          4: LEAD
-          5: MAP
-          6: LEATHER
-          8: LEATHER
-          9: MAP
-    RECIPE-5:
-      enabled: true
-      craft:
-        result:
-          id: ICE
-          id-amount: 1
-          id-book: 4
-        slots:
-          1: SNOWBALL
-          2: SNOWBALL
-          3: SNOWBALL
-          4: SNOWBALL
-          5: WATER_BUCKET
-          6: SNOWBALL
-          7: SNOWBALL
-          8: SNOWBALL
-          9: SNOWBALL
+  RECIPE-1:
+    enabled: true
+    recipe-type: CRAFTING_TABLE
+    craft:
+      slots:
+        1: WHEAT_SEEDS
+        2: WHEAT_SEEDS
+        3: WHEAT_SEEDS
+        4: DIRT
+        5: DIRT
+        6: DIRT
+        7: DIRT
+        8: DIRT
+        9: DIRT
+      result:
+        material: GRASS_BLOCK
+        amount: 6
+  RECIPE-2:
+    enabled: true
+    recipe-type: CRAFTING_TABLE
+    craft:
+      slots:
+        1: STICK
+        2: STICK
+        3: STICK
+        4: DIRT
+        5: DIRT
+        6: DIRT
+        7: DIRT
+        8: DIRT
+        9: DIRT
+      result:
+        material: GRASS_PATH
+        amount: 6
+  RECIPE-3:
+    enabled: true
+    recipe-type: CRAFTING_TABLE
+    craft:
+      slots:
+        1: LEATHER
+        2: LEATHER
+        3: LEATHER
+        4: LEATHER
+        5: IRON_INGOT
+        6: LEATHER
+        7: LEAD
+        8: BOWL
+        9: LEAD
+      result:
+        material: SADDLE
+        amount: 1
+  RECIPE-4:
+    enabled: true
+    recipe-type: CRAFTING_TABLE
+    craft:
+      slots:
+        1: IRON_INGOT
+        2: LEAD
+        4: LEAD
+        5: MAP
+        6: LEATHER
+        8: LEATHER
+        9: MAP
+      result:
+        material: NAME_TAG
+        amount: 1
+  RECIPE-5:
+    enabled: true
+    recipe-type: CRAFTING_TABLE
+    craft:
+      slots:
+        1: SNOWBALL
+        2: SNOWBALL
+        3: SNOWBALL
+        4: SNOWBALL
+        5: WATER_BUCKET
+        6: SNOWBALL
+        7: SNOWBALL
+        8: SNOWBALL
+        9: SNOWBALL
+      result:
+        material: ICE
+        amount: 1
+  FIRE-RECIPE-1:
+    enabled: true
+    recipe-type: FURNACE
+    craft:
+      slot:
+        1: SMOOTH_QUARTZ
+      result:
+        material: QUARTZ_BLOCK
+        amount: 1
+        experience: 0.10
+        cooking-time: 100
+  FIRE-RECIPE-2:
+    enabled: true
+    recipe-type: FURNACE
+    craft:
+      slot:
+        1: SMOOTH_RED_SANDSTONE
+      result:
+        material: RED_SANDSTONE
+        amount: 1
+        experience: 0.10
+        cooking-time: 100
+  FIRE-RECIPE-3:
+    enabled: true
+    recipe-type: FURNACE
+    craft:
+      slot:
+        1: SMOOTH_SANDSTONE
+      result:
+        material: SANDSTONE
+        amount: 1
+        experience: 0.10
+        cooking-time: 100
+  FIRE-RECIPE-4:
+    enabled: true
+    recipe-type: FURNACE
+    craft:
+      slot:
+        1: SMOOTH_STONE
+      result:
+        material: STONE
+        amount: 1
+        experience: 0.10
+        cooking-time: 100
+  SMOKING-RECIPE-1:
+    enabled: true
+    recipe-type: SMOKING
+    craft:
+      slot:
+        1: GOLDEN_APPLE
+      result:
+        material: GOLD_NUGGET
+        amount: 1
+        experience: 0.10
+        cooking-time: 75
+  BLASTING-RECIPE-1:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: BRICKS
+      result:
+        material: BRICK
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-2:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: NETHER_BRICKS
+      result:
+        material: NETHER_BRICK
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-3:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: END_STONE_BRICKS
+      result:
+        material: END_STONE
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-4:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: PURPUR_BLOCK
+      result:
+        material: POPPED_CHORUS_FRUIT
+        amount: 1
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-5:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: PRISMARINE
+      result:
+        material: PRISMARINE_SHARD
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-6:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: QUARTZ_BLOCK
+      result:
+        material: QUARTZ
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  BLASTING-RECIPE-7:
+    enabled: true
+    recipe-type: BLASTING
+    craft:
+      slot:
+        1: MAGMA_BLOCK
+      result:
+        material: MAGMA_CREAM
+        amount: 4
+        experience: 0.10
+        cooking-time: 65
+  STONECUTTING-RECIPE-1:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: OAK_LOG
+      result:
+        material: OAK_WOOD
+        amount: 1
+  STONECUTTING-RECIPE-2:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: SPRUCE_LOG
+      result:
+        material: SPRUCE_WOOD
+        amount: 1
+  STONECUTTING-RECIPE-3:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: BIRCH_LOG
+      result:
+        material: BIRCH_WOOD
+        amount: 1
+  STONECUTTING-RECIPE-4:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: JUNGLE_LOG
+      result:
+        material: JUNGLE_WOOD
+        amount: 1
+  STONECUTTING-RECIPE-5:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: ACACIA_LOG
+      result:
+        material: ACACIA_WOOD
+        amount: 1
+  STONECUTTING-RECIPE-6:
+    enabled: true
+    recipe-type: STONE_CUTTING
+    craft:
+      slot:
+        1: DARK_OAK_LOG
+      result:
+        material: DARK_OAK_WOOD
+        amount: 1
+  CAMPFIRE-RECIPE-1:
+  enabled: true
+  recipe-type: CAMPFIRE
+  craft:
+    slot:
+      1: BLUE_ICE
+    result:
+      material: PACKED_ICE
+      amount: 9
+      cooking-time: 60
+  CAMPFIRE-RECIPE-2:
+    enabled: true
+    recipe-type: CAMPFIRE
+    craft:
+      slot:
+        1: PACKED_ICE
+      result:
+        material: ICE
+        amount: 9
+        cooking-time: 60
+  CAMPFIRE-RECIPE-3:
+    enabled: true
+    recipe-type: CAMPFIRE
+    craft:
+      slot:
+        1: SNOW_BLOCK
+      result:
+        material: SNOWBALL
+        amount: 4
+        cooking-time: 60
 
-#    EXEMPLE-CRAFTING-1:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW CRAFTING RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 1
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-#          2: DIRT
-#          3: DIRT
-#          4: DIRT
-#          5: DIRT
-#          6: DIRT
-#          7: DIRT
-#          8: DIRT
-#          9: DIRT
+          #    EXEMPLE-CRAFTING-1:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW CRAFTING RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 1
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+          #          1: DIRT
+          #          2: DIRT
+          #          3: DIRT
+          #          4: DIRT
+          #          5: DIRT
+          #          6: DIRT
+          #          7: DIRT
+          #          8: DIRT
+          #          9: DIRT
 
-#    EXEMPLE-CRAFT-2:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW CRAFTING RECIPE !"
-#          id: PLAYER_HEAD
-#          id-amount: 1
-#          id-book: 2
-#          uuid: a9929927-c695-476a-b132-0d77e6a84b41
-#        slots:
-#          5: APPLE
+          #    EXEMPLE-CRAFT-2:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW CRAFTING RECIPE !"
+          #          id: PLAYER_HEAD
+          #          id-amount: 1
+          #          id-book: 2
+          #          uuid: a9929927-c695-476a-b132-0d77e6a84b41
+          #        slots:
+          #          5: APPLE
 
-#    EXEMPLE-CRAFT-3:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW CRAFTING RECIPE !"
-#          id: POTION
-#          id-amount: 1
-#          id-book: 3
-#          potions:
-#            EFFECT-1:
-#              effect: BLINDNESS
-#              duration: 1000
-#              level: 3
-#              ambient: true
-#              particles: false
-#              icon: true
-#        slots:
-#          5: HONEY_BOTTLE
+          #    EXEMPLE-CRAFT-3:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW CRAFTING RECIPE !"
+          #          id: POTION
+          #          id-amount: 1
+          #          id-book: 3
+          #          potions:
+          #            EFFECT-1:
+          #              effect: BLINDNESS
+          #              duration: 1000
+          #              level: 3
+          #              ambient: true
+          #              particles: false
+          #              icon: true
+          #        slots:
+          #          5: HONEY_BOTTLE
+          #
+          #    EXEMPLE-FURNACE:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW FURNACE RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 2
+          #          experience: 0.10
+          #          cooking-time: 75
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+          #          1: DIRT
+          #
+          #    EXEMPLE-SMOKING:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW SMOKING RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 3
+          #          experience: 0.10
+          #          cooking-time: 75
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+          #          1: DIRT
+          #
+          #    EXEMPLE-BLASTING:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW BLASTING RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 4
+          #          experience: 0.10
+          #          cooking-time: 75
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+          #          1: DIRT
+          #
+          #    EXEMPLE-STONECUTTING:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW STONECUTTING RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 5
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+          #          1: DIRT
 
-  furnace:
-    FIRE-RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: QUARTZ_BLOCK
-          id-amount: 1
-          id-book: 5
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: SMOOTH_QUARTZ
-    FIRE-RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: RED_SANDSTONE
-          id-amount: 1
-          id-book: 6
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: SMOOTH_RED_SANDSTONE
-    FIRE-RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: SANDSTONE
-          id-amount: 1
-          id-book: 7
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: SMOOTH_SANDSTONE
-    FIRE-RECIPE-4:
-      enabled: true
-      craft:
-        result:
-          id: STONE
-          id-amount: 1
-          id-book: 8
-          experience: 0.10
-          cooking-time: 100
-        slot:
-          1: SMOOTH_STONE
+          #    EXEMPLE-CAMPFIRE:
+          #      enabled: true
+          #      craft:
+          #        result:
+          #          name: "&eEXEMPLE"
+          #          lore: "&7A NEW CAMPFIRE RECIPE !"
+          #          id: GRASS
+          #          id-amount: 9
+          #          id-book: 2
+          #          cooking-time: 75
+          #          enchantments:
+          #            ENCHANT-1:
+          #              enchant: ARROW_DAMAGE
+          #              enchant-level: 1
+          #            ENCHANT-2:
+          #              enchant: KNOCKBACK
+          #              enchant-level: 1
+          #        slot:
+        #          1: DIRT
 
-#    EXEMPLE-FURNACE:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW FURNACE RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 2
-#          experience: 0.10
-#          cooking-time: 75
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-
-  smoking:
-    SMOKING-RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: GOLD_NUGGET
-          id-amount: 1
-          id-book: 9
-          experience: 0.10
-          cooking-time: 75
-        slot:
-          1: GOLDEN_APPLE
-
-#    EXEMPLE-SMOKING:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW SMOKING RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 3
-#          experience: 0.10
-#          cooking-time: 75
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-
-  blasting:
-    BLASTING-RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: BRICK
-          id-amount: 4
-          id-book: 10
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: BRICKS
-    BLASTING-RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: NETHER_BRICK
-          id-amount: 4
-          id-book: 11
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: NETHER_BRICKS
-    BLASTING-RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: END_STONE
-          id-amount: 4
-          id-book: 12
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: END_STONE_BRICKS
-    BLASTING-RECIPE-4:
-      enabled: true
-      craft:
-        result:
-          id: POPPED_CHORUS_FRUIT
-          id-amount: 1
-          id-book: 13
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: PURPUR_BLOCK
-    BLASTING-RECIPE-5:
-      enabled: true
-      craft:
-        result:
-          id: PRISMARINE_SHARD
-          id-amount: 4
-          id-book: 14
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: PRISMARINE
-    BLASTING-RECIPE-6:
-      enabled: true
-      craft:
-        result:
-          id: QUARTZ
-          id-amount: 4
-          id-book: 15
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: QUARTZ_BLOCK
-    BLASTING-RECIPE-7:
-      enabled: true
-      craft:
-        result:
-          id: MAGMA_CREAM
-          id-amount: 4
-          id-book: 16
-          experience: 0.10
-          cooking-time: 65
-        slot:
-          1: MAGMA_BLOCK
-
-#    EXEMPLE-BLASTING:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW BLASTING RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 4
-#          experience: 0.10
-#          cooking-time: 75
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-
-  stonecutting:
-    STONECUTTING-RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: OAK_WOOD
-          id-amount: 1
-          id-book: 17
-        slot:
-          1: OAK_LOG
-    STONECUTTING-RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: SPRUCE_WOOD
-          id-amount: 1
-          id-book: 18
-        slot:
-          1: SPRUCE_LOG
-    STONECUTTING-RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: BIRCH_WOOD
-          id-amount: 1
-          id-book: 19
-        slot:
-          1: BIRCH_LOG
-    STONECUTTING-RECIPE-4:
-      enabled: true
-      craft:
-        result:
-          id: JUNGLE_WOOD
-          id-amount: 1
-          id-book: 20
-        slot:
-          1: JUNGLE_LOG
-    STONECUTTING-RECIPE-5:
-      enabled: true
-      craft:
-        result:
-          id: ACACIA_WOOD
-          id-amount: 1
-          id-book: 21
-        slot:
-          1: ACACIA_LOG
-    STONECUTTING-RECIPE-6:
-      enabled: true
-      craft:
-        result:
-          id: DARK_OAK_WOOD
-          id-amount: 1
-          id-book: 22
-        slot:
-          1: DARK_OAK_LOG
-
-#    EXEMPLE-STONECUTTING:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW STONECUTTING RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 5
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-
-  campfire:
-    CAMPFIRE-RECIPE-1:
-      enabled: true
-      craft:
-        result:
-          id: PACKED_ICE
-          id-amount: 9
-          id-book: 23
-          cooking-time: 60
-        slot:
-          1: BLUE_ICE
-    CAMPFIRE-RECIPE-2:
-      enabled: true
-      craft:
-        result:
-          id: ICE
-          id-amount: 9
-          id-book: 24
-          cooking-time: 60
-        slot:
-          1: PACKED_ICE
-    CAMPFIRE-RECIPE-3:
-      enabled: true
-      craft:
-        result:
-          id: SNOWBALL
-          id-amount: 4
-          id-book: 25
-          cooking-time: 60
-        slot:
-          1: SNOW_BLOCK
-
-#    EXEMPLE-CAMPFIRE:
-#      enabled: true
-#      craft:
-#        result:
-#          name: "&eEXEMPLE" 
-#          lore: "&7A NEW CAMPFIRE RECIPE !"
-#          id: GRASS
-#          id-amount: 9
-#          id-book: 2
-#          cooking-time: 75
-#          enchantments:
-#            ENCHANT-1:
-#              enchant: ARROW_DAMAGE
-#              enchant-level: 1
-#            ENCHANT-2:
-#              enchant: KNOCKBACK
-#              enchant-level: 1
-#        slot:
-#          1: DIRT
-          
 others:
   book:
     enabled: true
@@ -529,15 +518,15 @@ others:
         id: KNOWLEDGE_BOOK
         id-amount: 1
       slots:
-          1: SLIME_BALL
-          2: SLIME_BALL
-          3: SLIME_BALL
-          4: SLIME_BALL
-          5: BOOK
-          6: SLIME_BALL
-          7: SLIME_BALL
-          8: SLIME_BALL
-          9: SLIME_BALL
+        1: SLIME_BALL
+        2: SLIME_BALL
+        3: SLIME_BALL
+        4: SLIME_BALL
+        5: BOOK
+        6: SLIME_BALL
+        7: SLIME_BALL
+        8: SLIME_BALL
+        9: SLIME_BALL
     gui:
       menu:
         size: 27

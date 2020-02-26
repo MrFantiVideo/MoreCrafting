@@ -1,8 +1,8 @@
-package fr.mrfantivideo.morecrafting.Recipes;
+package fr.mrfantivideo.morecrafting.Recipesold;
 
 import org.bukkit.inventory.*;
 
-public class CustomRecipe
+public class CustomRecipeOld
 {
     private ShapedRecipe       m_recipe;
     private FurnaceRecipe      m_furnaceRecipe;
@@ -13,42 +13,42 @@ public class CustomRecipe
     private String m_configItemName;
     private int m_bookInventorySlot;
 
-    public CustomRecipe(ShapedRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(ShapedRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_recipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(FurnaceRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(FurnaceRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_furnaceRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(SmokingRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(SmokingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_smokingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(BlastingRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(BlastingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_blastingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(StonecuttingRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(StonecuttingRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_stonecuttingRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;
         m_configItemName = configItemName;
     }
 
-    public CustomRecipe(CampfireRecipe recipe, int bookInventorySlot, String configItemName)
+    public CustomRecipeOld(CampfireRecipe recipe, int bookInventorySlot, String configItemName)
     {
         m_campfireRecipe = recipe;
         m_bookInventorySlot = bookInventorySlot;

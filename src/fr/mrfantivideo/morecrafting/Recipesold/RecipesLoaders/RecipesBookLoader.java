@@ -1,9 +1,9 @@
-package fr.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
+package fr.mrfantivideo.morecrafting.Recipesold.RecipesLoaders;
 
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import fr.mrfantivideo.morecrafting.Main;
-import fr.mrfantivideo.morecrafting.Recipes.CustomRecipe;
-import fr.mrfantivideo.morecrafting.Recipes.RecipesManager;
+import fr.mrfantivideo.morecrafting.Recipesold.CustomRecipeOld;
+import fr.mrfantivideo.morecrafting.Recipesold.RecipesManagerOld;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -44,7 +44,7 @@ public final class RecipesBookLoader
         ShapedRecipe shapedRecipe = GetRecipe(config, book);
         if (shapedRecipe == null)
             return;
-        RecipesManager.GetInstance().AddRecipe("MoreCraftingRecipeBook", new CustomRecipe(shapedRecipe, -1, "MoreCraftingRecipeBook"));
+        RecipesManagerOld.GetInstance().AddRecipe("MoreCraftingRecipeBook", new CustomRecipeOld(shapedRecipe, -1, "MoreCraftingRecipeBook"));
     }
 
     /**
