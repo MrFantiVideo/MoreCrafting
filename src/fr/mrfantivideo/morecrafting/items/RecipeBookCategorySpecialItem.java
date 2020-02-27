@@ -42,7 +42,7 @@ public class RecipeBookCategorySpecialItem extends SpecialItem implements IInven
         Collection<CustomRecipe> recipes = MorecrafingConfig.SETTINGS.getRecipes().stream().filter(recipe -> recipe.getRecipeType() == m_recipeType).collect(Collectors.toList());
         if (recipes.size() == 0)
             return;
-        Inventory inventory = Bukkit.createInventory(null, recipes.size() <= 9 ? 9 : ((recipes.size() / 9) + 1));
+        Inventory inventory = Bukkit.createInventory(null, recipes.size() <= 9 ? 9 : 9 * ((recipes.size() / 9) + 1));
         for (CustomRecipe recipe : recipes)
             inventory.addItem(RecipeSpecialItem.get(recipe).getItemStack());
         inventoryClickEvent.getWhoClicked().openInventory(inventory);
