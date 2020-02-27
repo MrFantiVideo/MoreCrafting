@@ -1,5 +1,6 @@
 package fr.mrfantivideo.morecrafting.recipes;
 
+import fr.mrfantivideo.morecrafting.Main;
 import fr.unreal852.sunrealcore.configuration.data.object.ConfigValue;
 import fr.unreal852.sunrealcore.configuration.data.object.IConfigObject;
 import fr.unreal852.sunrealcore.utils.JavaUtils;
@@ -35,7 +36,7 @@ public class CustomRecipe implements IConfigObject
         m_slots = JavaUtils.ensureNotNull(m_slots, new HashMap<>());
         if (m_recipeType == null || m_resultItem == null || m_slots.size() == 0)
         {
-            RecipesManager.RECIPES_LOGGER.sendConsoleMessage(ChatColor.RED + "Couldn't load recipe '" + name + "'. Missing Recipe Type and/or Recipe Result and/or Crafting slots");
+            Main.getLog().sendConsoleMessage(ChatColor.RED + "Couldn't load recipe '" + name + "'. Missing Recipe Type and/or Recipe Result and/or Crafting slots");
             return;
         }
         m_recipeName = name;

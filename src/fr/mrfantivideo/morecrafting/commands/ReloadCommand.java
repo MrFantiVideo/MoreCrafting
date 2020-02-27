@@ -1,6 +1,7 @@
 package fr.mrfantivideo.morecrafting.commands;
 
 import fr.mrfantivideo.morecrafting.Main;
+import fr.mrfantivideo.morecrafting.config.MorecrafingConfig;
 import fr.unreal852.sunrealcore.commands.BaseCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -15,17 +16,15 @@ public class ReloadCommand extends BaseCommand
     @Override
     public boolean execute(CommandSender sender, Command command, String s, String[] strings)
     {
-        Main.getInstance().loadSettings();
         //RecipesManagerOld.GetInstance().LoadRecipes();
-        sender.sendMessage(Main.getInstance().getConfigMessages().GetPrefix() + Main.getInstance().getConfigMessages().GetCmdReloadMsg());
+        sender.sendMessage(MorecrafingConfig.LANG.getMessage("prefix") + (MorecrafingConfig.LANG.getMessage("command-reload")));
         return true;
     }
 
     @Override
     public boolean hasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminReloadPerm()) ||
-                sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminAllPerm()));
+        return sender.isOp() || MorecrafingConfig.PERMISSIONS.hasPermissions(sender, "morecrafting.admin.reload", "morecrafting.admin.*");
     }
 
     @Override

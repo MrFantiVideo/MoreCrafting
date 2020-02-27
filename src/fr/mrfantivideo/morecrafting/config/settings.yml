@@ -5,9 +5,10 @@
 # == Languages ============================================= #
 #                                                            #
 #  List of available languages:                              #
-#  English: "en_US"  |  Spanish: "es_ES"                     #
-#  French : "fr_FR"  |  Italian: "it_IT"                     #
-#  German: "de_DE"   |  Portugese: "pt_PT"                   #
+#  English: "en_US"  |  Spanish  : "es_ES"                   #
+#  French : "fr_FR"  |  Italian  : "it_IT"                   #
+#  German : "de_DE"  |  Portugese: "pt_PT"                   #
+#  Korean : "ko_KR"  |                                       #
 #                                                            #
 # ========================================================== #
 
@@ -19,14 +20,17 @@ language: "en_US"
 #                                                            #
 # ========================================================== #
 
-debug: false
+debug: true
 
 # == Blocs / Items ================================================================ #
 #                                                                                   #
-#  List of ID Minecraft :                                                           #
+#  List of Recipe Types:                                                            #
+#  CRAFTING_TABLE, FURNACE, CAMPFIRE, BLASTING, STONE_CUTTING, SMOKING              #
+#                                                                                   #
+#  List of Minecraft IDs :                                                          #
 #  https://minecraft-ids.grahamedgecombe.com/                                       #
 #                                                                                   #
-#  List of Enchantment :                                                            #
+#  List of Enchantments:                                                            #
 #  ARROW_DAMAGE, ARROW_FIRE, ARROW_INFINITE, ARROW_KNOCKBACK, BINDING_CURSE,        #
 #  CHANNELING, DAMAGE_ALL, DAMAGE_ARTHROPODS, DAMAGE_UNDEAD, DEPTH_STRIDER,         #
 #  DIG_SPEED, DURABILITY, FIRE_ASPECT, FROST_WALKER, IMPALING, KNOCKBACK,           #
@@ -35,7 +39,7 @@ debug: false
 #  PROTECTION_FALL, PROTECTION_FIRE, PROTECTION_PROJECTILE, QUICK_CHARGE, RIPTIDE,  #
 #  SILK_TOUCH, SWEEPING_EDGE, THORNS, VANISHING_CURSE, WATER_WORKER.                #
 #                                                                                   #
-#  List of Potion Effect :                                                          #
+#  List of Potion Effects :                                                         #
 #  ABSORPTION, BAD_OMEN, BLINDNESS, CONDUIT_POWER, CONFUSION, DAMAGE_RESISTANCE,    #
 #  DOLPHINS_GRACE, FAST_DIGGING, FIRE_RESISTANCE, GLOWING, HARM, HEAL,              #
 #  HEALTH_BOOST, HERO_OF_THE_VILLAGE, HUNGER, INCREASE_DAMAGE, INVISIBILITY, JUMP,  #
@@ -499,10 +503,10 @@ recipes:
           #          cooking-time: 75
           #          enchantments:
           #            ENCHANT-1:
-          #              enchant: ARROW_DAMAGE
-          #              enchant-level: 1
-          #            ENCHANT-2:
-          #              enchant: KNOCKBACK
+        #              enchant: ARROW_DAMAGE
+        #              enchant-level: 1
+        #            ENCHANT-2:
+        #              enchant: KNOCKBACK
         #              enchant-level: 1
         #        slot:
         #          1: DIRT

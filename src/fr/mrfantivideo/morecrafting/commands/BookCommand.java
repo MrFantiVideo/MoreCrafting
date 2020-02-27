@@ -1,6 +1,6 @@
 package fr.mrfantivideo.morecrafting.commands;
 
-import fr.mrfantivideo.morecrafting.Main;
+import fr.mrfantivideo.morecrafting.config.MorecrafingConfig;
 import fr.mrfantivideo.morecrafting.items.RecipeBookSpecialItem;
 import fr.unreal852.sunrealcore.commands.BaseCommand;
 import org.bukkit.command.Command;
@@ -27,8 +27,7 @@ public class BookCommand extends BaseCommand
     @Override
     public boolean hasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminBookPerm()) ||
-                sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminAllPerm()));
+        return sender.isOp() || MorecrafingConfig.PERMISSIONS.hasPermissions(sender, "morecrafting.admin.book", "morecrafting.admin.*");
     }
 
     @Override

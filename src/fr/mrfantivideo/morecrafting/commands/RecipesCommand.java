@@ -1,15 +1,9 @@
 package fr.mrfantivideo.morecrafting.commands;
 
-import fr.mrfantivideo.morecrafting.Main;
-
+import fr.mrfantivideo.morecrafting.config.MorecrafingConfig;
 import fr.unreal852.sunrealcore.commands.BaseCommand;
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class RecipesCommand extends BaseCommand
 {
@@ -35,8 +29,7 @@ public class RecipesCommand extends BaseCommand
     @Override
     public boolean hasPermission(CommandSender sender)
     {
-        return (sender.isOp() || sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminRecipesPerm()) ||
-                sender.hasPermission(Main.getInstance().getConfigPermissions().GetAdminAllPerm()));
+        return sender.isOp() || MorecrafingConfig.PERMISSIONS.hasPermissions(sender, "morecrafting.admin.recipes", "morecrafting.admin.*");
     }
 
     @Override

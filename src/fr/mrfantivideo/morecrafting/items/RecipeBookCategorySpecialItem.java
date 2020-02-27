@@ -1,9 +1,8 @@
 package fr.mrfantivideo.morecrafting.items;
 
-import fr.mrfantivideo.morecrafting.items.RecipeSpecialItem;
+import fr.mrfantivideo.morecrafting.config.MorecrafingConfig;
 import fr.mrfantivideo.morecrafting.recipes.CustomRecipe;
 import fr.mrfantivideo.morecrafting.recipes.CustomRecipeType;
-import fr.mrfantivideo.morecrafting.recipes.RecipesManager;
 import fr.unreal852.sunrealcore.specials.events.inventory.IInventoryLeftClickable;
 import fr.unreal852.sunrealcore.specials.item.SpecialItem;
 import org.bukkit.Bukkit;
@@ -40,7 +39,7 @@ public class RecipeBookCategorySpecialItem extends SpecialItem implements IInven
     @Override
     public void onInventoryLeftClick(InventoryClickEvent inventoryClickEvent)
     {
-        Collection<CustomRecipe> recipes = RecipesManager.getRecipes().stream().filter(recipe -> recipe.getRecipeType() == m_recipeType).collect(Collectors.toList());
+        Collection<CustomRecipe> recipes = MorecrafingConfig.SETTINGS.getRecipes().stream().filter(recipe -> recipe.getRecipeType() == m_recipeType).collect(Collectors.toList());
         if (recipes.size() == 0)
             return;
         Inventory inventory = Bukkit.createInventory(null, recipes.size() <= 9 ? 9 : ((recipes.size() / 9) + 1));
