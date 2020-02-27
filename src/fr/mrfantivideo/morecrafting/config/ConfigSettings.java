@@ -12,17 +12,21 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConfigSettings
+public class ConfigSettings implements IConfigObject
 {
+    @ConfigValue(Index = 0, Path = "language")
     private String                    m_language;
+    @ConfigValue(Index = 1, Path = "debug")
     private Boolean                   m_debug;
+    @ConfigValue(Index = 2, Path = "recipes", Type = CustomRecipe.class)
     private Map<String, CustomRecipe> m_recipes;
 
-    protected void loadConfig(MorecrafingConfig config)
+    @Override
+    public void onConfigLoaded(String s)
     {
-        m_language = JavaUtils.ensureNotNull(config.get(String.class, "language"), "en_US");
-        m_debug = JavaUtils.ensureNotNull(config.get(Boolean.class, "debug"), false);
-        m_recipes = JavaUtils.ensureNotNull(config.getMap(CustomRecipe.class, "recipes"), new HashMap<>());
+        m_language = JavaUtils.ensureNotNull(m_language, "en_US");
+        m_debug = JavaUtils.ensureNotNull(m_debug, false);
+        m_recipes = JavaUtils.ensureNotNull(m_recipes, new HashMap<>());
         for (CustomRecipe recipe : m_recipes.values())
         {
             if (!recipe.isEnabled() || recipe.getRecipeName() == null || recipe.getRecipeName().isEmpty() || recipe.getRecipe() == null)
@@ -31,7 +35,7 @@ public class ConfigSettings
             if (m_debug)
                 Main.getLog().sendConsoleMessage(ChatColor.GREEN + "Loaded recipe " + ChatColor.GOLD + "'" + recipe.getRecipeName() + "'" + ChatColor.GREEN + ".");
         }
-        if(m_debug)
+        if (m_debug)
             Main.getLog().sendConsoleMessage(ChatColor.GREEN + "Loaded settings.yml");
     }
 

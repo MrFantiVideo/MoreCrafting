@@ -1,6 +1,8 @@
 package fr.mrfantivideo.morecrafting.config;
 
 import fr.mrfantivideo.morecrafting.Main;
+import fr.unreal852.sunrealcore.configuration.data.object.ConfigValue;
+import fr.unreal852.sunrealcore.configuration.data.object.IConfigObject;
 import fr.unreal852.sunrealcore.utils.JavaUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -8,14 +10,16 @@ import org.bukkit.command.CommandSender;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConfigPermissions
+public class ConfigPermissions implements IConfigObject
 {
+    @ConfigValue(Path = "permissions", Type = String.class)
     private Map<String, String> m_permissions;
 
-    protected void loadConfig(MorecrafingConfig config)
+    @Override
+    public void onConfigLoaded(String s)
     {
-        m_permissions = JavaUtils.ensureNotNull(config.getMap(String.class, "permissions"), new HashMap<>());
-        if(MorecrafingConfig.SETTINGS.isDebugEnabled())
+        m_permissions = JavaUtils.ensureNotNull(m_permissions, new HashMap<>());
+        if (MorecrafingConfig.SETTINGS.isDebugEnabled())
             Main.getLog().sendConsoleMessage(ChatColor.GREEN + "Loaded permissions.yml");
     }
 

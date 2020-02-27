@@ -9,18 +9,23 @@ public class MorecrafingConfig extends ConfigFile
 {
     private static final String            CONFIG_JAR_PATH     = "fr/mrfantivideo/morecrafting";
     public static final  ConfigDataManager CONFIG_DATA_MANAGER = new ConfigDataManager();
-    public static final  ConfigSettings    SETTINGS            = new ConfigSettings();
-    public static final  ConfigLang        LANG                = new ConfigLang();
-    public static final  ConfigPermissions PERMISSIONS         = new ConfigPermissions();
+    public static final  ConfigSettings    SETTINGS;
+    public static final  ConfigLang        LANG;
+    public static final  ConfigPermissions PERMISSIONS;
+
+    static
+    {
+        SETTINGS = new MorecrafingConfig("/settings.yml", CONFIG_JAR_PATH + "/config/settings.yml").get(ConfigSettings.class, "");
+        LANG = new MorecrafingConfig("/lang/" + SETTINGS.getLanguage() + ".yml", CONFIG_JAR_PATH + "/lang/" + SETTINGS.getLanguage() + ".yml").get(ConfigLang.class, "");
+        PERMISSIONS = new MorecrafingConfig("/permissions.yml", CONFIG_JAR_PATH + "/config/permissions.yml").get(ConfigPermissions.class, "");
+    }
 
     /**
      * Call this to static-init this class
      */
     public static void loadConfig()
     {
-        SETTINGS.loadConfig(new MorecrafingConfig("/settings.yml", CONFIG_JAR_PATH + "/config/settings.yml"));
-        LANG.loadConfig(new MorecrafingConfig("/lang/" + SETTINGS.getLanguage() + ".yml", CONFIG_JAR_PATH + "/lang/" + SETTINGS.getLanguage() + ".yml"));
-        PERMISSIONS.loadConfig(new MorecrafingConfig("/permissions.yml", CONFIG_JAR_PATH + "/config/permissions.yml"));
+
     }
 
     public MorecrafingConfig(String filePath, String resourcePath)
