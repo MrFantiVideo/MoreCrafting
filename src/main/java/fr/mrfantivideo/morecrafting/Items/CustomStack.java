@@ -1,6 +1,6 @@
 package fr.mrfantivideo.morecrafting.Items;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

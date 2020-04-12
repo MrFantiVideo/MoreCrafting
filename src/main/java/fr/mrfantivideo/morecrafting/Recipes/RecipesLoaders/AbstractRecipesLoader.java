@@ -1,6 +1,6 @@
 package fr.mrfantivideo.morecrafting.Recipes.RecipesLoaders;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 import fr.mrfantivideo.morecrafting.Configuration.Configs.ConfigSettings;
 import fr.mrfantivideo.morecrafting.Main;
 import fr.mrfantivideo.morecrafting.UnrealCoreImports.Flag;
