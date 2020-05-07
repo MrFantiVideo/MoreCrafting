@@ -1,0 +1,27 @@
+# == Messages ============================================== #
+#                                                            #
+#  Change according to the language.                         #
+#                                                            #
+# ========================================================== #
+
+messages:
+  default:
+    prefix: "&6更多合成 » "
+    gui-title: "&8更多合成g » "
+  en_US:
+    gui-title-main: "&8主菜单"
+    gui-title-crafting: "&8合成"
+    gui-title-furnace: "&8熔炉"
+    gui-title-smoker: "&8烟熏炉"
+    gui-title-blasting: "&8高炉"
+    gui-title-stonecutting: "&8切石机"
+    gui-title-campfire: "&8篝火"
+    command-version: "&7版本 &6%version% &7作者 &6Mr.FantiVideo&7. §8(%minecraft%)"
+    command-unknown: "&c未知命令."
+    command-reload: "&a重载配置完成."
+    command-help: "&7&o所有可用命令."
+    command-help-morecrafting: "&7&o插件版本."
+    command-help-book: "&7&o获得合成书."
+    command-help-recipes: "&7&o显示可用的合成表."
+    command-help-reload: "&7&o重载配置文件."
+    permission-denied: "&c你没有权限."
