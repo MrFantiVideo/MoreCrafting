@@ -7,8 +7,8 @@
 messages:
   default:
     prefix: "&6更多合成 » "
-    gui-title: "&8更多合成g » "
-  en_US:
+    gui-title: "&8更多合成 » "
+  zh_CN:
     gui-title-main: "&8主菜单"
     gui-title-crafting: "&8合成"
     gui-title-furnace: "&8熔炉"
